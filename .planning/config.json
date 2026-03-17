@@ -1,0 +1,12 @@
+{
+  "project_name": "100 Women Game",
+  "stack": "React/TS, Vite, Vanilla CSS",
+  "verification": "Wikidata API + Local Fuzzy Matching",
+  "workflow": "Research -> Requirements -> Roadmap -> Phases",
+  "features": {
+    "timer": "15 minute countdown",
+    "stopwatch": "Time-to-100 mode",
+    "fuzzy_matching": "2-char difference or 80% similarity",
+    "context_clues": "Prefixes like 'rv', 'bp' for group disambiguation"
+  }
+}
