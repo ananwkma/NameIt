@@ -122,59 +122,53 @@ button:disabled {
 }
 
 .women-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
 }
 
 .woman-card {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  text-align: center;
   background: var(--white);
-  padding: 1.25rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  border-left: 6px solid var(--accent);
-  animation: slideIn 0.3s ease-out;
-  transition: opacity 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  padding: 0.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eee;
+  min-height: 80px;
+  /* transition handled by framer-motion in App.tsx */
 }
 
 .woman-card.status-pending {
   opacity: 0.3;
-  border-left-color: var(--secondary);
+  border-color: #ddd;
 }
 
 .woman-card.status-verified {
   opacity: 1;
-  border-left-color: var(--accent);
+  border-color: var(--accent);
+  background-color: #f0fff4;
 }
 
-.woman-card.status-failed {
-  opacity: 1;
-  border-left-color: var(--primary);
-  background-color: #fff5f5;
-}
-
-.woman-card.status-failed h3 {
-  text-decoration: line-through;
-  color: var(--primary);
-}
+/* Failed styles removed - items will be removed from DOM */
 
 .woman-info h3 {
-  margin: 0 0 0.25rem 0;
-  font-size: 1.2rem;
+  margin: 0;
+  font-size: 0.9rem;
   color: var(--secondary);
+  line-height: 1.2;
 }
 
 .woman-info p {
-  margin: 0;
-  font-size: 0.9rem;
-  color: #636e72;
+  display: none; /* Hide description in compact mode */
 }
 
-.check-icon {
-  color: var(--accent);
+.woman-card .check-icon, 
+.woman-card .icon {
+  display: none; /* Hide icons in compact mode to save space */
 }
 
 @keyframes spin {
