@@ -137,6 +137,28 @@ button:disabled {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   border-left: 6px solid var(--accent);
   animation: slideIn 0.3s ease-out;
+  transition: opacity 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.woman-card.status-pending {
+  opacity: 0.3;
+  border-left-color: var(--secondary);
+}
+
+.woman-card.status-verified {
+  opacity: 1;
+  border-left-color: var(--accent);
+}
+
+.woman-card.status-failed {
+  opacity: 1;
+  border-left-color: var(--primary);
+  background-color: #fff5f5;
+}
+
+.woman-card.status-failed h3 {
+  text-decoration: line-through;
+  color: var(--primary);
 }
 
 .woman-info h3 {
