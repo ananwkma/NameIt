@@ -240,6 +240,13 @@ function App() {
     return () => clearInterval(interval);
   }, [state.status]);
 
+  // Auto-dismiss error after 10 seconds
+  useEffect(() => {
+    if (!state.error) return;
+    const timer = setTimeout(() => dispatch({ type: 'SET_ERROR', payload: null }), 10000);
+    return () => clearTimeout(timer);
+  }, [state.error]);
+
   // Auto-focus on mount
   useEffect(() => {
     if (state.status === 'PLAYING') {
