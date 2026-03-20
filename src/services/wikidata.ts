@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Woman } from '../types/wikidata';
-import Levenshtein from 'fast-levenshtein';
+import { fuzzyMatchNames } from '../utils/fuzzyMatch';
 
 const WIKIDATA_API_URL = 'https://www.wikidata.org/w/api.php';
 
@@ -13,6 +13,10 @@ interface WomanCandidate extends Woman {
   aliases: string[];
   resolvedProperties: string[];
 }
+
+// In-memory caches for performance
+const searchCache = new Map<string, Woman | null>();
+const propertyLabelCache = new Map<string, string>();
 
 export const WikidataService = {
   contextMap: {
@@ -36,6 +40,13 @@ export const WikidataService = {
   async searchWoman(input: string): Promise<Woman | null> {
     try {
       const normalizedInput = input.trim().toLowerCase();
+      
+      // Check search cache
+      if (searchCache.has(normalizedInput)) {
+        console.log(`[DEBUG] Cache hit for search: "${normalizedInput}"`);
+        return searchCache.get(normalizedInput) || null;
+      }
+
       const activeContexts: string[] = [];
       let cleanSearchQuery = normalizedInput;
       
@@ -46,30 +57,21 @@ export const WikidataService = {
         }
       }
 
-      // If no explicit map match, check for manual context split (last word)
-      const parts = normalizedInput.split(/\s+/);
-      if (activeContexts.length === 0 && parts.length > 1) {
-        // Assume last word might be context if it's not part of the name
-        // This is a heuristic for "loona yves" where "loona" isn't yet in map (though I just added it)
-        // or for things like "japanese singer"
-      }
-
       // Extract the core name for a targeted fallback search
+      const parts = normalizedInput.split(/\s+/);
       const namePart = parts.filter(w => !activeContexts.includes(w) && w !== 'loona').join(' ');
 
       console.log(`[DEBUG] Input: "${input}" -> Query: "${cleanSearchQuery}" | Name Only: "${namePart}"`);
 
       // 1. Triple Search Strategy
-      // We need to be careful not to hit URL length limits or API complexities.
-      // Search A: Text search for "loona yves" (classic "AND" search)
       const [searchA, searchB, searchC] = await Promise.all([
         axios.get(WIKIDATA_API_URL, {
-          params: { action: 'query', list: 'search', srsearch: `${namePart} ${activeContexts.join(' ')}`, srlimit: 50, format: 'json', origin: '*' },
+          params: { action: 'query', list: 'search', srsearch: `${namePart} ${activeContexts.join(' ')}`, srlimit: 20, format: 'json', origin: '*' },
           headers,
         }),
-        // Search B: Name only "yves"
+        // Search B: Name only
         axios.get(WIKIDATA_API_URL, {
-          params: { action: 'wbsearchentities', search: namePart || cleanSearchQuery, language: 'en', limit: 50, format: 'json', origin: '*' },
+          params: { action: 'wbsearchentities', search: namePart || cleanSearchQuery, language: 'en', limit: 20, format: 'json', origin: '*' },
           headers,
         }),
         // Search C: Full string entity search
@@ -83,15 +85,16 @@ export const WikidataService = {
       const idsB = (searchB.data.search || []).map((r: any) => r.id);
       const idsC = (searchC.data.search || []).map((r: any) => r.id);
       
-      // Combine all IDs (up to 50 unique)
-      const allIds = Array.from(new Set([...idsA, ...idsC, ...idsB])).slice(0, 50).join('|');
+      // Combine all IDs and take ONLY TOP 5 for detailed fetching
+      const allIds = Array.from(new Set([...idsA, ...idsC, ...idsB])).slice(0, 5).join('|');
 
       if (!allIds) {
         console.log(`[DEBUG] No results found.`);
+        searchCache.set(normalizedInput, null);
         return null;
       }
 
-      // 2. Fetch detailed data
+      // 2. Fetch detailed data for top candidates
       const entitiesResponse = await axios.get(WIKIDATA_API_URL, {
         params: {
           action: 'wbgetentities',
@@ -131,20 +134,28 @@ export const WikidataService = {
         }
       }
 
-      // 3. Resolve Labels
+      // 3. Resolve Labels using cache for performance
       const qidArray = Array.from(allReferencedQids);
-      const qidMap: Record<string, string> = {}; 
-      const chunkSize = 50;
-      for (let i = 0; i < qidArray.length; i += chunkSize) {
-        const chunk = qidArray.slice(i, i + chunkSize).join('|');
-        const labelsResponse = await axios.get(WIKIDATA_API_URL, {
-          params: { action: 'wbgetentities', ids: chunk, props: 'labels', languages: 'en', format: 'json', origin: '*' },
-          headers,
-        });
-        const labelEntities = labelsResponse.data.entities;
-        for (const qid in labelEntities) {
-          qidMap[qid] = labelEntities[qid].labels?.en?.value || 'Unknown';
+      const qidsToFetch = qidArray.filter(qid => !propertyLabelCache.has(qid));
+      
+      if (qidsToFetch.length > 0) {
+        const chunkSize = 50;
+        for (let i = 0; i < qidsToFetch.length; i += chunkSize) {
+          const chunk = qidsToFetch.slice(i, i + chunkSize).join('|');
+          const labelsResponse = await axios.get(WIKIDATA_API_URL, {
+            params: { action: 'wbgetentities', ids: chunk, props: 'labels', languages: 'en', format: 'json', origin: '*' },
+            headers,
+          });
+          const labelEntities = labelsResponse.data.entities;
+          for (const qid in labelEntities) {
+            propertyLabelCache.set(qid, labelEntities[qid].labels?.en?.value || 'Unknown');
+          }
         }
+      }
+
+      const qidMap: Record<string, string> = {};
+      for (const qid of qidArray) {
+        qidMap[qid] = propertyLabelCache.get(qid) || 'Unknown';
       }
 
       // 4. Build Final Candidates
@@ -168,27 +179,44 @@ export const WikidataService = {
       console.log(`[DEBUG] Found ${finalCandidates.length} valid candidates.`);
 
       // 5. Filter and Rank
-      // Use original input parts for name matching, but respect activeContexts
-      let filtered = finalCandidates.filter(c => this.checkMatch(input.trim().toLowerCase().split(/\s+/), activeContexts, c));
+      const filtered = finalCandidates.filter(c => this.checkMatch(normalizedInput.split(/\s+/), activeContexts, c));
 
-      filtered.sort((a, b) => b.sitelinks - a.sitelinks);
+      // Rank by: primary name match first, then by fame (sitelinks)
+      filtered.sort((a, b) => {
+        const aNameMatch = a.name.toLowerCase() === namePart || a.name.toLowerCase() === normalizedInput;
+        const bNameMatch = b.name.toLowerCase() === namePart || b.name.toLowerCase() === normalizedInput;
+        if (aNameMatch && !bNameMatch) return -1;
+        if (bNameMatch && !aNameMatch) return 1;
+        return b.sitelinks - a.sitelinks;
+      });
 
       if (filtered.length === 0) {
         console.log('[DEBUG] All candidates filtered out.');
+        searchCache.set(normalizedInput, null);
         return null;
       }
 
+      // Ambiguity check: top candidate should be significantly more "famous" if no explicit context match
       if (activeContexts.length === 0 && filtered.length > 1) {
         const top = filtered[0];
         const second = filtered[1];
-        if (top.sitelinks < second.sitelinks * 1.5) {
+        // Skip ambiguity check if the input directly matches the top candidate's primary name —
+        // e.g. typing "madonna" should always resolve to Madonna, not be blocked by Virgin Mary's alias
+        const topNameNormalized = top.name.toLowerCase();
+        const inputMatchesTopDirectly = topNameNormalized === normalizedInput ||
+          topNameNormalized.startsWith(normalizedInput) ||
+          normalizedInput.startsWith(topNameNormalized);
+        if (!inputMatchesTopDirectly && top.sitelinks < second.sitelinks * 1.5) {
           console.log(`[DEBUG] REJECTED: Ambiguity between "${top.name}" and "${second.name}".`);
-          return null; 
+          searchCache.set(normalizedInput, null);
+          return null;
         }
       }
 
-      console.log(`[DEBUG] SUCCESS: Selected ${filtered[0].name} (${filtered[0].id})`);
-      return filtered[0];
+      const bestMatch = filtered[0];
+      console.log(`[DEBUG] SUCCESS: Selected ${bestMatch.name} (${bestMatch.id})`);
+      searchCache.set(normalizedInput, bestMatch);
+      return bestMatch;
     } catch (error) {
       console.error('[DEBUG] ERROR:', error);
       return null;
@@ -201,29 +229,27 @@ export const WikidataService = {
       ...candidate.aliases.map(a => a.toLowerCase())
     ];
 
-    // Remove known context keywords to isolate the name
-    // Also remove any words that map to context in our map (like "loona")
     const namePart = inputWords.filter(w => !activeContexts.includes(w) && !this.contextMap[w]).join(' ');
     
-    // 1. Name Match
+    // 1. Name Match using Fuzzy Matching and Alias Check
     let nameMatch = false;
     if (!namePart) {
       nameMatch = true; 
     } else {
       nameMatch = targetNames.some(name => {
-        if (Levenshtein.get(name, namePart) <= 2) return true;
+        // Project Rule: 2-char diff OR 80% similarity
+        if (fuzzyMatchNames(name, namePart)) return true;
+        
+        // Also support partial matches (e.g. "Billie" matches "Billie Eilish")
         if (name.includes(namePart) || namePart.includes(name)) return true;
+        
         return false;
       });
     }
 
-    if (!nameMatch) {
-      // console.log(`[DEBUG] Name Mismatch: "${candidate.name}" vs "${namePart}"`);
-      return false;
-    }
+    if (!nameMatch) return false;
 
     // 2. Context Match
-    // If we have active contexts, check them against resolved properties
     if (activeContexts.length > 0) {
       const contextPass = activeContexts.some(ctx => {
         const info = this.contextMap[ctx];
@@ -237,21 +263,22 @@ export const WikidataService = {
 
       if (!contextPass) {
         // Fallback: Check if the input words themselves appear in resolved properties
-        // e.g. input "loona" might match property "Loona" even if not in activeContexts
         const manualContextMatch = inputWords.some(w => {
-           if (targetNames.some(n => n.includes(w))) return false; // skip if it's part of the name
+           if (targetNames.some(n => n.includes(w))) return false;
            return candidate.resolvedProperties.some(p => p.includes(w));
         });
         if (manualContextMatch) return true;
 
         return false;
       }
-    } else {
-       // If no context was detected in the MAP, but the user typed multiple words
-       // check if the non-name words match any properties.
-       // e.g. "japanese singer" -> "japanese" might match "citizenship: japan"
     }
 
     return true;
   },
+
+  // Helper for testing to clear state between tests
+  clearCaches() {
+    searchCache.clear();
+    propertyLabelCache.clear();
+  }
 };

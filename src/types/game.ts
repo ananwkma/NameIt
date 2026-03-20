@@ -1,4 +1,4 @@
-import { Woman } from './wikidata';
+import { Woman } from '../services/wikidata';
 
 export type VerificationStatus = 'pending' | 'verified' | 'failed';
 
@@ -8,24 +8,25 @@ export interface GameWoman extends Partial<Woman> {
   inputName: string;
 }
 
-export type GameStatus = 'IDLE' | 'PLAYING' | 'PAUSED' | 'GAME_OVER';
-
-export type GameMode = 'CLASSIC' | 'SPEEDRUN';
+export type GameStatus = 'IDLE' | 'PLAYING' | 'PAUSED' | 'TIME_UP' | 'GAME_OVER' | 'WIN';
 
 export interface GameState {
   status: GameStatus;
-  mode: GameMode;
+  isZenMode: boolean;
   women: GameWoman[];
   isProcessing: boolean;
   error: string | null;
-  // Metadata for different modes
-  startTime: number | null;
-  accumulatedTime: number;
-  endTime: number | null;
+  // Timer related
+  timeLeft: number;      // ms remaining (Standard countdown)
+  timeElapsed: number;   // ms elapsed (Zen Mode / Total)
+  startTime: number | null; // Timestamp when current session started
+  lastTick: number | null;  // Timestamp of last tick for accurate delta calc
 }
 
 export type GameAction =
-  | { type: 'START_GAME'; payload: GameMode }
+  | { type: 'START_GAME' }
+  | { type: 'LOAD_GAME'; payload: GameState }
+  | { type: 'ENTER_ZEN_MODE' }
   | { type: 'ADD_WOMAN_PENDING'; payload: { name: string; tempId: string } }
   | { type: 'VERIFY_SUCCESS'; payload: { tempId: string; data: Woman } }
   | { type: 'VERIFY_FAIL'; payload: { tempId: string; error?: string } }
@@ -33,4 +34,8 @@ export type GameAction =
   | { type: 'SET_ERROR'; payload: string | null }
   | { type: 'PAUSE_GAME' }
   | { type: 'RESUME_GAME' }
-  | { type: 'RESET_GAME' };
+  | { type: 'RESET_GAME' }
+  | { type: 'TICK'; payload: number } // payload is current timestamp
+  | { type: 'SKIP_TIME' }
+  | { type: 'GAME_OVER' }
+  | { type: 'WIN_GAME' };
