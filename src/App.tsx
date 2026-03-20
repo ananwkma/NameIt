@@ -2,6 +2,7 @@ import { useReducer, useRef, useEffect, useState } from 'react';
 import { WikidataService } from './services/wikidata';
 import { GameState, GameAction, GameWoman } from './types/game';
 import { Search, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
 
 const initialState: GameState = {
@@ -67,14 +68,7 @@ function gameReducer(state: GameState, action: GameAction): GameState {
     case 'VERIFY_FAIL':
       return {
         ...state,
-        women: state.women.map((w) =>
-          w.tempId === action.payload.tempId
-            ? ({
-                ...w,
-                status: 'failed',
-              } as GameWoman)
-            : w
-        ),
+        women: state.women.filter((w) => w.tempId !== action.payload.tempId),
       };
     case 'SET_PROCESSING':
       return { ...state, isProcessing: action.payload };
@@ -198,23 +192,26 @@ function App() {
         )}
 
         <section className="women-list">
-          {state.women.map((woman) => (
-            <div key={woman.tempId} className={`woman-card status-${woman.status}`}>
-              <div className="woman-info">
-                <h3>{woman.status === 'verified' ? woman.name : woman.inputName}</h3>
-                <p>
-                  {woman.status === 'verified'
-                    ? woman.description
-                    : woman.status === 'pending'
-                    ? 'Verifying...'
-                    : 'Not found or invalid'}
-                </p>
-              </div>
-              {woman.status === 'verified' && <CheckCircle className="check-icon" />}
-              {woman.status === 'pending' && <Loader2 className="icon loading-spinner" />}
-              {woman.status === 'failed' && <AlertCircle className="icon error-icon" />}
-            </div>
-          ))}
+          <AnimatePresence mode='popLayout'>
+            {state.women.map((woman) => (
+              <motion.div
+                key={woman.tempId}
+                layout
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ 
+                  opacity: woman.status === 'pending' ? 0.3 : 1, 
+                  scale: 1,
+                  backgroundColor: woman.status === 'verified' ? '#fff' : '#fff'
+                }}
+                exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.2 } }}
+                className={`woman-card status-${woman.status}`}
+              >
+                <div className="woman-info">
+                  <h3>{woman.status === 'verified' ? woman.name : woman.inputName}</h3>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </section>
       </main>
 
