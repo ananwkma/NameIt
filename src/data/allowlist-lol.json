@@ -1,1 +1,1722 @@
-[]
+[
+  {
+    "name": "Aatrox",
+    "aliases": [
+      "Aatrox"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Ahri",
+    "aliases": [
+      "Ahri"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Akali",
+    "aliases": [
+      "Akali"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Akshan",
+    "aliases": [
+      "Akshan"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Alistar",
+    "aliases": [
+      "Alistar"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Ambessa",
+    "aliases": [
+      "Ambessa"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Amumu",
+    "aliases": [
+      "Amumu"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Anivia",
+    "aliases": [
+      "Anivia"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Annie",
+    "aliases": [
+      "Annie"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Aphelios",
+    "aliases": [
+      "Aphelios"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Ashe",
+    "aliases": [
+      "Ashe"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Aurelion Sol",
+    "aliases": [
+      "AurelionSol"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Aurora",
+    "aliases": [
+      "Aurora"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Azir",
+    "aliases": [
+      "Azir"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Bard",
+    "aliases": [
+      "Bard"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Bel'Veth",
+    "aliases": [
+      "Belveth"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Blitzcrank",
+    "aliases": [
+      "Blitzcrank"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Brand",
+    "aliases": [
+      "Brand"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Braum",
+    "aliases": [
+      "Braum"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Briar",
+    "aliases": [
+      "Briar"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Caitlyn",
+    "aliases": [
+      "Caitlyn"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Camille",
+    "aliases": [
+      "Camille"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Cassiopeia",
+    "aliases": [
+      "Cassiopeia"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Cho'Gath",
+    "aliases": [
+      "Chogath"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Corki",
+    "aliases": [
+      "Corki"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Darius",
+    "aliases": [
+      "Darius"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Diana",
+    "aliases": [
+      "Diana"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Draven",
+    "aliases": [
+      "Draven"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Dr. Mundo",
+    "aliases": [
+      "DrMundo"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Ekko",
+    "aliases": [
+      "Ekko"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Elise",
+    "aliases": [
+      "Elise"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Evelynn",
+    "aliases": [
+      "Evelynn"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Ezreal",
+    "aliases": [
+      "Ezreal"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Fiddlesticks",
+    "aliases": [
+      "Fiddlesticks"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Fiora",
+    "aliases": [
+      "Fiora"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Fizz",
+    "aliases": [
+      "Fizz"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Galio",
+    "aliases": [
+      "Galio"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Gangplank",
+    "aliases": [
+      "Gangplank"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Garen",
+    "aliases": [
+      "Garen"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Gnar",
+    "aliases": [
+      "Gnar"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Gragas",
+    "aliases": [
+      "Gragas"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Graves",
+    "aliases": [
+      "Graves"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Gwen",
+    "aliases": [
+      "Gwen"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Hecarim",
+    "aliases": [
+      "Hecarim"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Heimerdinger",
+    "aliases": [
+      "Heimerdinger"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Hwei",
+    "aliases": [
+      "Hwei"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Illaoi",
+    "aliases": [
+      "Illaoi"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Irelia",
+    "aliases": [
+      "Irelia"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Ivern",
+    "aliases": [
+      "Ivern"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Janna",
+    "aliases": [
+      "Janna"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Jarvan IV",
+    "aliases": [
+      "JarvanIV"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Jax",
+    "aliases": [
+      "Jax"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Jayce",
+    "aliases": [
+      "Jayce"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Jhin",
+    "aliases": [
+      "Jhin"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Jinx",
+    "aliases": [
+      "Jinx"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Kai'Sa",
+    "aliases": [
+      "Kaisa"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Kalista",
+    "aliases": [
+      "Kalista"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Karma",
+    "aliases": [
+      "Karma"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Karthus",
+    "aliases": [
+      "Karthus"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Kassadin",
+    "aliases": [
+      "Kassadin"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Katarina",
+    "aliases": [
+      "Katarina"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Kayle",
+    "aliases": [
+      "Kayle"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Kayn",
+    "aliases": [
+      "Kayn"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Kennen",
+    "aliases": [
+      "Kennen"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Kha'Zix",
+    "aliases": [
+      "Khazix"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Kindred",
+    "aliases": [
+      "Kindred"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Kled",
+    "aliases": [
+      "Kled"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Kog'Maw",
+    "aliases": [
+      "KogMaw"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "K'Sante",
+    "aliases": [
+      "KSante"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "LeBlanc",
+    "aliases": [
+      "Leblanc"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Lee Sin",
+    "aliases": [
+      "LeeSin"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Leona",
+    "aliases": [
+      "Leona"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Lillia",
+    "aliases": [
+      "Lillia"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Lissandra",
+    "aliases": [
+      "Lissandra"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Lucian",
+    "aliases": [
+      "Lucian"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Lulu",
+    "aliases": [
+      "Lulu"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Lux",
+    "aliases": [
+      "Lux"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Malphite",
+    "aliases": [
+      "Malphite"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Malzahar",
+    "aliases": [
+      "Malzahar"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Maokai",
+    "aliases": [
+      "Maokai"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Master Yi",
+    "aliases": [
+      "MasterYi"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Mel",
+    "aliases": [
+      "Mel"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Milio",
+    "aliases": [
+      "Milio"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Miss Fortune",
+    "aliases": [
+      "MissFortune"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Wukong",
+    "aliases": [
+      "MonkeyKing"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Mordekaiser",
+    "aliases": [
+      "Mordekaiser"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Morgana",
+    "aliases": [
+      "Morgana"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Naafiri",
+    "aliases": [
+      "Naafiri"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Nami",
+    "aliases": [
+      "Nami"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Nasus",
+    "aliases": [
+      "Nasus"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Nautilus",
+    "aliases": [
+      "Nautilus"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Neeko",
+    "aliases": [
+      "Neeko"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Nidalee",
+    "aliases": [
+      "Nidalee"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Nilah",
+    "aliases": [
+      "Nilah"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Nocturne",
+    "aliases": [
+      "Nocturne"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Nunu & Willump",
+    "aliases": [
+      "Nunu"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Olaf",
+    "aliases": [
+      "Olaf"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Orianna",
+    "aliases": [
+      "Orianna"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Ornn",
+    "aliases": [
+      "Ornn"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Pantheon",
+    "aliases": [
+      "Pantheon"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Poppy",
+    "aliases": [
+      "Poppy"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Pyke",
+    "aliases": [
+      "Pyke"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Qiyana",
+    "aliases": [
+      "Qiyana"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Quinn",
+    "aliases": [
+      "Quinn"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Rakan",
+    "aliases": [
+      "Rakan"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Rammus",
+    "aliases": [
+      "Rammus"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Rek'Sai",
+    "aliases": [
+      "RekSai"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Rell",
+    "aliases": [
+      "Rell"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Renata Glasc",
+    "aliases": [
+      "Renata"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Renekton",
+    "aliases": [
+      "Renekton"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Rengar",
+    "aliases": [
+      "Rengar"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Riven",
+    "aliases": [
+      "Riven"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Rumble",
+    "aliases": [
+      "Rumble"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Ryze",
+    "aliases": [
+      "Ryze"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Samira",
+    "aliases": [
+      "Samira"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Sejuani",
+    "aliases": [
+      "Sejuani"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Senna",
+    "aliases": [
+      "Senna"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Seraphine",
+    "aliases": [
+      "Seraphine"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Sett",
+    "aliases": [
+      "Sett"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Shaco",
+    "aliases": [
+      "Shaco"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Shen",
+    "aliases": [
+      "Shen"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Shyvana",
+    "aliases": [
+      "Shyvana"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Singed",
+    "aliases": [
+      "Singed"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Sion",
+    "aliases": [
+      "Sion"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Sivir",
+    "aliases": [
+      "Sivir"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Skarner",
+    "aliases": [
+      "Skarner"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Smolder",
+    "aliases": [
+      "Smolder"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Sona",
+    "aliases": [
+      "Sona"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Soraka",
+    "aliases": [
+      "Soraka"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Swain",
+    "aliases": [
+      "Swain"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Sylas",
+    "aliases": [
+      "Sylas"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Syndra",
+    "aliases": [
+      "Syndra"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Tahm Kench",
+    "aliases": [
+      "TahmKench"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Taliyah",
+    "aliases": [
+      "Taliyah"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Talon",
+    "aliases": [
+      "Talon"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Taric",
+    "aliases": [
+      "Taric"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Teemo",
+    "aliases": [
+      "Teemo"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Thresh",
+    "aliases": [
+      "Thresh"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Tristana",
+    "aliases": [
+      "Tristana"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Trundle",
+    "aliases": [
+      "Trundle"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Tryndamere",
+    "aliases": [
+      "Tryndamere"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Twisted Fate",
+    "aliases": [
+      "TwistedFate"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Twitch",
+    "aliases": [
+      "Twitch"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Udyr",
+    "aliases": [
+      "Udyr"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Urgot",
+    "aliases": [
+      "Urgot"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Varus",
+    "aliases": [
+      "Varus"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Vayne",
+    "aliases": [
+      "Vayne"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Veigar",
+    "aliases": [
+      "Veigar"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Vel'Koz",
+    "aliases": [
+      "Velkoz"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Vex",
+    "aliases": [
+      "Vex"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Vi",
+    "aliases": [
+      "Vi"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Viego",
+    "aliases": [
+      "Viego"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Viktor",
+    "aliases": [
+      "Viktor"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Vladimir",
+    "aliases": [
+      "Vladimir"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Volibear",
+    "aliases": [
+      "Volibear"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Warwick",
+    "aliases": [
+      "Warwick"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Xayah",
+    "aliases": [
+      "Xayah"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Xerath",
+    "aliases": [
+      "Xerath"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Xin Zhao",
+    "aliases": [
+      "XinZhao"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Yasuo",
+    "aliases": [
+      "Yasuo"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Yone",
+    "aliases": [
+      "Yone"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Yorick",
+    "aliases": [
+      "Yorick"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Yunara",
+    "aliases": [
+      "Yunara"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Yuumi",
+    "aliases": [
+      "Yuumi"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Zaahen",
+    "aliases": [
+      "Zaahen"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Zac",
+    "aliases": [
+      "Zac"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Zed",
+    "aliases": [
+      "Zed"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Zeri",
+    "aliases": [
+      "Zeri"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Ziggs",
+    "aliases": [
+      "Ziggs"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Zilean",
+    "aliases": [
+      "Zilean"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Zoe",
+    "aliases": [
+      "Zoe"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Zyra",
+    "aliases": [
+      "Zyra"
+    ],
+    "platform": "lol",
+    "followers": 0,
+    "genderSource": "riot-ddragon",
+    "wikidataConfirmed": false
+  }
+]

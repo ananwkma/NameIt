@@ -1,14 +1,18 @@
 /**
  * build-allowlist.js
  *
- * Builds an allowlist of famous women from:
- *   1. GitHub CSV dataset — top 1000 Twitch streamers by follower count
- *   2. Live Twitch streams (optional, for freshness)
- *   3. YouTube creators (optional)
+ * Builds an allowlist of famous people for one of several categories:
+ *   women  — Famous women (GitHub CSV, Twitch, YouTube, LLM + Wikidata)
+ *   men    — Famous men (same pipeline, male gender filter)
+ *   lol    — League of Legends champions (Riot Data Dragon, no API key)
+ *   nba    — NBA players (NBA Stats API)
  *
- * Gender filtering: LLM-first (fast bulk), then Wikidata confirm (smaller set)
- *
- * Usage: node scripts/build-allowlist.js
+ * Usage:
+ *   node scripts/build-allowlist.js                  # defaults to --category women
+ *   node scripts/build-allowlist.js --category women
+ *   node scripts/build-allowlist.js --category men
+ *   node scripts/build-allowlist.js --category lol
+ *   node scripts/build-allowlist.js --category nba
  */
 
 import fs from 'fs/promises';
@@ -25,7 +29,10 @@ const GAME_CONFIG = {
   wikidataInstance: 'Q5',     // human
 };
 
-const OUTPUT_PATH = path.join(__dirname, '../src/data/allowlist.json');
+const WOMEN_OUTPUT_PATH = path.join(__dirname, '../src/data/allowlist-women.json');
+const MEN_OUTPUT_PATH   = path.join(__dirname, '../src/data/allowlist-men.json');
+const NBA_OUTPUT_PATH   = path.join(__dirname, '../src/data/allowlist-nba.json');
+const LOL_OUTPUT_PATH   = path.join(__dirname, '../src/data/allowlist-lol.json');
 
 // GitHub CSV: top 1000 Twitch streamers by follower count (CC0, Kaggle-sourced)
 const GITHUB_CSV_URL =
@@ -78,7 +85,7 @@ const MANUAL_SEEDS = [
 // ─── GitHub CSV dataset ──────────────────────────────────────────────────────
 
 async function fetchGitHubStreamers() {
-  console.log('📥 Fetching GitHub top-streamers dataset...');
+  console.log('Fetching GitHub top-streamers dataset...');
   try {
     const res = await fetch(GITHUB_CSV_URL);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -106,10 +113,10 @@ async function fetchGitHubStreamers() {
 
     // Sort by followers descending
     streamers.sort((a, b) => b.followers - a.followers);
-    console.log(`✓ GitHub dataset: ${streamers.length} streamers (sorted by followers)`);
+    console.log(`GitHub dataset: ${streamers.length} streamers (sorted by followers)`);
     return streamers;
   } catch (err) {
-    console.warn(`⚠ GitHub dataset fetch failed: ${err.message} — skipping`);
+    console.warn(`GitHub dataset fetch failed: ${err.message} — skipping`);
     return [];
   }
 }
@@ -128,7 +135,7 @@ async function getTwitchToken() {
   });
   const data = await res.json();
   if (!data.access_token) throw new Error(`Twitch auth failed: ${JSON.stringify(data)}`);
-  console.log('✓ Twitch token obtained');
+  console.log('Twitch token obtained');
   return data.access_token;
 }
 
@@ -160,7 +167,7 @@ async function fetchLiveTwitchStreamers(token) {
     await sleep(300);
   }
 
-  console.log(`✓ Twitch live: ${allStreamers.size} unique streamers`);
+  console.log(`Twitch live: ${allStreamers.size} unique streamers`);
   return Array.from(allStreamers.values());
 }
 
@@ -168,7 +175,7 @@ async function fetchLiveTwitchStreamers(token) {
 
 async function fetchYouTubeCreators() {
   if (!process.env.YOUTUBE_API_KEY) {
-    console.log('⚠ No YOUTUBE_API_KEY — skipping YouTube');
+    console.log('No YOUTUBE_API_KEY — skipping YouTube');
     return [];
   }
 
@@ -201,15 +208,15 @@ async function fetchYouTubeCreators() {
     await sleep(300);
   }
 
-  console.log(`✓ YouTube: ${creators.size} unique creators collected`);
+  console.log(`YouTube: ${creators.size} unique creators collected`);
   return Array.from(creators.values());
 }
 
 // ─── LLM gender classification (fast bulk pass) ──────────────────────────────
 
-async function classifyGenderWithLLM(names) {
+async function classifyGenderWithLLM(names, genderLabel, genderPrompt) {
   if (!process.env.ANTHROPIC_API_KEY) {
-    console.log('⚠ No ANTHROPIC_API_KEY — skipping LLM classification');
+    console.log('No ANTHROPIC_API_KEY — skipping LLM classification');
     return {};
   }
 
@@ -228,15 +235,15 @@ async function classifyGenderWithLLM(names) {
     const chunk = batches.slice(i, i + BATCH_CONCURRENCY);
     await Promise.all(chunk.map(async (batch, chunkIdx) => {
       const batchNum = i + chunkIdx + 1;
-      const prompt = `You are helping build a dataset of famous women for a trivia game.
+      const prompt = `You are helping build a dataset of famous ${genderLabel} for a trivia game.
 
-Given these streamer/creator usernames and display names, identify which ones are clearly female (woman or girl).
-Only include people you are highly confident are female. Exclude if unsure, male, organization, or unknown.
+Given these streamer/creator usernames and display names, ${genderPrompt}
+Only include people you are highly confident. Exclude if unsure, organization, or unknown.
 
 Names (one per line):
 ${batch.map((n, idx) => `${idx + 1}. ${n}`).join('\n')}
 
-Respond ONLY with a JSON array of the names (exactly as written above) that are clearly female. Example:
+Respond ONLY with a JSON array of the names (exactly as written above) that match. Example:
 ["Pokimane", "Amouranth"]
 
 JSON array only, no explanation.`;
@@ -261,7 +268,7 @@ JSON array only, no explanation.`;
         const text = raw.replace(/```json\s*/g, '').replace(/```\s*/g, '').trim();
         const confirmed = JSON.parse(text);
         confirmed.forEach(name => { results[name] = true; });
-        console.log(`  LLM batch ${batchNum}/${batches.length}: ${confirmed.length}/${batch.length} confirmed female`);
+        console.log(`  LLM batch ${batchNum}/${batches.length}: ${confirmed.length}/${batch.length} confirmed ${genderLabel}`);
       } catch (err) {
         console.warn(`  LLM batch ${batchNum} failed:`, err.message);
       }
@@ -275,7 +282,7 @@ JSON array only, no explanation.`;
 
 // ─── Wikidata gender check (concurrent) ──────────────────────────────────────
 
-async function checkWikidataName(name) {
+async function checkWikidataName(name, genderQID) {
   try {
     const searchRes = await fetch(
       `https://www.wikidata.org/w/api.php?action=wbsearchentities&search=${encodeURIComponent(name)}&language=en&limit=3&format=json&origin=*`
@@ -293,8 +300,8 @@ async function checkWikidataName(name) {
       const entity = entityData.entities[id];
       const claims = entity.claims || {};
       const isHuman  = claims.P31?.some(c => c.mainsnak.datavalue?.value?.id === GAME_CONFIG.wikidataInstance);
-      const isFemale = claims.P21?.some(c => c.mainsnak.datavalue?.value?.id === GAME_CONFIG.wikidataGender);
-      if (isHuman && isFemale) {
+      const isGender = claims.P21?.some(c => c.mainsnak.datavalue?.value?.id === genderQID);
+      if (isHuman && isGender) {
         return { confirmed: true, wikidataName: entity.labels?.en?.value };
       }
     }
@@ -304,7 +311,7 @@ async function checkWikidataName(name) {
   }
 }
 
-async function checkWikidataBatch(candidates) {
+async function checkWikidataBatch(candidates, genderQID) {
   const results = new Map();
   const queue = [...candidates];
   let completed = 0;
@@ -313,7 +320,7 @@ async function checkWikidataBatch(candidates) {
     while (queue.length > 0) {
       const candidate = queue.shift();
       if (!candidate) break;
-      const result = await checkWikidataName(candidate.name);
+      const result = await checkWikidataName(candidate.name, genderQID);
       results.set((candidate.login || candidate.name).toLowerCase(), result);
       completed++;
       if (completed % 50 === 0) {
@@ -328,10 +335,10 @@ async function checkWikidataBatch(candidates) {
   return results;
 }
 
-// ─── Main ────────────────────────────────────────────────────────────────────
+// ─── Shared social-media pipeline (women / men) ──────────────────────────────
 
-async function main() {
-  console.log(`\n🚀 Building allowlist for: ${GAME_CONFIG.name}\n`);
+async function buildSocialAllowlist({ outputPath, genderLabel, genderPrompt, genderQID }) {
+  console.log(`\nBuilding allowlist for: ${genderLabel}\n`);
 
   // 1. Fetch candidates
   const githubStreamers = await fetchGitHubStreamers();
@@ -341,7 +348,7 @@ async function main() {
     const token = await getTwitchToken();
     liveTwitchStreamers = await fetchLiveTwitchStreamers(token);
   } else {
-    console.log('⚠ No TWITCH credentials — using GitHub dataset only');
+    console.log('No TWITCH credentials — using GitHub dataset only');
   }
 
   const youtubeCreators = await fetchYouTubeCreators();
@@ -365,17 +372,17 @@ async function main() {
       allCandidates.push(c);
     }
   }
-  console.log(`\n📋 Total unique candidates: ${allCandidates.length}`);
+  console.log(`\nTotal unique candidates: ${allCandidates.length}`);
 
   // 2. LLM bulk pass — fast, classifies all candidates in ~10 API calls
-  console.log('\n🤖 LLM bulk gender classification...');
-  const llmResults = await classifyGenderWithLLM(allCandidates.map(c => c.name));
+  console.log('\nLLM bulk gender classification...');
+  const llmResults = await classifyGenderWithLLM(allCandidates.map(c => c.name), genderLabel, genderPrompt);
   const llmConfirmed = allCandidates.filter(c => llmResults[c.name]);
-  console.log(`✓ LLM confirmed female: ${llmConfirmed.length}/${allCandidates.length}`);
+  console.log(`LLM confirmed ${genderLabel}: ${llmConfirmed.length}/${allCandidates.length}`);
 
   // 3. Wikidata check on LLM-confirmed subset only (much smaller, runs concurrently)
-  console.log(`\n🔍 Wikidata verification on ${llmConfirmed.length} names (${WIKIDATA_CONCURRENCY} concurrent)...`);
-  const wikidataResults = await checkWikidataBatch(llmConfirmed);
+  console.log(`\nWikidata verification on ${llmConfirmed.length} names (${WIKIDATA_CONCURRENCY} concurrent)...`);
+  const wikidataResults = await checkWikidataBatch(llmConfirmed, genderQID);
 
   // 4. Build output
   const seen = new Set();
@@ -402,8 +409,8 @@ async function main() {
       return true;
     });
 
-  await fs.writeFile(OUTPUT_PATH, JSON.stringify(allowlist, null, 2));
-  console.log(`\n💾 Written to ${OUTPUT_PATH}`);
+  await fs.writeFile(outputPath, JSON.stringify(allowlist, null, 2));
+  console.log(`\nWritten to ${outputPath}`);
   console.log(`   ${allowlist.length} entries`);
 
   const bySource = allowlist.reduce((acc, e) => {
@@ -413,8 +420,145 @@ async function main() {
   console.log('   By gender source:', bySource);
 
   const wikidataCount = allowlist.filter(e => e.wikidataConfirmed).length;
-  console.log(`   Wikidata confirmed: ${wikidataCount} (${((wikidataCount / allowlist.length) * 100).toFixed(0)}%)`);
+  console.log(`   Wikidata confirmed: ${wikidataCount} (${allowlist.length > 0 ? ((wikidataCount / allowlist.length) * 100).toFixed(0) : 0}%)`);
 }
+
+// ─── Per-category builders ────────────────────────────────────────────────────
+
+async function buildWomenAllowlist() {
+  await buildSocialAllowlist({
+    outputPath: WOMEN_OUTPUT_PATH,
+    genderLabel: 'women',
+    genderPrompt: 'identify which ones are clearly female (woman or girl). Only include people you are highly confident are female.',
+    genderQID: 'Q6581072', // female
+  });
+}
+
+async function buildMenAllowlist() {
+  await buildSocialAllowlist({
+    outputPath: MEN_OUTPUT_PATH,
+    genderLabel: 'men',
+    genderPrompt: 'identify which ones are clearly male (man or boy). Only include people you are highly confident are male.',
+    genderQID: 'Q6581097', // male
+  });
+}
+
+async function buildLoLAllowlist() {
+  console.log('\nBuilding LoL Champions allowlist...\n');
+
+  // Step 1: Get latest patch version
+  const versionsRes = await fetch('https://ddragon.leagueoflegends.com/api/versions.json');
+  if (!versionsRes.ok) throw new Error(`Versions fetch failed: HTTP ${versionsRes.status}`);
+  const versions = await versionsRes.json();
+  const latestVersion = versions[0];
+  console.log(`Latest Data Dragon version: ${latestVersion}`);
+
+  // Step 2: Fetch champion summary
+  const champRes = await fetch(
+    `https://ddragon.leagueoflegends.com/cdn/${latestVersion}/data/en_US/champion.json`
+  );
+  if (!champRes.ok) throw new Error(`Champion data fetch failed: HTTP ${champRes.status}`);
+  const champData = await champRes.json();
+
+  // Step 3: Build allowlist — use .name (display name), .id as alias
+  // champData.data is an object keyed by champion ID (e.g. "JarvanIV")
+  // Each value has: .name ("Jarvan IV"), .id ("JarvanIV"), .title, .blurb
+  const allowlist = Object.values(champData.data).map(champ => ({
+    name: champ.name,             // "Jarvan IV" — the display name players know
+    aliases: [champ.id],          // "JarvanIV" — camelCase variant as alias
+    platform: 'lol',
+    followers: 0,
+    genderSource: 'riot-ddragon',
+    wikidataConfirmed: false,
+  }));
+
+  await fs.writeFile(LOL_OUTPUT_PATH, JSON.stringify(allowlist, null, 2));
+  console.log(`Written to ${LOL_OUTPUT_PATH}`);
+  console.log(`${allowlist.length} LoL champions`);
+}
+
+async function buildNBAAllowlist() {
+  console.log('\nBuilding NBA Players allowlist...\n');
+  console.log('NOTE: NBA Stats API is CORS-blocked in browsers — this runs in Node.js only.');
+
+  const url = 'https://stats.nba.com/stats/commonallplayers?IsOnlyCurrentSeason=0&LeagueID=00&Season=2024-25';
+  const headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    'Referer': 'https://www.nba.com/',
+    'Accept': 'application/json, text/plain, */*',
+    'Accept-Language': 'en-US,en;q=0.9',
+    'x-nba-stats-origin': 'statscall',
+    'x-nba-stats-token': 'true',
+    'Connection': 'keep-alive',
+  };
+
+  let res;
+  try {
+    res = await fetch(url, { headers });
+  } catch (err) {
+    throw new Error(`NBA Stats API network error: ${err.message}. This API may require a VPN or updated headers.`);
+  }
+
+  if (!res.ok) {
+    throw new Error(`NBA Stats API returned HTTP ${res.status}. Headers may need updating — see: https://github.com/swar/nba_api`);
+  }
+
+  const data = await res.json();
+
+  if (!data.resultSets || !data.resultSets[0]) {
+    throw new Error('NBA Stats API response missing resultSets. Endpoint may have changed.');
+  }
+
+  const resultSet = data.resultSets[0];
+  const colHeaders = resultSet.headers;
+  const rows = resultSet.rowSet;
+
+  const nameIdx = colHeaders.indexOf('DISPLAY_FIRST_LAST');
+  if (nameIdx === -1) {
+    throw new Error(`Column DISPLAY_FIRST_LAST not found. Available columns: ${colHeaders.join(', ')}`);
+  }
+
+  const allowlist = rows
+    .map(row => ({
+      name: row[nameIdx],
+      aliases: [],
+      platform: 'nba',
+      followers: 0,
+      genderSource: 'nba-stats-api',
+      wikidataConfirmed: false,
+    }))
+    .filter(entry => entry.name && entry.name.trim() !== '');
+
+  await fs.writeFile(NBA_OUTPUT_PATH, JSON.stringify(allowlist, null, 2));
+  console.log(`Written to ${NBA_OUTPUT_PATH}`);
+  console.log(`${allowlist.length} NBA players`);
+}
+
+// ─── Dispatch ─────────────────────────────────────────────────────────────────
+
+async function main() {
+  const args = process.argv.slice(2);
+  const categoryIdx = args.indexOf('--category');
+  const categoryId = categoryIdx !== -1 ? args[categoryIdx + 1] : 'women';
+
+  const BUILDERS = {
+    women: buildWomenAllowlist,
+    men: buildMenAllowlist,
+    nba: buildNBAAllowlist,
+    lol: buildLoLAllowlist,
+  };
+
+  const builder = BUILDERS[categoryId];
+  if (!builder) {
+    console.error(`Unknown category: "${categoryId}". Valid options: ${Object.keys(BUILDERS).join(', ')}`);
+    process.exit(1);
+  }
+
+  console.log(`\nBuilding allowlist for category: ${categoryId}\n`);
+  await builder();
+}
+
+// ─── Helpers ──────────────────────────────────────────────────────────────────
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -438,6 +582,6 @@ async function loadEnv() {
 }
 
 loadEnv().then(main).catch(err => {
-  console.error('\n❌ Error:', err.message);
+  console.error('\nError:', err.message);
   process.exit(1);
 });
