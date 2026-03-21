@@ -57,10 +57,10 @@ export const WikidataService = {
   } as Record<string, { qid: string; full: string }>,
 
   async search(input: string, category: CategoryConfig): Promise<Woman | null> {
-    // NEW: allowlist-only strategy — skip Wikidata entirely
+    // NEW: allowlist-only strategy — skip Wikidata entirely, use strict (exact) matching
     if (category.verificationStrategy === 'allowlist-only') {
       const normalizedInput = input.trim().toLowerCase();
-      const match = this.searchAllowlist(normalizedInput, category.id);
+      const match = this.searchAllowlist(normalizedInput, category.id, true);
       if (match) {
         searchCache.set(`${category.id}:${normalizedInput}`, match);
       }
@@ -261,16 +261,30 @@ export const WikidataService = {
     return null;
   },
 
-  searchAllowlist(input: string, categoryId: string = 'women'): Woman | null {
+  searchAllowlist(input: string, categoryId: string = 'women', strict: boolean = false): Woman | null {
     const list = ALLOWLISTS[categoryId] || [];
+
+    // Map platform/categoryId to a human-readable description label
+    const descriptionLabel: Record<string, string> = {
+      lol: 'LoL Champion',
+      nba: 'NBA Player',
+    };
+
     for (const entry of list) {
       const names = [entry.name.toLowerCase(), ...entry.aliases.map((a: string) => a.toLowerCase())];
       for (const name of names) {
-        if (fuzzyMatchNames(name, input) || name === input || name.includes(input) || input.includes(name)) {
+        const isMatch = strict
+          // Strict mode (allowlist-only categories): exact case-insensitive match only
+          ? name === input
+          // Fuzzy mode (wikidata fallback): fuzzy + substring
+          : (fuzzyMatchNames(name, input) || name === input || name.includes(input) || input.includes(name));
+
+        if (isMatch) {
+          const description = descriptionLabel[entry.platform] || `${entry.platform} creator`;
           return {
             id: `allowlist-${entry.name.toLowerCase().replace(/\s+/g, '-')}`,
             name: entry.name,
-            description: `${entry.platform} creator`,
+            description,
           };
         }
       }
