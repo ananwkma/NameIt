@@ -356,6 +356,8 @@ function App() {
           </div>
         </header>
 
+        <h2 className="game-title">Name {state.selectedCategory.name}</h2>
+
         <form onSubmit={handleSubmit} className="input-group">
           <div className="input-wrapper">
             <input
