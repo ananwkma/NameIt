@@ -513,21 +513,83 @@ async function buildNBAAllowlist() {
   const colHeaders = resultSet.headers;
   const rows = resultSet.rowSet;
 
-  const nameIdx = colHeaders.indexOf('DISPLAY_FIRST_LAST');
+  const nameIdx     = colHeaders.indexOf('DISPLAY_FIRST_LAST');
+  const fromYearIdx = colHeaders.indexOf('FROM_YEAR');
+  const toYearIdx   = colHeaders.indexOf('TO_YEAR');
+
   if (nameIdx === -1) {
     throw new Error(`Column DISPLAY_FIRST_LAST not found. Available columns: ${colHeaders.join(', ')}`);
   }
 
+  // Well-known nicknames → player's full display name (as it appears in DISPLAY_FIRST_LAST)
+  const NBA_NICKNAMES = {
+    // Modern stars
+    'wemby':        'Victor Wembanyama',
+    'bron':         'LeBron James',
+    'lebron':       'LeBron James',
+    'kd':           'Kevin Durant',
+    'slim reaper':  'Kevin Durant',
+    'greek freak':  'Giannis Antetokounmpo',
+    'joker':        'Nikola Jokic',
+    'ant':          'Anthony Edwards',
+    'ant-man':      'Anthony Edwards',
+    'dame':         'Damian Lillard',
+    'pg13':         'Paul George',
+    'cp3':          'Chris Paul',
+    'russ':         'Russell Westbrook',
+    'the brow':     'Anthony Davis',
+    'the beard':    'James Harden',
+    'luka':         'Luka Doncic',
+    'zion':         'Zion Williamson',
+    // Legends
+    'mj':           'Michael Jordan',
+    'magic':        'Magic Johnson',
+    'dr j':         'Julius Erving',
+    'the mailman':  'Karl Malone',
+    'the dream':    'Hakeem Olajuwon',
+    'admiral':      'David Robinson',
+    'the admiral':  'David Robinson',
+    'penny':        'Anfernee Hardaway',
+    'the answer':   'Allen Iverson',
+    'ai':           'Allen Iverson',
+    'flash':        'Dwyane Wade',
+    'd-wade':       'Dwyane Wade',
+    'big fundamental': 'Tim Duncan',
+    'logo':         'Jerry West',
+  };
+
+  // Build a name→entry map for nickname injection
+  const playersByName = new Map();
+
   const allowlist = rows
-    .map(row => ({
-      name: row[nameIdx],
-      aliases: [],
-      platform: 'nba',
-      followers: 0,
-      genderSource: 'nba-stats-api',
-      wikidataConfirmed: false,
-    }))
+    .map(row => {
+      const name     = row[nameIdx];
+      const fromYear = fromYearIdx !== -1 ? parseInt(row[fromYearIdx], 10) || 0 : 0;
+      const toYear   = toYearIdx   !== -1 ? parseInt(row[toYearIdx],   10) || 0 : 0;
+      return { name, aliases: [], platform: 'nba', fromYear, toYear, genderSource: 'nba-stats-api', wikidataConfirmed: false };
+    })
     .filter(entry => entry.name && entry.name.trim() !== '');
+
+  // Normalize: strip diacritics for nickname lookup (e.g. "Jokić" → "Jokic")
+  const normalize = str => str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+
+  // Index by normalized display name for nickname injection
+  for (const entry of allowlist) {
+    playersByName.set(normalize(entry.name), entry);
+  }
+
+  // Inject nicknames as aliases on matching players
+  let nicknameCount = 0;
+  for (const [nickname, fullName] of Object.entries(NBA_NICKNAMES)) {
+    const entry = playersByName.get(normalize(fullName));
+    if (entry) {
+      entry.aliases.push(nickname);
+      nicknameCount++;
+    } else {
+      console.warn(`  Nickname "${nickname}" → "${fullName}" — player not found in dataset`);
+    }
+  }
+  console.log(`  ${nicknameCount} nicknames injected`);
 
   await fs.writeFile(NBA_OUTPUT_PATH, JSON.stringify(allowlist, null, 2));
   console.log(`Written to ${NBA_OUTPUT_PATH}`);

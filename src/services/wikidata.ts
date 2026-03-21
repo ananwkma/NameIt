@@ -264,31 +264,55 @@ export const WikidataService = {
   searchAllowlist(input: string, categoryId: string = 'women', strict: boolean = false): Woman | null {
     const list = ALLOWLISTS[categoryId] || [];
 
-    // Map platform/categoryId to a human-readable description label
     const descriptionLabel: Record<string, string> = {
       lol: 'LoL Champion',
       nba: 'NBA Player',
     };
 
+    const makeResult = (entry: { name: string; platform: string }): Woman => ({
+      id: `allowlist-${entry.name.toLowerCase().replace(/\s+/g, '-')}`,
+      name: entry.name,
+      description: descriptionLabel[entry.platform] || `${entry.platform} creator`,
+    });
+
+    // 1. Full name / alias match (exact or DL fuzzy)
     for (const entry of list) {
       const names = [entry.name.toLowerCase(), ...entry.aliases.map((a: string) => a.toLowerCase())];
       for (const name of names) {
         const isMatch = strict
-          // Strict mode (allowlist-only): DL fuzzy with length-aware threshold (≤1 edit for <10 chars, ≤2 for ≥10)
           ? fuzzyMatchAllowlist(name, input)
-          // Fuzzy mode (wikidata fallback): fuzzy + substring
           : (fuzzyMatchNames(name, input) || name === input || name.includes(input) || input.includes(name));
-
-        if (isMatch) {
-          const description = descriptionLabel[entry.platform] || `${entry.platform} creator`;
-          return {
-            id: `allowlist-${entry.name.toLowerCase().replace(/\s+/g, '-')}`,
-            name: entry.name,
-            description,
-          };
-        }
+        if (isMatch) return makeResult(entry);
       }
     }
+
+    // 2. Last-name match for allowlist-only categories (e.g. "durant" → "Kevin Durant")
+    //    When multiple players share a last name, pick the one with the most years active.
+    if (strict && input.length >= 3) {
+      const lastNameMatches: Array<{ entry: typeof list[0]; yearsActive: number; toYear: number }> = [];
+
+      for (const entry of list) {
+        const parts = entry.name.trim().split(/\s+/);
+        const lastName = parts[parts.length - 1].toLowerCase();
+        if (fuzzyMatchAllowlist(lastName, input)) {
+          const fromYear = (entry as unknown as Record<string, number>).fromYear ?? 0;
+          const toYear   = (entry as unknown as Record<string, number>).toYear   ?? 0;
+          lastNameMatches.push({ entry, yearsActive: toYear - fromYear, toYear });
+        }
+      }
+
+      if (lastNameMatches.length === 1) {
+        return makeResult(lastNameMatches[0].entry);
+      }
+      if (lastNameMatches.length > 1) {
+        // Most years active wins; break ties by most recent (higher toYear)
+        lastNameMatches.sort((a, b) =>
+          b.yearsActive - a.yearsActive || b.toYear - a.toYear
+        );
+        return makeResult(lastNameMatches[0].entry);
+      }
+    }
+
     return null;
   },
 
