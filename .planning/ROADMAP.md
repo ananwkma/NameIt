@@ -38,7 +38,7 @@ Plans:
 ## Phase 6: Multi-Category Game Selection
 **Goal:** Expand the game beyond "100 Famous Women" to support multiple categories (e.g. famous men, athletes, musicians), each with their own allowlist and card on the selection screen.
 **Requirements:** [CAT-01, CAT-02, CAT-03]
-**Plans:** 2/5 plans executed
+**Plans:** 3/5 plans executed
 
 Plans:
 - [ ] 06-multi-category/06-01-PLAN.md — CategoryConfig type + per-category allowlist file stubs
