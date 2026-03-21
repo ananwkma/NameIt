@@ -1,4 +1,4 @@
-import { Woman } from '../services/wikidata';
+import { Woman } from './wikidata';
 import { CategoryConfig } from '../config/categories';
 
 export type VerificationStatus = 'pending' | 'verified' | 'failed';

@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { GameState, GameAction, GameWoman } from '../types/game';
+import { GameState, GameAction } from '../types/game';
+import { CATEGORIES } from '../config/categories';
 
 const CLASSIC_TIME_LIMIT = 15 * 60 * 1000;
 
@@ -9,10 +10,11 @@ function gameReducer(state: GameState, action: GameAction): GameState {
     case 'START_GAME':
       return {
         ...state,
+        selectedCategory: action.payload.category,
         status: 'PLAYING',
         startTime: 1000,
         lastTick: 1000,
-        timeLeft: CLASSIC_TIME_LIMIT,
+        timeLeft: action.payload.category.timeLimitMs,
         timeElapsed: 0,
         isZenMode: false,
       };
@@ -25,7 +27,7 @@ function gameReducer(state: GameState, action: GameAction): GameState {
       };
     case 'TICK': {
       if (state.status !== 'PLAYING') return state;
-      
+
       const now = action.payload;
       const lastTick = state.lastTick || now;
       const delta = now - lastTick;
@@ -67,7 +69,8 @@ describe('Timer Logic', () => {
     const initialState: GameState = {
         status: 'IDLE',
         isZenMode: false,
-        women: [],
+        selectedCategory: CATEGORIES[0],
+        entries: [],
         isProcessing: false,
         error: null,
         timeLeft: CLASSIC_TIME_LIMIT,
@@ -77,22 +80,22 @@ describe('Timer Logic', () => {
     };
 
     it('should start game with correct time and standard mode', () => {
-        const state = gameReducer(initialState, { type: 'START_GAME' });
+        const state = gameReducer(initialState, { type: 'START_GAME', payload: { category: CATEGORIES[0] } });
         expect(state.isZenMode).toBe(false);
         expect(state.timeLeft).toBe(CLASSIC_TIME_LIMIT);
         expect(state.status).toBe('PLAYING');
     });
 
     it('should countdown in standard mode', () => {
-        let state = gameReducer(initialState, { type: 'START_GAME' });
+        let state = gameReducer(initialState, { type: 'START_GAME', payload: { category: CATEGORIES[0] } });
         // Simulate 1 second passing (start at 1000, now 2000)
-        state = gameReducer(state, { type: 'TICK', payload: 2000 }); 
+        state = gameReducer(state, { type: 'TICK', payload: 2000 });
         expect(state.timeLeft).toBe(CLASSIC_TIME_LIMIT - 1000);
         expect(state.timeElapsed).toBe(1000);
     });
 
     it('should trigger TIME_UP when time runs out in standard mode', () => {
-        let state = gameReducer(initialState, { type: 'START_GAME' });
+        let state = gameReducer(initialState, { type: 'START_GAME', payload: { category: CATEGORIES[0] } });
         // Simulate time limit passing
         state = gameReducer(state, { type: 'TICK', payload: 1000 + CLASSIC_TIME_LIMIT + 1 });
         expect(state.status).toBe('TIME_UP');
@@ -100,12 +103,12 @@ describe('Timer Logic', () => {
     });
 
     it('should count up in Zen Mode', () => {
-        let state = gameReducer(initialState, { type: 'START_GAME' });
+        let state = gameReducer(initialState, { type: 'START_GAME', payload: { category: CATEGORIES[0] } });
         state = gameReducer(state, { type: 'ENTER_ZEN_MODE' });
-        
+
         expect(state.isZenMode).toBe(true);
         expect(state.status).toBe('PLAYING');
-        
+
         // Simulate 1 second passing
         state = gameReducer(state, { type: 'TICK', payload: 2000 }); // start at 1000
         expect(state.timeElapsed).toBe(1000);
