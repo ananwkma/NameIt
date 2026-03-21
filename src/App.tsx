@@ -400,12 +400,7 @@ function App() {
                 exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.2 } }}
                 className={`woman-card status-${entry.status}`}
               >
-                {entry.status === 'verified' && (
-                  <div className="tooltip">
-                    <strong>{entry.name}</strong>
-                    {entry.description && ` — ${entry.description}`}
-                  </div>
-                )}
+
                 <div className="woman-info">
                   <h3>{entry.status === 'verified' ? entry.name : entry.inputName}</h3>
                   {entry.status === 'verified' && entry.description && state.selectedCategory.verificationStrategy !== 'allowlist-only' && (
