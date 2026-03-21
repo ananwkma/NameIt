@@ -38,12 +38,14 @@ Plans:
 ## Phase 6: Multi-Category Game Selection
 **Goal:** Expand the game beyond "100 Famous Women" to support multiple categories (e.g. famous men, athletes, musicians), each with their own allowlist and card on the selection screen.
 **Requirements:** [CAT-01, CAT-02, CAT-03]
+**Plans:** 5 plans
 
-- **Task 6.1:** Define a category config system (name, allowlist, Wikidata filters, icon/color).
-- **Task 6.2:** Build a category selection screen with one card per category on the "Name It!" home page.
-- **Task 6.3:** Update game state and allowlist lookup to be category-aware.
-- **Task 6.4:** Update `build-allowlist.js` to generate per-category allowlist files.
-- **Task 6.5:** Add high score tracking per category.
+Plans:
+- [ ] 06-multi-category/06-01-PLAN.md — CategoryConfig type + per-category allowlist file stubs
+- [ ] 06-multi-category/06-02-PLAN.md — Category-aware types (GameEntry, selectedCategory) and WikidataService.search
+- [ ] 06-multi-category/06-03-PLAN.md — CategorySelectScreen component and CSS card grid
+- [ ] 06-multi-category/06-04-PLAN.md — build-allowlist.js --category flag with LoL/NBA/Men builders
+- [ ] 06-multi-category/06-05-PLAN.md — App.tsx full integration + human verification
 
 ## Phase 5: Polish & Visual Identity (Vibrant/Pop)
 **Goal:** Elevate aesthetics and user experience.
