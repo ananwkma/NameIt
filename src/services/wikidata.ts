@@ -311,6 +311,16 @@ export const WikidataService = {
         );
         return makeResult(lastNameMatches[0].entry);
       }
+
+      // 3. First-name match — only resolves if the first name is unique in the dataset
+      //    "giannis" → Giannis Antetokounmpo (unique), "jaylen" → no match (Jaylen Brown + others)
+      const firstNameMatches = list.filter(entry => {
+        const firstName = entry.name.trim().split(/\s+/)[0].toLowerCase();
+        return fuzzyMatchAllowlist(firstName, input);
+      });
+      if (firstNameMatches.length === 1) {
+        return makeResult(firstNameMatches[0]);
+      }
     }
 
     return null;
