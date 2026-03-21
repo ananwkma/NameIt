@@ -1,18 +1,24 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CATEGORIES } from '../config/categories';
+import { formatTime } from '../utils/formatTime';
 
 export function CategorySelectScreen() {
   const navigate = useNavigate();
   const [highScores, setHighScores] = useState<Record<string, number>>({});
+  const [bestTimes, setBestTimes] = useState<Record<string, number>>({});
 
   useEffect(() => {
     const scores: Record<string, number> = {};
+    const times: Record<string, number> = {};
     for (const cat of CATEGORIES) {
       const saved = localStorage.getItem(`game_highscore_${cat.id}`);
       scores[cat.id] = saved ? parseInt(saved, 10) || 0 : 0;
+      const savedTime = localStorage.getItem(`game_besttime_${cat.id}`);
+      if (savedTime) times[cat.id] = parseInt(savedTime, 10);
     }
     setHighScores(scores);
+    setBestTimes(times);
   }, []);
 
   return (
@@ -34,7 +40,9 @@ export function CategorySelectScreen() {
               <span className="category-icon">{cat.icon}</span>
               <span className="category-name">{cat.name}</span>
               <span className="category-score">
-                Best: {highScores[cat.id] ?? 0}
+                {bestTimes[cat.id]
+                  ? `Best: ${formatTime(bestTimes[cat.id])}`
+                  : `Best: ${highScores[cat.id] ?? 0}`}
               </span>
             </button>
           ))}

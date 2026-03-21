@@ -4,6 +4,7 @@ import { WikidataService } from '../services/wikidata';
 import { GameState, GameAction, GameEntry } from '../types/game';
 import { CATEGORIES } from '../config/categories';
 import { Search, AlertCircle, Loader2, Clock, Infinity as InfinityIcon } from 'lucide-react';
+import { formatTime } from '../utils/formatTime';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const baseInitialState: Omit<GameState, 'selectedCategory' | 'timeLeft'> = {
@@ -128,19 +129,6 @@ function gameReducer(state: GameState, action: GameAction): GameState {
   }
 }
 
-const formatTime = (ms: number, showMs = false) => {
-  const totalSeconds = Math.max(0, Math.floor(ms / 1000));
-  const minutes = Math.floor(totalSeconds / 60);
-  const seconds = totalSeconds % 60;
-
-  const str = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-
-  if (showMs) {
-    const milliseconds = Math.floor((Math.max(0, ms) % 1000) / 10);
-    return `${str}.${milliseconds.toString().padStart(2, '0')}`;
-  }
-  return str;
-};
 
 export function GameScreen() {
   const { categoryId } = useParams<{ categoryId: string }>();
@@ -194,7 +182,7 @@ export function GameScreen() {
     }
   }, [state]);
 
-  // Update high score per category
+  // Update high score and best completion time per category
   useEffect(() => {
     const verifiedCount = state.entries.filter(e => e.status === 'verified').length;
     const catId = state.selectedCategory.id;
@@ -203,7 +191,14 @@ export function GameScreen() {
     if (verifiedCount > current) {
       localStorage.setItem(`game_highscore_${catId}`, verifiedCount.toString());
     }
-  }, [state.entries, state.selectedCategory.id]);
+    if (state.status === 'WIN') {
+      const savedTime = localStorage.getItem(`game_besttime_${catId}`);
+      const currentBest = savedTime ? parseInt(savedTime, 10) : Infinity;
+      if (state.timeElapsed < currentBest) {
+        localStorage.setItem(`game_besttime_${catId}`, state.timeElapsed.toString());
+      }
+    }
+  }, [state.entries, state.selectedCategory.id, state.status, state.timeElapsed]);
 
   // Timer Effect
   useEffect(() => {
