@@ -1,7 +1,11 @@
 import axios from 'axios';
 import { Woman } from '../types/wikidata';
 import { fuzzyMatchNames } from '../utils/fuzzyMatch';
-import allowlistData from '../data/allowlist.json';
+import { CategoryConfig } from '../config/categories';
+import womenData from '../data/allowlist-women.json';
+import menData from '../data/allowlist-men.json';
+import nbaData from '../data/allowlist-nba.json';
+import lolData from '../data/allowlist-lol.json';
 
 interface AllowlistEntry {
   name: string;
@@ -10,7 +14,12 @@ interface AllowlistEntry {
   genderSource: string;
 }
 
-const allowlist: AllowlistEntry[] = allowlistData as AllowlistEntry[];
+const ALLOWLISTS: Record<string, AllowlistEntry[]> = {
+  women: womenData as AllowlistEntry[],
+  men: menData as AllowlistEntry[],
+  nba: nbaData as AllowlistEntry[],
+  lol: lolData as AllowlistEntry[],
+};
 
 const WIKIDATA_API_URL = 'https://www.wikidata.org/w/api.php';
 
@@ -47,19 +56,31 @@ export const WikidataService = {
     'idle': { qid: 'Q52222384', full: '(g)i-dle' },
   } as Record<string, { qid: string; full: string }>,
 
-  async searchWoman(input: string): Promise<Woman | null> {
+  async search(input: string, category: CategoryConfig): Promise<Woman | null> {
+    // NEW: allowlist-only strategy — skip Wikidata entirely
+    if (category.verificationStrategy === 'allowlist-only') {
+      const normalizedInput = input.trim().toLowerCase();
+      const match = this.searchAllowlist(normalizedInput, category.id);
+      if (match) {
+        searchCache.set(`${category.id}:${normalizedInput}`, match);
+      }
+      return match;
+    }
+
+    // Existing Wikidata pipeline below
     const normalizedInput = input.trim().toLowerCase();
+    const cacheKey = `${category.id}:${normalizedInput}`;
     try {
-      
+
       // Check search cache
-      if (searchCache.has(normalizedInput)) {
+      if (searchCache.has(cacheKey)) {
         console.log(`[DEBUG] Cache hit for search: "${normalizedInput}"`);
-        return searchCache.get(normalizedInput) || null;
+        return searchCache.get(cacheKey) || null;
       }
 
       const activeContexts: string[] = [];
       let cleanSearchQuery = normalizedInput;
-      
+
       for (const [abbr, info] of Object.entries(this.contextMap)) {
         if (normalizedInput.includes(abbr)) {
           activeContexts.push(abbr);
@@ -94,7 +115,7 @@ export const WikidataService = {
       const idsA = (searchA.data.query?.search || []).map((r: any) => r.title);
       const idsB = (searchB.data.search || []).map((r: any) => r.id);
       const idsC = (searchC.data.search || []).map((r: any) => r.id);
-      
+
       // Combine all IDs and take ONLY TOP 5 for detailed fetching
       const allIds = Array.from(new Set([...idsA, ...idsC, ...idsB])).slice(0, 5).join('|');
 
@@ -126,7 +147,7 @@ export const WikidataService = {
         if (!claims) continue;
 
         const isHuman = claims.P31?.some((c: any) => c.mainsnak.datavalue?.value.id === 'Q5');
-        const isFemale = claims.P21?.some((c: any) => c.mainsnak.datavalue?.value.id === 'Q6581072');
+        const isFemale = claims.P21?.some((c: any) => c.mainsnak.datavalue?.value.id === category.wikidataGender);
 
         if (isHuman && isFemale) {
           const propertyQids = new Set<string>();
@@ -146,7 +167,7 @@ export const WikidataService = {
       // 3. Resolve Labels using cache for performance
       const qidArray = Array.from(allReferencedQids);
       const qidsToFetch = qidArray.filter(qid => !propertyLabelCache.has(qid));
-      
+
       if (qidsToFetch.length > 0) {
         const chunkSize = 50;
         for (let i = 0; i < qidsToFetch.length; i += chunkSize) {
@@ -218,7 +239,7 @@ export const WikidataService = {
         if (passed) {
           const bestMatch = filtered[0];
           console.log(`[DEBUG] SUCCESS: Selected ${bestMatch.name} (${bestMatch.id})`);
-          searchCache.set(normalizedInput, bestMatch);
+          searchCache.set(cacheKey, bestMatch);
           return bestMatch;
         }
       } else {
@@ -229,20 +250,21 @@ export const WikidataService = {
     }
 
     // Fallback: check local allowlist (internet personalities not on Wikidata)
-    const allowlistMatch = this.searchAllowlist(normalizedInput);
+    const allowlistMatch = this.searchAllowlist(normalizedInput, category.id);
     if (allowlistMatch) {
       console.log(`[DEBUG] Allowlist match: ${allowlistMatch.name}`);
-      searchCache.set(normalizedInput, allowlistMatch);
+      searchCache.set(cacheKey, allowlistMatch);
       return allowlistMatch;
     }
 
-    searchCache.set(normalizedInput, null);
+    searchCache.set(cacheKey, null);
     return null;
   },
 
-  searchAllowlist(input: string): Woman | null {
-    for (const entry of allowlist) {
-      const names = [entry.name.toLowerCase(), ...entry.aliases.map(a => a.toLowerCase())];
+  searchAllowlist(input: string, categoryId: string = 'women'): Woman | null {
+    const list = ALLOWLISTS[categoryId] || [];
+    for (const entry of list) {
+      const names = [entry.name.toLowerCase(), ...entry.aliases.map((a: string) => a.toLowerCase())];
       for (const name of names) {
         if (fuzzyMatchNames(name, input) || name === input || name.includes(input) || input.includes(name)) {
           return {
@@ -258,24 +280,24 @@ export const WikidataService = {
 
   checkMatch(inputWords: string[], activeContexts: string[], candidate: WomanCandidate): boolean {
     const targetNames = [
-      candidate.name.toLowerCase(), 
+      candidate.name.toLowerCase(),
       ...candidate.aliases.map(a => a.toLowerCase())
     ];
 
     const namePart = inputWords.filter(w => !activeContexts.includes(w) && !this.contextMap[w]).join(' ');
-    
+
     // 1. Name Match using Fuzzy Matching and Alias Check
     let nameMatch = false;
     if (!namePart) {
-      nameMatch = true; 
+      nameMatch = true;
     } else {
       nameMatch = targetNames.some(name => {
         // Project Rule: 2-char diff OR 80% similarity
         if (fuzzyMatchNames(name, namePart)) return true;
-        
+
         // Also support partial matches (e.g. "Billie" matches "Billie Eilish")
         if (name.includes(namePart) || namePart.includes(name)) return true;
-        
+
         return false;
       });
     }
@@ -287,10 +309,10 @@ export const WikidataService = {
       const contextPass = activeContexts.some(ctx => {
         const info = this.contextMap[ctx];
         const contextTerm = info ? info.full : ctx;
-        
+
         const propertyMatch = candidate.resolvedProperties.some(prop => prop.includes(contextTerm));
         const fullText = `${candidate.name} ${candidate.description} ${candidate.aliases.join(' ')}`.toLowerCase();
-        
+
         return propertyMatch || fullText.includes(contextTerm);
       });
 

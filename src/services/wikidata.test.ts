@@ -2,8 +2,21 @@ import { describe, it, expect, beforeEach, vi } from 'vitest';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { WikidataService } from './wikidata';
+import { CategoryConfig } from '../config/categories';
 
 const mock = new MockAdapter(axios);
+
+const womenCategory: CategoryConfig = {
+  id: 'women',
+  name: '100 Famous Women',
+  icon: '👩',
+  accentColor: '#ff4757',
+  targetCount: 100,
+  timeLimitMs: 15 * 60 * 1000,
+  allowlistFile: 'allowlist-women.json',
+  verificationStrategy: 'wikidata',
+  wikidataGender: 'Q6581072',
+};
 
 describe('WikidataService', () => {
   beforeEach(() => {
@@ -41,7 +54,7 @@ describe('WikidataService', () => {
       }
     });
 
-    const result = await WikidataService.searchWoman('Billie Eilish');
+    const result = await WikidataService.search('Billie Eilish', womenCategory);
     expect(result).not.toBeNull();
     expect(result?.name).toBe('Billie Eilish');
     expect(result?.id).toBe('Q1');
@@ -67,10 +80,10 @@ describe('WikidataService', () => {
        }];
      });
 
-     await WikidataService.searchWoman('Billie Eilish');
+     await WikidataService.search('Billie Eilish', womenCategory);
      const countAfterFirst = callCount;
-     
-     const secondResult = await WikidataService.searchWoman('Billie Eilish');
+
+     const secondResult = await WikidataService.search('Billie Eilish', womenCategory);
      expect(secondResult?.name).toBe('Billie Eilish');
      expect(callCount).toBe(countAfterFirst); // No new calls
   });
@@ -106,7 +119,7 @@ describe('WikidataService', () => {
       }
     });
 
-    const result = await WikidataService.searchWoman('Woman');
+    const result = await WikidataService.search('Woman', womenCategory);
     expect(result?.id).toBe('Q2'); // Q2 has more sitelinks
   });
 
@@ -133,7 +146,7 @@ describe('WikidataService', () => {
     });
 
     // "Kim Ji-su" vs "Kim Ji-soo" is 1-char diff (fuzzy match)
-    const result = await WikidataService.searchWoman('Kim Ji-su');
+    const result = await WikidataService.search('Kim Ji-su', womenCategory);
     expect(result).not.toBeNull();
     expect(result?.name).toBe('Jisoo');
   });
@@ -162,7 +175,7 @@ describe('WikidataService', () => {
         }
       });
 
-      const result = await WikidataService.searchWoman('Woman');
+      const result = await WikidataService.search('Woman', womenCategory);
       expect(result).not.toBeNull();
       expect(result?.id).toBe('Q1');
   });
@@ -201,12 +214,12 @@ describe('WikidataService', () => {
       }];
     });
 
-    await WikidataService.searchWoman('Woman');
+    await WikidataService.search('Woman', womenCategory);
     expect(labelCallCount).toBe(1);
 
     // Clear search cache but NOT property cache (manually clearing search cache only)
-    // Actually searchWoman caches the whole result. To test property cache, we need a different search.
-    
+    // Actually search caches the whole result. To test property cache, we need a different search.
+
     mock.onGet('https://www.wikidata.org/w/api.php', { params: expect.objectContaining({ action: 'query', srsearch: 'Other' }) }).reply(200, {
         query: { search: [{ title: 'Q2' }] }
     });
@@ -227,7 +240,7 @@ describe('WikidataService', () => {
         }
     });
 
-    await WikidataService.searchWoman('Other');
+    await WikidataService.search('Other', womenCategory);
     expect(labelCallCount).toBe(1); // Should still be 1 because Q100 was cached
   });
 });
