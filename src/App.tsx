@@ -3,7 +3,7 @@ import { WikidataService } from './services/wikidata';
 import { GameState, GameAction, GameEntry } from './types/game';
 import { CATEGORIES, CategoryConfig } from './config/categories';
 import { CategorySelectScreen } from './components/CategorySelectScreen';
-import { Search, AlertCircle, Loader2, RotateCcw, Clock, Infinity as InfinityIcon } from 'lucide-react';
+import { Search, AlertCircle, Loader2, RotateCcw, Clock, Infinity as InfinityIcon, Pause } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
 
@@ -328,35 +328,34 @@ function App() {
           <button className="icon-btn back-btn" onClick={() => dispatch({ type: 'RESET_GAME' })} title="Back to menu">
             ←
           </button>
-          <div className={`timer-display ${state.timeLeft <= 30000 && !state.isZenMode ? 'urgent' : ''}`}>
-            {!state.isZenMode ? (
-              <>
-                <Clock size={20} className="timer-icon" />
-                {formatTime(state.timeLeft)}
-              </>
-            ) : (
-              <>
-                <InfinityIcon size={20} className="timer-icon" />
-                {formatTime(state.timeElapsed)}
-              </>
-            )}
-          </div>
-          <div className="counter">
-            <span>{verifiedCount}</span> / {state.selectedCategory.targetCount}
-          </div>
+          <h2 className="game-title">Name {state.selectedCategory.name}</h2>
           <div className="header-right">
+            <div className={`timer-display ${state.timeLeft <= 30000 && !state.isZenMode ? 'urgent' : ''}`}>
+              {!state.isZenMode ? (
+                <>
+                  <Clock size={16} className="timer-icon" />
+                  {formatTime(state.timeLeft)}
+                </>
+              ) : (
+                <>
+                  <InfinityIcon size={16} className="timer-icon" />
+                  {formatTime(state.timeElapsed)}
+                </>
+              )}
+            </div>
+            <div className="counter">
+              <span>{verifiedCount}</span> / {state.selectedCategory.targetCount}
+            </div>
             {isDebug && !state.isZenMode && state.status === 'PLAYING' && (
               <button className="icon-btn debug-skip-btn" onClick={() => dispatch({ type: 'SKIP_TIME' })} title="Skip to end (debug)">
                 ⏩
               </button>
             )}
-            <button className="icon-btn" onClick={() => dispatch({ type: 'PAUSE_GAME' })}>
-              II
+            <button className="icon-btn" onClick={() => dispatch({ type: 'PAUSE_GAME' })} title="Pause">
+              <Pause size={16} />
             </button>
           </div>
         </header>
-
-        <h2 className="game-title">Name {state.selectedCategory.name}</h2>
 
         <form onSubmit={handleSubmit} className="input-group">
           <div className="input-wrapper">
@@ -374,9 +373,6 @@ function App() {
               <Search className="icon search-icon" />
             )}
           </div>
-          <button type="submit" disabled={state.status !== 'PLAYING' || verifiedCount >= state.selectedCategory.targetCount}>
-            Add
-          </button>
         </form>
 
         {state.error && (
@@ -412,7 +408,7 @@ function App() {
                 )}
                 <div className="woman-info">
                   <h3>{entry.status === 'verified' ? entry.name : entry.inputName}</h3>
-                  {entry.status === 'verified' && entry.description && (
+                  {entry.status === 'verified' && entry.description && state.selectedCategory.verificationStrategy !== 'allowlist-only' && (
                     <p>{entry.description.charAt(0).toUpperCase() + entry.description.slice(1)}</p>
                   )}
                 </div>
