@@ -364,7 +364,7 @@ function App() {
               type="text"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              placeholder={`Type a ${categoryLabel} name...`}
+              placeholder={state.selectedCategory.inputPlaceholder}
               disabled={state.status !== 'PLAYING' || verifiedCount >= state.selectedCategory.targetCount}
             />
             {state.isProcessing ? (

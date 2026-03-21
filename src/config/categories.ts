@@ -9,6 +9,7 @@ export interface CategoryConfig {
   timeLimitMs: number;
   allowlistFile: string;       // basename only, e.g. 'allowlist-women.json'
   verificationStrategy: VerificationStrategy;
+  inputPlaceholder: string;    // e.g. "Type a famous woman's name"
   wikidataGender?: string;     // Wikidata QID, only for 'wikidata' strategy
 }
 
@@ -22,6 +23,7 @@ export const CATEGORIES: CategoryConfig[] = [
     timeLimitMs: 15 * 60 * 1000,
     allowlistFile: 'allowlist-women.json',
     verificationStrategy: 'wikidata',
+    inputPlaceholder: "Type a famous woman's name",
     wikidataGender: 'Q6581072',
   },
   {
@@ -33,6 +35,7 @@ export const CATEGORIES: CategoryConfig[] = [
     timeLimitMs: 15 * 60 * 1000,
     allowlistFile: 'allowlist-men.json',
     verificationStrategy: 'wikidata',
+    inputPlaceholder: "Type a famous man's name",
     wikidataGender: 'Q6581097',
   },
   {
@@ -44,6 +47,7 @@ export const CATEGORIES: CategoryConfig[] = [
     timeLimitMs: 15 * 60 * 1000,
     allowlistFile: 'allowlist-nba.json',
     verificationStrategy: 'allowlist-only',
+    inputPlaceholder: "Type an NBA player's name",
   },
   {
     id: 'lol',
@@ -54,5 +58,6 @@ export const CATEGORIES: CategoryConfig[] = [
     timeLimitMs: 15 * 60 * 1000,
     allowlistFile: 'allowlist-lol.json',
     verificationStrategy: 'allowlist-only',
+    inputPlaceholder: "Type a LoL champion's name",
   },
 ];
