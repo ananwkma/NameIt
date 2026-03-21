@@ -1,12 +1,20 @@
-import { CategoryConfig } from '../config/categories';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { CATEGORIES } from '../config/categories';
 
-interface Props {
-  categories: CategoryConfig[];
-  highScores: Record<string, number>;  // { [categoryId]: bestScore }
-  onSelect: (category: CategoryConfig) => void;
-}
+export function CategorySelectScreen() {
+  const navigate = useNavigate();
+  const [highScores, setHighScores] = useState<Record<string, number>>({});
 
-export function CategorySelectScreen({ categories, highScores, onSelect }: Props) {
+  useEffect(() => {
+    const scores: Record<string, number> = {};
+    for (const cat of CATEGORIES) {
+      const saved = localStorage.getItem(`game_highscore_${cat.id}`);
+      scores[cat.id] = saved ? parseInt(saved, 10) || 0 : 0;
+    }
+    setHighScores(scores);
+  }, []);
+
   return (
     <div className="master-container" style={{ alignItems: 'center' }}>
       <header>
@@ -16,12 +24,12 @@ export function CategorySelectScreen({ categories, highScores, onSelect }: Props
         <h2>Name It!</h2>
         <p className="category-subtitle">Choose a category to play</p>
         <div className="category-grid">
-          {categories.map((cat) => (
+          {CATEGORIES.map((cat) => (
             <button
               key={cat.id}
               className="category-card"
               style={{ '--card-accent': cat.accentColor } as React.CSSProperties}
-              onClick={() => onSelect(cat)}
+              onClick={() => navigate(`/game/${cat.id}`)}
             >
               <span className="category-icon">{cat.icon}</span>
               <span className="category-name">{cat.name}</span>
