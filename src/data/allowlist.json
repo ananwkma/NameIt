@@ -1,0 +1,1044 @@
+[
+  {
+    "name": "Pokimane",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 5367605,
+    "genderSource": "wikidata+llm",
+    "wikidataConfirmed": true
+  },
+  {
+    "name": "Loserfruit",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 1869993,
+    "genderSource": "wikidata+llm",
+    "wikidataConfirmed": true
+  },
+  {
+    "name": "Amouranth",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 1707804,
+    "genderSource": "wikidata+llm",
+    "wikidataConfirmed": true
+  },
+  {
+    "name": "LilyPichu",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 1363222,
+    "genderSource": "wikidata+llm",
+    "wikidataConfirmed": true
+  },
+  {
+    "name": "Loeya",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 1233300,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "alinity",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 1203324,
+    "genderSource": "wikidata+llm",
+    "wikidataConfirmed": true
+  },
+  {
+    "name": "ChicaLive",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 1041932,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Sweet Anita",
+    "aliases": [
+      "sweet_anita"
+    ],
+    "platform": "twitch",
+    "followers": 972070,
+    "genderSource": "wikidata+llm",
+    "wikidataConfirmed": true
+  },
+  {
+    "name": "Hafu",
+    "aliases": [
+      "itshafu"
+    ],
+    "platform": "twitch",
+    "followers": 787371,
+    "genderSource": "wikidata+llm",
+    "wikidataConfirmed": true
+  },
+  {
+    "name": "Brooke Ashley",
+    "aliases": [
+      "brookeab"
+    ],
+    "platform": "twitch",
+    "followers": 737161,
+    "genderSource": "wikidata+llm",
+    "wikidataConfirmed": true
+  },
+  {
+    "name": "Perxitaa",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 689582,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "AnneMunition",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 621921,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "DizzyKitten",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 613135,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Staryuuki",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 586475,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "olyashaa",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 559877,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "HoneyMad",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 533250,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "ziGueira",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 529814,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "natalan",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 529357,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "39daph",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 505362,
+    "genderSource": "wikidata+llm",
+    "wikidataConfirmed": true
+  },
+  {
+    "name": "Pqueen",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 485787,
+    "genderSource": "wikidata+llm",
+    "wikidataConfirmed": true
+  },
+  {
+    "name": "AnniTheDuck",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 460463,
+    "genderSource": "wikidata+llm",
+    "wikidataConfirmed": true
+  },
+  {
+    "name": "LuluLuvely",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 431852,
+    "genderSource": "wikidata+llm",
+    "wikidataConfirmed": true
+  },
+  {
+    "name": "Kandyland",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 405554,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "IamCristinini",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 398634,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Jinnytty",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 372334,
+    "genderSource": "wikidata+llm",
+    "wikidataConfirmed": true
+  },
+  {
+    "name": "Becca",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 357844,
+    "genderSource": "wikidata+llm",
+    "wikidataConfirmed": true
+  },
+  {
+    "name": "Fuslie",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 336394,
+    "genderSource": "wikidata+llm",
+    "wikidataConfirmed": true
+  },
+  {
+    "name": "Alexandra Botez",
+    "aliases": [
+      "botezlive"
+    ],
+    "platform": "twitch",
+    "followers": 330772,
+    "genderSource": "wikidata+llm",
+    "wikidataConfirmed": true
+  },
+  {
+    "name": "mandiocaa1",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 312944,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Solaaaa",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 309594,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "소풍왔니 (yumyumyu77)",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 309322,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "실프_ (silphtv)",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 309065,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "dinablin",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 293748,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "QuarterJade",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 277256,
+    "genderSource": "wikidata+llm",
+    "wikidataConfirmed": true
+  },
+  {
+    "name": "LenaGol0vach",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 274237,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Sequisha",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 252495,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "선바 (sunbaking)",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 251416,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "꽃핀 (cherrypach)",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 240835,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Etoiles",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 220873,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "양아지 (dkwl025)",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 220819,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "코렛트 (collet11)",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 215304,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "옥냥이 (rooftopcat99)",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 214028,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "연두는말안드뤄 (rudbeckia7)",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 212053,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "금사향 (sah_yang)",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 206794,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "다주 (dda_ju)",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 205041,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Crystal_LoL",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 167132,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "H0llyLP",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 151000,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "나나양 (nanayango3o)",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 147351,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "小夜夜 (albislol)",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 146276,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Lasqa",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 135446,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "_연두부_ (lovelyyeon)",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 108382,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "지수소녀 (wltn4765)",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 99600,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "kyliebitkin",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 85336,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "supcaitlin",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "QTCinderella",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "wikidata+llm",
+    "wikidataConfirmed": true
+  },
+  {
+    "name": "kkatamina",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "wikidata+llm",
+    "wikidataConfirmed": true
+  },
+  {
+    "name": "Shylily",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Nyatasha Nyanners",
+    "aliases": [
+      "nyanners"
+    ],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "wikidata+llm",
+    "wikidataConfirmed": true
+  },
+  {
+    "name": "Ironmouse",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "wikidata+llm",
+    "wikidataConfirmed": true
+  },
+  {
+    "name": "Veibae",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "wikidata+llm",
+    "wikidataConfirmed": true
+  },
+  {
+    "name": "Bao",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "filian",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Valkyrae",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "wikidata+llm",
+    "wikidataConfirmed": true
+  },
+  {
+    "name": "Katerino",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "JustaMinx",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "carolinekwan",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "syanne",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "toxinaaaz",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "yuki_nuki",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "velvet_7",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "MintCastella",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "AoiHinamori",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "morkovushkaa",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "sarahbridgewater",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Erispheria",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "jessicakohh",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "soybranflores",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Esskayuwu",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Emilycc",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "koragi_ch",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Kaceytron",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "SharonQueen",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "MiaMakesMusic",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Mirys",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "CaptainJen_E",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "StreamMelody",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "LofiGirl",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "nelNELLYnel",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Purplestarzz_",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "MaryJoLilac",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "KristiKates",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Kyaroline",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "TotoRobyn",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "HollyTatnall",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "MarieNizet",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "DJFirstLadyEForce",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "JANEgelMusic",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "PiepersPlace",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "MinoriNyabe",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "tteokiee",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "manda",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "MooMerrily",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Syafire",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "teahri",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "julieee22",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "sakoneko",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "CocoRinn_v",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Belindraw",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "wanko_lierre",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Mi_Chumi",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "chacuri",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "ufomie",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Tinaqt",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "y0ichigo",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "kinKaikii",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "charmii",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "nesivart",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "salmon_something",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "SilverTsuki_",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "CrystMelody",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "yuniese",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Lilith__Maktub",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "LittleWitchRumi",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "Loca_Llama",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "AelannaCessara",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "AzuAzuline",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "peachybuni_",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "MarianosWorkshop",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  },
+  {
+    "name": "PrismaLin",
+    "aliases": [],
+    "platform": "twitch",
+    "followers": 0,
+    "genderSource": "llm",
+    "wikidataConfirmed": false
+  }
+]

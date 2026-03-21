@@ -316,12 +316,12 @@ function App() {
 
   if (state.status === 'IDLE') {
     return (
-      <div className="container">
+      <div className="master-container" style={{ alignItems: 'center' }}>
         <header>
-            <h1>100 Women Game</h1>
+            <h1>Name It!</h1>
         </header>
         <div className="menu-card">
-          <h2>Can you name 100 famous women?</h2>
+          <h2>Name It!</h2>
           
           <div className="mode-selection single-mode">
             <button 
@@ -329,9 +329,8 @@ function App() {
                 onClick={() => dispatch({ type: 'START_GAME' })}
             >
                 <Play className="icon-lg" />
-                <h3>Start Game</h3>
-                <p>15 Minutes. Go.</p>
-                <div className="score-pill">Best: {highScore}</div>
+                <h3>100 Women</h3>
+<div className="score-pill">Best: {highScore}</div>
             </button>
           </div>
         </div>

@@ -1,6 +1,16 @@
 import axios from 'axios';
 import { Woman } from '../types/wikidata';
 import { fuzzyMatchNames } from '../utils/fuzzyMatch';
+import allowlistData from '../data/allowlist.json';
+
+interface AllowlistEntry {
+  name: string;
+  aliases: string[];
+  platform: string;
+  genderSource: string;
+}
+
+const allowlist: AllowlistEntry[] = allowlistData as AllowlistEntry[];
 
 const WIKIDATA_API_URL = 'https://www.wikidata.org/w/api.php';
 
@@ -38,8 +48,8 @@ export const WikidataService = {
   } as Record<string, { qid: string; full: string }>,
 
   async searchWoman(input: string): Promise<Woman | null> {
+    const normalizedInput = input.trim().toLowerCase();
     try {
-      const normalizedInput = input.trim().toLowerCase();
       
       // Check search cache
       if (searchCache.has(normalizedInput)) {
@@ -89,9 +99,8 @@ export const WikidataService = {
       const allIds = Array.from(new Set([...idsA, ...idsC, ...idsB])).slice(0, 5).join('|');
 
       if (!allIds) {
-        console.log(`[DEBUG] No results found.`);
-        searchCache.set(normalizedInput, null);
-        return null;
+        console.log(`[DEBUG] No Wikidata results found, will try allowlist.`);
+        throw new Error('no_results');
       }
 
       // 2. Fetch detailed data for top candidates
@@ -190,37 +199,61 @@ export const WikidataService = {
         return b.sitelinks - a.sitelinks;
       });
 
-      if (filtered.length === 0) {
-        console.log('[DEBUG] All candidates filtered out.');
-        searchCache.set(normalizedInput, null);
-        return null;
-      }
-
-      // Ambiguity check: top candidate should be significantly more "famous" if no explicit context match
-      if (activeContexts.length === 0 && filtered.length > 1) {
-        const top = filtered[0];
-        const second = filtered[1];
-        // Skip ambiguity check if the input directly matches the top candidate's primary name —
-        // e.g. typing "madonna" should always resolve to Madonna, not be blocked by Virgin Mary's alias
-        const topNameNormalized = top.name.toLowerCase();
-        const inputMatchesTopDirectly = topNameNormalized === normalizedInput ||
-          topNameNormalized.startsWith(normalizedInput) ||
-          normalizedInput.startsWith(topNameNormalized);
-        if (!inputMatchesTopDirectly && top.sitelinks < second.sitelinks * 1.5) {
-          console.log(`[DEBUG] REJECTED: Ambiguity between "${top.name}" and "${second.name}".`);
-          searchCache.set(normalizedInput, null);
-          return null;
+      if (filtered.length > 0) {
+        // Ambiguity check: top candidate should be significantly more "famous" if no explicit context match
+        let passed = true;
+        if (activeContexts.length === 0 && filtered.length > 1) {
+          const top = filtered[0];
+          const second = filtered[1];
+          const topNameNormalized = top.name.toLowerCase();
+          const inputMatchesTopDirectly = topNameNormalized === normalizedInput ||
+            topNameNormalized.startsWith(normalizedInput) ||
+            normalizedInput.startsWith(topNameNormalized);
+          if (!inputMatchesTopDirectly && top.sitelinks < second.sitelinks * 1.5) {
+            console.log(`[DEBUG] REJECTED: Ambiguity between "${top.name}" and "${second.name}".`);
+            passed = false;
+          }
         }
-      }
 
-      const bestMatch = filtered[0];
-      console.log(`[DEBUG] SUCCESS: Selected ${bestMatch.name} (${bestMatch.id})`);
-      searchCache.set(normalizedInput, bestMatch);
-      return bestMatch;
+        if (passed) {
+          const bestMatch = filtered[0];
+          console.log(`[DEBUG] SUCCESS: Selected ${bestMatch.name} (${bestMatch.id})`);
+          searchCache.set(normalizedInput, bestMatch);
+          return bestMatch;
+        }
+      } else {
+        console.log('[DEBUG] All candidates filtered out.');
+      }
     } catch (error) {
       console.error('[DEBUG] ERROR:', error);
-      return null;
     }
+
+    // Fallback: check local allowlist (internet personalities not on Wikidata)
+    const allowlistMatch = this.searchAllowlist(normalizedInput);
+    if (allowlistMatch) {
+      console.log(`[DEBUG] Allowlist match: ${allowlistMatch.name}`);
+      searchCache.set(normalizedInput, allowlistMatch);
+      return allowlistMatch;
+    }
+
+    searchCache.set(normalizedInput, null);
+    return null;
+  },
+
+  searchAllowlist(input: string): Woman | null {
+    for (const entry of allowlist) {
+      const names = [entry.name.toLowerCase(), ...entry.aliases.map(a => a.toLowerCase())];
+      for (const name of names) {
+        if (fuzzyMatchNames(name, input) || name === input || name.includes(input) || input.includes(name)) {
+          return {
+            id: `allowlist-${entry.name.toLowerCase().replace(/\s+/g, '-')}`,
+            name: entry.name,
+            description: `${entry.platform} creator`,
+          };
+        }
+      }
+    }
+    return null;
   },
 
   checkMatch(inputWords: string[], activeContexts: string[], candidate: WomanCandidate): boolean {
