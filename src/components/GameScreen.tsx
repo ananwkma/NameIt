@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { WikidataService } from '../services/wikidata';
 import { GameState, GameAction, GameEntry } from '../types/game';
 import { CATEGORIES } from '../config/categories';
-import { Search, AlertCircle, Loader2, Clock, Infinity as InfinityIcon, Pause } from 'lucide-react';
+import { Search, AlertCircle, Loader2, Clock, Infinity as InfinityIcon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const baseInitialState: Omit<GameState, 'selectedCategory' | 'timeLeft'> = {
@@ -230,6 +230,18 @@ export function GameScreen() {
     }
   }, [state.status]);
 
+  // Escape key to pause/resume
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        if (state.status === 'PLAYING') dispatch({ type: 'PAUSE_GAME' });
+        else if (state.status === 'PAUSED') dispatch({ type: 'RESUME_GAME' });
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [state.status]);
+
   // Background Queue Processor
   useEffect(() => {
     const processQueue = async () => {
@@ -313,9 +325,6 @@ export function GameScreen() {
                 ⏩
               </button>
             )}
-            <button className="icon-btn" onClick={() => dispatch({ type: 'PAUSE_GAME' })} title="Pause">
-              <Pause size={16} />
-            </button>
           </div>
         </header>
 
