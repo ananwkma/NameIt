@@ -1,8 +1,9 @@
 import { Woman } from '../services/wikidata';
+import { CategoryConfig } from '../config/categories';
 
 export type VerificationStatus = 'pending' | 'verified' | 'failed';
 
-export interface GameWoman extends Partial<Woman> {
+export interface GameEntry extends Partial<Woman> {
   status: VerificationStatus;
   tempId: string;
   inputName: string;
@@ -13,7 +14,8 @@ export type GameStatus = 'IDLE' | 'PLAYING' | 'PAUSED' | 'TIME_UP' | 'GAME_OVER'
 export interface GameState {
   status: GameStatus;
   isZenMode: boolean;
-  women: GameWoman[];
+  selectedCategory: CategoryConfig;
+  entries: GameEntry[];
   isProcessing: boolean;
   error: string | null;
   // Timer related
@@ -24,10 +26,10 @@ export interface GameState {
 }
 
 export type GameAction =
-  | { type: 'START_GAME' }
+  | { type: 'START_GAME'; payload: { category: CategoryConfig } }
   | { type: 'LOAD_GAME'; payload: GameState }
   | { type: 'ENTER_ZEN_MODE' }
-  | { type: 'ADD_WOMAN_PENDING'; payload: { name: string; tempId: string } }
+  | { type: 'ADD_ENTRY_PENDING'; payload: { name: string; tempId: string } }
   | { type: 'VERIFY_SUCCESS'; payload: { tempId: string; data: Woman } }
   | { type: 'VERIFY_FAIL'; payload: { tempId: string; error?: string } }
   | { type: 'SET_PROCESSING'; payload: boolean }
