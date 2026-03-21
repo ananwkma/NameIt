@@ -1,19 +1,20 @@
 import { useReducer, useRef, useEffect, useState } from 'react';
 import { WikidataService } from './services/wikidata';
-import { GameState, GameAction, GameWoman } from './types/game';
-import { Search, AlertCircle, Loader2, Play, Trophy, RotateCcw, Clock, Infinity as InfinityIcon } from 'lucide-react';
+import { GameState, GameAction, GameEntry } from './types/game';
+import { CATEGORIES, CategoryConfig } from './config/categories';
+import { CategorySelectScreen } from './components/CategorySelectScreen';
+import { Search, AlertCircle, Loader2, RotateCcw, Clock, Infinity as InfinityIcon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
-
-const CLASSIC_TIME_LIMIT = 15 * 60 * 1000; // 15 minutes in ms
 
 const initialState: GameState = {
   status: 'IDLE',
   isZenMode: false,
-  women: [],
+  selectedCategory: CATEGORIES[0],
+  entries: [],
   isProcessing: false,
   error: null,
-  timeLeft: CLASSIC_TIME_LIMIT,
+  timeLeft: CATEGORIES[0].timeLimitMs,
   timeElapsed: 0,
   startTime: null,
   lastTick: null,
@@ -24,86 +25,71 @@ function gameReducer(state: GameState, action: GameAction): GameState {
     case 'START_GAME':
       return {
         ...initialState,
+        selectedCategory: action.payload.category,
         status: 'PLAYING',
         startTime: Date.now(),
         lastTick: Date.now(),
-        timeLeft: CLASSIC_TIME_LIMIT,
+        timeLeft: action.payload.category.timeLimitMs,
         timeElapsed: 0,
         isZenMode: false,
       };
     case 'LOAD_GAME':
       return {
         ...action.payload,
-        // Ensure we don't load into a processing state that might be stuck
-        isProcessing: false, 
-        lastTick: Date.now(), // Reset tick to avoid huge jumps
+        isProcessing: false,
+        lastTick: Date.now(),
       };
     case 'ENTER_ZEN_MODE':
-        return {
-            ...state,
-            status: 'PLAYING',
-            isZenMode: true,
-            timeElapsed: CLASSIC_TIME_LIMIT,
-            lastTick: Date.now(),
-        };
-    case 'ADD_WOMAN_PENDING':
       return {
         ...state,
-        women: [
+        status: 'PLAYING',
+        isZenMode: true,
+        timeElapsed: state.selectedCategory.timeLimitMs,
+        lastTick: Date.now(),
+      };
+    case 'ADD_ENTRY_PENDING':
+      return {
+        ...state,
+        entries: [
           {
             tempId: action.payload.tempId,
             inputName: action.payload.name,
             status: 'pending',
-          } as GameWoman,
-          ...state.women,
+          } as GameEntry,
+          ...state.entries,
         ],
       };
     case 'VERIFY_SUCCESS': {
-      // Check for duplicates before finalizing
-      const isDuplicate = state.women.some(
-        (w) => w.status === 'verified' && w.id === action.payload.data.id
+      const isDuplicate = state.entries.some(
+        (e) => e.status === 'verified' && e.id === action.payload.data.id
       );
 
       if (isDuplicate) {
         return {
           ...state,
           error: `You already added ${action.payload.data.name}!`,
-          women: state.women.filter((w) => w.tempId !== action.payload.tempId),
+          entries: state.entries.filter((e) => e.tempId !== action.payload.tempId),
         };
       }
 
-      const updatedWomen = state.women.map((w) =>
-        w.tempId === action.payload.tempId
-          ? ({
-              ...w,
-              ...action.payload.data,
-              status: 'verified',
-            } as GameWoman)
-          : w
+      const updatedEntries = state.entries.map((e) =>
+        e.tempId === action.payload.tempId
+          ? ({ ...e, ...action.payload.data, status: 'verified' } as GameEntry)
+          : e
       );
-      
-      const verifiedCount = updatedWomen.filter(w => w.status === 'verified').length;
-      
-      // Check for win condition
-      if (verifiedCount >= 100) {
-        return {
-            ...state,
-            women: updatedWomen,
-            status: 'WIN',
-            endTime: Date.now(), // Forceful cast handled by persistence logic
-        } as any; 
+
+      const verifiedCount = updatedEntries.filter(e => e.status === 'verified').length;
+
+      if (verifiedCount >= state.selectedCategory.targetCount) {
+        return { ...state, entries: updatedEntries, status: 'WIN', endTime: Date.now() } as any;
       }
 
-      return {
-        ...state,
-        error: null,
-        women: updatedWomen,
-      };
+      return { ...state, error: null, entries: updatedEntries };
     }
     case 'VERIFY_FAIL':
       return {
         ...state,
-        women: state.women.filter((w) => w.tempId !== action.payload.tempId),
+        entries: state.entries.filter((e) => e.tempId !== action.payload.tempId),
       };
     case 'SET_PROCESSING':
       return { ...state, isProcessing: action.payload };
@@ -117,12 +103,11 @@ function gameReducer(state: GameState, action: GameAction): GameState {
       return initialState;
     case 'TICK': {
       if (state.status !== 'PLAYING') return state;
-      
+
       const now = action.payload;
       const lastTick = state.lastTick || now;
       const delta = now - lastTick;
 
-      // Always update total elapsed time
       const newTimeElapsed = state.timeElapsed + delta;
 
       if (!state.isZenMode) {
@@ -143,7 +128,6 @@ function gameReducer(state: GameState, action: GameAction): GameState {
           lastTick: now,
         };
       } else {
-        // Zen Mode
         return {
           ...state,
           timeElapsed: newTimeElapsed,
@@ -156,7 +140,7 @@ function gameReducer(state: GameState, action: GameAction): GameState {
     case 'GAME_OVER':
       return { ...state, status: 'GAME_OVER', lastTick: null };
     case 'WIN_GAME':
-        return { ...state, status: 'WIN', lastTick: null };
+      return { ...state, status: 'WIN', lastTick: null };
     default:
       return state;
   }
@@ -167,11 +151,11 @@ const formatTime = (ms: number, showMs = false) => {
   const totalSeconds = Math.max(0, Math.floor(ms / 1000));
   const minutes = Math.floor(totalSeconds / 60);
   const seconds = totalSeconds % 60;
-  
+
   const str = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-  
+
   if (showMs) {
-    const milliseconds = Math.floor((Math.max(0, ms) % 1000) / 10); // 2 digits
+    const milliseconds = Math.floor((Math.max(0, ms) % 1000) / 10);
     return `${str}.${milliseconds.toString().padStart(2, '0')}`;
   }
   return str;
@@ -181,53 +165,66 @@ function App() {
   const [state, dispatch] = useReducer(gameReducer, initialState);
   const [inputValue, setInputValue] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
-  const [highScore, setHighScore] = useState<number>(0);
+  const [highScores, setHighScores] = useState<Record<string, number>>({});
   const isDebug = new URLSearchParams(window.location.search).has('debug');
 
   // Load game and high scores on mount
   useEffect(() => {
     const isDebug = new URLSearchParams(window.location.search).has('debug');
-    if (isDebug) {
-      localStorage.removeItem('100women_state');
+
+    // Load high scores for all categories
+    const scores: Record<string, number> = {};
+    for (const cat of CATEGORIES) {
+      const saved = localStorage.getItem(`game_highscore_${cat.id}`);
+      scores[cat.id] = saved ? parseInt(saved, 10) || 0 : 0;
     }
+    setHighScores(scores);
 
-    const savedState = isDebug ? null : localStorage.getItem('100women_state');
-    const savedScore = localStorage.getItem('100women_highscore');
-
-    if (savedState) {
-      try {
-        const parsedState = JSON.parse(savedState);
-        // Restore if active or paused or time up
-        if (['PLAYING', 'PAUSED', 'TIME_UP'].includes(parsedState.status)) {
-            dispatch({ type: 'LOAD_GAME', payload: parsedState });
+    // Restore active game — use the category stored in saved state
+    if (!isDebug) {
+      for (const cat of CATEGORIES) {
+        const savedState = localStorage.getItem(`game_state_${cat.id}`);
+        if (savedState) {
+          try {
+            const parsedState = JSON.parse(savedState);
+            if (['PLAYING', 'PAUSED', 'TIME_UP'].includes(parsedState.status)) {
+              dispatch({ type: 'LOAD_GAME', payload: parsedState });
+              break;
+            }
+          } catch (e) {
+            console.error('Failed to load state', e);
+          }
         }
-      } catch (e) {
-        console.error('Failed to load state', e);
       }
-    }
-
-    if (savedScore) {
-      setHighScore(parseInt(savedScore, 10) || 0);
+    } else {
+      // Debug: clear all category states
+      for (const cat of CATEGORIES) {
+        localStorage.removeItem(`game_state_${cat.id}`);
+      }
     }
   }, []);
 
   // Save state on change
   useEffect(() => {
+    const key = `game_state_${state.selectedCategory.id}`;
     if (['PLAYING', 'PAUSED', 'TIME_UP'].includes(state.status)) {
-      localStorage.setItem('100women_state', JSON.stringify(state));
-    } else if (state.status === 'IDLE' || state.status === 'GAME_OVER' || state.status === 'WIN') {
-        localStorage.removeItem('100women_state');
+      localStorage.setItem(key, JSON.stringify(state));
+    } else {
+      localStorage.removeItem(key);
     }
   }, [state]);
 
-  // Update high score (max women found)
+  // Update high score per category
   useEffect(() => {
-    const verifiedCount = state.women.filter(w => w.status === 'verified').length;
-    if (verifiedCount > highScore) {
-        setHighScore(verifiedCount);
-        localStorage.setItem('100women_highscore', verifiedCount.toString());
+    const verifiedCount = state.entries.filter(e => e.status === 'verified').length;
+    const catId = state.selectedCategory.id;
+    const current = highScores[catId] ?? 0;
+    if (verifiedCount > current) {
+      const updated = { ...highScores, [catId]: verifiedCount };
+      setHighScores(updated);
+      localStorage.setItem(`game_highscore_${catId}`, verifiedCount.toString());
     }
-  }, [state.women, highScore]);
+  }, [state.entries, highScores, state.selectedCategory.id]);
 
   // Timer Effect
   useEffect(() => {
@@ -250,31 +247,29 @@ function App() {
   // Auto-focus on mount
   useEffect(() => {
     if (state.status === 'PLAYING') {
-        inputRef.current?.focus();
+      inputRef.current?.focus();
     }
   }, [state.status]);
 
   // Background Queue Processor
   useEffect(() => {
     const processQueue = async () => {
-      // Don't start if already processing or game is not playing
       if (state.isProcessing || state.status !== 'PLAYING') return;
 
-      // Find the first pending item (oldest first)
-      const pendingWoman = [...state.women].reverse().find(w => w.status === 'pending');
+      const pendingEntry = [...state.entries].reverse().find(e => e.status === 'pending');
 
-      if (pendingWoman) {
+      if (pendingEntry) {
         dispatch({ type: 'SET_PROCESSING', payload: true });
         try {
-          const result = await WikidataService.searchWoman(pendingWoman.inputName);
+          const result = await WikidataService.search(pendingEntry.inputName, state.selectedCategory);
           if (result) {
-            dispatch({ type: 'VERIFY_SUCCESS', payload: { tempId: pendingWoman.tempId, data: result } });
+            dispatch({ type: 'VERIFY_SUCCESS', payload: { tempId: pendingEntry.tempId, data: result } });
           } else {
-            dispatch({ type: 'VERIFY_FAIL', payload: { tempId: pendingWoman.tempId } });
-            dispatch({ type: 'SET_ERROR', payload: `"${pendingWoman.inputName}" not found or not a famous woman.` });
+            dispatch({ type: 'VERIFY_FAIL', payload: { tempId: pendingEntry.tempId } });
+            dispatch({ type: 'SET_ERROR', payload: `"${pendingEntry.inputName}" not recognized.` });
           }
         } catch (error) {
-          dispatch({ type: 'VERIFY_FAIL', payload: { tempId: pendingWoman.tempId } });
+          dispatch({ type: 'VERIFY_FAIL', payload: { tempId: pendingEntry.tempId } });
           dispatch({ type: 'SET_ERROR', payload: 'Connection error while verifying.' });
         } finally {
           dispatch({ type: 'SET_PROCESSING', payload: false });
@@ -283,17 +278,16 @@ function App() {
     };
 
     processQueue();
-  }, [state.women, state.isProcessing, state.status]);
+  }, [state.entries, state.isProcessing, state.status]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const name = inputValue.trim();
     if (!name) return;
 
-    // Check for duplicates in the current list (optimistic check)
-    const isDuplicate = state.women.some(
-      w => w.inputName.toLowerCase() === name.toLowerCase() || 
-           (w.status === 'verified' && w.name?.toLowerCase() === name.toLowerCase())
+    const isDuplicate = state.entries.some(
+      e => e.inputName.toLowerCase() === name.toLowerCase() ||
+           (e.status === 'verified' && e.name?.toLowerCase() === name.toLowerCase())
     );
 
     if (isDuplicate) {
@@ -301,40 +295,27 @@ function App() {
       return;
     }
 
-    // Optimistic Add
     const tempId = crypto.randomUUID();
-    dispatch({ type: 'ADD_WOMAN_PENDING', payload: { name, tempId } });
-    setInputValue(''); // Clear input immediately
-    
-    // Focus back immediately
+    dispatch({ type: 'ADD_ENTRY_PENDING', payload: { name, tempId } });
+    setInputValue('');
+
     inputRef.current?.focus();
   };
 
-  const verifiedCount = state.women.filter(w => w.status === 'verified').length;
+  const verifiedCount = state.entries.filter(e => e.status === 'verified').length;
+
+  // Category label for modals (e.g. "famous women", "NBA players", "LoL champions")
+  const categoryLabel = state.selectedCategory.name.toLowerCase().replace('100 ', '');
 
   // --- RENDER HELPERS ---
 
   if (state.status === 'IDLE') {
     return (
-      <div className="master-container" style={{ alignItems: 'center' }}>
-        <header>
-            <h1>Name It!</h1>
-        </header>
-        <div className="menu-card">
-          <h2>Name It!</h2>
-          
-          <div className="mode-selection single-mode">
-            <button 
-                className="mode-btn primary-start"
-                onClick={() => dispatch({ type: 'START_GAME' })}
-            >
-                <Play className="icon-lg" />
-                <h3>100 Women</h3>
-<div className="score-pill">Best: {highScore}</div>
-            </button>
-          </div>
-        </div>
-      </div>
+      <CategorySelectScreen
+        categories={CATEGORIES}
+        highScores={highScores}
+        onSelect={(category: CategoryConfig) => dispatch({ type: 'START_GAME', payload: { category } })}
+      />
     );
   }
 
@@ -348,20 +329,20 @@ function App() {
             ←
           </button>
           <div className={`timer-display ${state.timeLeft <= 30000 && !state.isZenMode ? 'urgent' : ''}`}>
-              {!state.isZenMode ? (
-                   <>
-                      <Clock size={20} className="timer-icon" />
-                      {formatTime(state.timeLeft)}
-                   </>
-              ) : (
-                  <>
-                      <InfinityIcon size={20} className="timer-icon" />
-                      {formatTime(state.timeElapsed)}
-                  </>
-              )}
+            {!state.isZenMode ? (
+              <>
+                <Clock size={20} className="timer-icon" />
+                {formatTime(state.timeLeft)}
+              </>
+            ) : (
+              <>
+                <InfinityIcon size={20} className="timer-icon" />
+                {formatTime(state.timeElapsed)}
+              </>
+            )}
           </div>
           <div className="counter">
-            <span>{verifiedCount}</span> / 100
+            <span>{verifiedCount}</span> / {state.selectedCategory.targetCount}
           </div>
           <div className="header-right">
             {isDebug && !state.isZenMode && state.status === 'PLAYING' && (
@@ -382,8 +363,8 @@ function App() {
               type="text"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              placeholder="Type a famous woman's name..."
-              disabled={state.status !== 'PLAYING' || verifiedCount >= 100}
+              placeholder={`Type a ${categoryLabel} name...`}
+              disabled={state.status !== 'PLAYING' || verifiedCount >= state.selectedCategory.targetCount}
             />
             {state.isProcessing ? (
               <Loader2 className="icon loading-spinner" />
@@ -391,7 +372,7 @@ function App() {
               <Search className="icon search-icon" />
             )}
           </div>
-          <button type="submit" disabled={state.status !== 'PLAYING' || verifiedCount >= 100}>
+          <button type="submit" disabled={state.status !== 'PLAYING' || verifiedCount >= state.selectedCategory.targetCount}>
             Add
           </button>
         </form>
@@ -408,29 +389,29 @@ function App() {
       <div className="women-container">
         <section className="women-list">
           <AnimatePresence mode='popLayout'>
-            {state.women.map((woman) => (
+            {state.entries.map((entry) => (
               <motion.div
-                key={woman.tempId}
+                key={entry.tempId}
                 layout
                 initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ 
-                  opacity: woman.status === 'pending' ? 0.3 : 1, 
+                animate={{
+                  opacity: entry.status === 'pending' ? 0.3 : 1,
                   scale: 1,
-                  backgroundColor: woman.status === 'verified' ? '#fff' : '#fff'
+                  backgroundColor: entry.status === 'verified' ? '#fff' : '#fff'
                 }}
                 exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.2 } }}
-                className={`woman-card status-${woman.status}`}
+                className={`woman-card status-${entry.status}`}
               >
-                {woman.status === 'verified' && (
+                {entry.status === 'verified' && (
                   <div className="tooltip">
-                    <strong>{woman.name}</strong>
-                    {woman.description && ` — ${woman.description}`}
+                    <strong>{entry.name}</strong>
+                    {entry.description && ` — ${entry.description}`}
                   </div>
                 )}
                 <div className="woman-info">
-                  <h3>{woman.status === 'verified' ? woman.name : woman.inputName}</h3>
-                  {woman.status === 'verified' && woman.description && (
-                    <p>{woman.description.charAt(0).toUpperCase() + woman.description.slice(1)}</p>
+                  <h3>{entry.status === 'verified' ? entry.name : entry.inputName}</h3>
+                  {entry.status === 'verified' && entry.description && (
+                    <p>{entry.description.charAt(0).toUpperCase() + entry.description.slice(1)}</p>
                   )}
                 </div>
               </motion.div>
@@ -442,60 +423,60 @@ function App() {
       {/* PAUSE MODAL */}
       {state.status === 'PAUSED' && (
         <div className="modal-overlay">
-            <div className="modal">
-                <h2>Game Paused</h2>
-                <div className="action-buttons">
-                    <button onClick={() => dispatch({ type: 'RESUME_GAME' })}>Resume</button>
-                    <button className="secondary" onClick={() => dispatch({ type: 'RESET_GAME' })}>Quit</button>
-                </div>
+          <div className="modal">
+            <h2>Game Paused</h2>
+            <div className="action-buttons">
+              <button onClick={() => dispatch({ type: 'RESUME_GAME' })}>Resume</button>
+              <button className="secondary" onClick={() => dispatch({ type: 'RESET_GAME' })}>Quit</button>
             </div>
+          </div>
         </div>
       )}
 
       {/* TIME UP MODAL */}
       {state.status === 'TIME_UP' && (
         <div className="modal-overlay">
-            <div className="modal">
-                <h2>Time's Up!</h2>
-                <div className="final-score">
-                    <p>You named</p>
-                    <div className="big-number">{verifiedCount}</div>
-                    <p>famous women</p>
-                </div>
-                <p className="modal-note">Keep going in Zen Mode?</p>
-                <div className="action-buttons">
-                    <button onClick={() => dispatch({ type: 'ENTER_ZEN_MODE' })}>
-                        Continue (Zen Mode)
-                    </button>
-                    <button className="secondary" onClick={() => dispatch({ type: 'GAME_OVER' })}>
-                        Stop & See Results
-                    </button>
-                </div>
+          <div className="modal">
+            <h2>Time's Up!</h2>
+            <div className="final-score">
+              <p>You named</p>
+              <div className="big-number">{verifiedCount}</div>
+              <p>{categoryLabel}</p>
             </div>
+            <p className="modal-note">Keep going in Zen Mode?</p>
+            <div className="action-buttons">
+              <button onClick={() => dispatch({ type: 'ENTER_ZEN_MODE' })}>
+                Continue (Zen Mode)
+              </button>
+              <button className="secondary" onClick={() => dispatch({ type: 'GAME_OVER' })}>
+                Stop &amp; See Results
+              </button>
+            </div>
+          </div>
         </div>
       )}
 
       {/* VICTORY / GAME OVER MODAL */}
       {(state.status === 'WIN' || state.status === 'GAME_OVER') && (
         <div className="modal-overlay">
-            <div className="modal victory-modal">
-                <h2>{state.status === 'WIN' ? 'You Did It!' : 'Game Over'}</h2>
-                <div className="final-score">
-                    <p>You named</p>
-                    <div className="big-number">{verifiedCount}</div>
-                    <p>famous women</p>
-                </div>
-                {state.status === 'WIN' && (
-                    <div className="stats-detail">
-                         <p>Total Time: <strong>{formatTime(state.timeElapsed, true)}</strong></p>
-                    </div>
-                )}
-                <div className="action-buttons">
-                    <button onClick={() => dispatch({ type: 'RESET_GAME' })}>
-                        <RotateCcw size={16} /> Play Again
-                    </button>
-                </div>
+          <div className="modal victory-modal">
+            <h2>{state.status === 'WIN' ? 'You Did It!' : 'Game Over'}</h2>
+            <div className="final-score">
+              <p>You named</p>
+              <div className="big-number">{verifiedCount}</div>
+              <p>{categoryLabel}</p>
             </div>
+            {state.status === 'WIN' && (
+              <div className="stats-detail">
+                <p>Total Time: <strong>{formatTime(state.timeElapsed, true)}</strong></p>
+              </div>
+            )}
+            <div className="action-buttons">
+              <button onClick={() => dispatch({ type: 'RESET_GAME' })}>
+                <RotateCcw size={16} /> Play Again
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </div>
