@@ -16,6 +16,7 @@ const womenCategory: CategoryConfig = {
   allowlistFile: 'allowlist-women.json',
   verificationStrategy: 'wikidata',
   wikidataGender: 'Q6581072',
+  inputPlaceholder: "Type a famous woman's name",
 };
 
 describe('WikidataService', () => {
