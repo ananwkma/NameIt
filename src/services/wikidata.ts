@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Woman } from '../types/wikidata';
-import { fuzzyMatchNames } from '../utils/fuzzyMatch';
+import { fuzzyMatchNames, fuzzyMatchAllowlist } from '../utils/fuzzyMatch';
 import { CategoryConfig } from '../config/categories';
 import womenData from '../data/allowlist-women.json';
 import menData from '../data/allowlist-men.json';
@@ -274,8 +274,8 @@ export const WikidataService = {
       const names = [entry.name.toLowerCase(), ...entry.aliases.map((a: string) => a.toLowerCase())];
       for (const name of names) {
         const isMatch = strict
-          // Strict mode (allowlist-only categories): exact case-insensitive match only
-          ? name === input
+          // Strict mode (allowlist-only): DL fuzzy with length-aware threshold (≤1 edit for <10 chars, ≤2 for ≥10)
+          ? fuzzyMatchAllowlist(name, input)
           // Fuzzy mode (wikidata fallback): fuzzy + substring
           : (fuzzyMatchNames(name, input) || name === input || name.includes(input) || input.includes(name));
 
