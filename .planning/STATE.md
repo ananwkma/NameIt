@@ -12,7 +12,7 @@
 - [ ] Phase 3: Fuzzy Matching & Fame Ranking
 - [ ] Phase 4: Context Clues & Prefix Handling
 - [ ] Phase 5: Polish & Visual Identity (Vibrant/Pop)
-- [ ] Phase 6: Multi-Category (4/5 plans complete)
+- [x] Phase 6: Multi-Category (ALL PLANS COMPLETE)
 
 ## Key Decisions
 - **Stack:** React/TS + Vite + Vanilla CSS.
@@ -26,6 +26,8 @@
 - **CategorySelectScreen:** CSS custom property --card-accent set inline on each card button for per-category accent theming; fallback to --secondary.
 - **Category Card Layout:** Flex-wrap grid (not fixed columns) for responsive card wrapping on smaller screens.
 - **Build Script Dispatch:** build-allowlist.js uses --category flag with BUILDERS map; shared buildSocialAllowlist() helper for women/men pipeline; LoL uses Riot Data Dragon (no key); NBA uses NBA Stats API with anti-CORS headers.
+- **Allowlist Strict Matching:** allowlist-only categories (LoL, NBA) use exact case-insensitive match in searchAllowlist (strict=true); wikidata fallback path keeps fuzzy matching (strict=false).
+- **Allowlist Description Labels:** descriptionLabel map in searchAllowlist returns "LoL Champion" / "NBA Player" instead of the generic "{platform} creator".
 
 ## Completed Tasks (Phase 1, 2, & 6-01 through 6-03)
 - [x] Phase 1: Scaffold, WikidataService, Core UI, state with duplicate prevention.
@@ -36,13 +38,14 @@
 - [x] Plan 06-02: Updated game types — selectedCategory field, GameWoman renamed to GameEntry, women renamed to entries.
 - [x] Plan 06-03: CategorySelectScreen component + App.css category card classes.
 - [x] Plan 06-04: build-allowlist.js extended with --category flag; LoL builder (Riot DDragon, 172 champions); NBA builder; Men builder sharing Women pipeline.
+- [x] Plan 06-05: App.tsx wired multi-category end-to-end; strict exact-match for allowlist-only categories; LoL Champion / NBA Player description labels.
 
 ## Active Tasks (Phase 6)
-- [ ] Plan 06-05: Wire everything together.
+- [x] Plan 06-05: Wire everything together. COMPLETE.
 
 ## Blockers
 - None.
 
 ## Session Continuity
 Last session: 2026-03-20
-Stopped at: Completed 06-02-PLAN.md (re-executed for commit hygiene)
+Stopped at: Completed 06-05-PLAN.md — Phase 6 fully complete
