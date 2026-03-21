@@ -497,3 +497,65 @@ button.secondary {
   50% { transform: scale(1.02); }
   100% { transform: scale(1); }
 }
+
+/* ── Category Select Screen ── */
+
+.category-subtitle {
+  color: var(--secondary);
+  opacity: 0.6;
+  font-size: 0.9rem;
+  margin: 0 0 1.25rem;
+  text-align: center;
+}
+
+.category-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 0.5rem 0;
+}
+
+.category-card {
+  width: 200px;
+  flex-shrink: 0;
+  background: var(--white);
+  border: 3px solid var(--card-accent, var(--secondary));
+  border-radius: 20px;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.category-card:active {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.category-icon {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.category-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--secondary);
+  text-align: center;
+}
+
+.category-score {
+  font-size: 0.8rem;
+  color: var(--card-accent, var(--secondary));
+  font-weight: 600;
+}
