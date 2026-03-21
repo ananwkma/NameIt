@@ -35,6 +35,16 @@ Plans:
 - **Task 4.2:** Implement `ContextPreprocessor` to strip prefixes and narrow search to group members.
 - **Task 4.3:** Add configuration file for easy prefix expansion.
 
+## Phase 6: Multi-Category Game Selection
+**Goal:** Expand the game beyond "100 Famous Women" to support multiple categories (e.g. famous men, athletes, musicians), each with their own allowlist and card on the selection screen.
+**Requirements:** [CAT-01, CAT-02, CAT-03]
+
+- **Task 6.1:** Define a category config system (name, allowlist, Wikidata filters, icon/color).
+- **Task 6.2:** Build a category selection screen with one card per category on the "Name It!" home page.
+- **Task 6.3:** Update game state and allowlist lookup to be category-aware.
+- **Task 6.4:** Update `build-allowlist.js` to generate per-category allowlist files.
+- **Task 6.5:** Add high score tracking per category.
+
 ## Phase 5: Polish & Visual Identity (Vibrant/Pop)
 **Goal:** Elevate aesthetics and user experience.
 **Requirements:** [UI-01, ANIM-01, AUDIO-01, RESP-01]
