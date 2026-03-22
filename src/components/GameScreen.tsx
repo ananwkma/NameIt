@@ -434,7 +434,7 @@ export function GameScreen() {
             )}
             <div className="action-buttons">
               <button onClick={() => navigate('/')}>
-                Play Again
+                Back to Categories
               </button>
             </div>
           </div>
