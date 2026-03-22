@@ -5385,7 +5385,7 @@
   },
   {
     "name": "Kobe Bryant",
-    "aliases": [],
+    "aliases": ["kobe"],
     "platform": "nba",
     "fromYear": 1996,
     "toYear": 2015,
@@ -30549,7 +30549,7 @@
   },
   {
     "name": "Shaquille O'Neal",
-    "aliases": [],
+    "aliases": ["shaq", "shaquille oneal", "shaquille o neal"],
     "platform": "nba",
     "fromYear": 1992,
     "toYear": 2010,

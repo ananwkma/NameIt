@@ -275,13 +275,19 @@ export const WikidataService = {
       description: descriptionLabel[entry.platform] || `${entry.platform} creator`,
     });
 
-    // 1. Full name / alias match (exact or DL fuzzy)
+    // 1a. Exact full name / alias match (priority pass — order-independent)
+    for (const entry of list) {
+      const names = [entry.name.toLowerCase(), ...entry.aliases.map((a: string) => a.toLowerCase())];
+      if (names.some(name => name === input)) return makeResult(entry);
+    }
+
+    // 1b. Fuzzy full name / alias match
     for (const entry of list) {
       const names = [entry.name.toLowerCase(), ...entry.aliases.map((a: string) => a.toLowerCase())];
       for (const name of names) {
         const isMatch = strict
           ? fuzzyMatchAllowlist(name, input)
-          : (fuzzyMatchNames(name, input) || name === input || name.includes(input) || input.includes(name));
+          : (fuzzyMatchNames(name, input) || name.includes(input) || input.includes(name));
         if (isMatch) return makeResult(entry);
       }
     }
