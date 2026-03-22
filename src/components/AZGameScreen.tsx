@@ -11,6 +11,7 @@ const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 interface SlotEntry { name: string; id: string; }
 
 interface AZState {
+  currentLetterIndex: number; // 0 = A, 25 = Z
   slots: Record<string, SlotEntry | null>;
   error: string | null;
   status: 'PLAYING' | 'WIN';
@@ -23,12 +24,9 @@ type AZAction =
   | { type: 'SET_ERROR'; payload: string | null }
   | { type: 'TICK'; payload: number };
 
-const initialSlots: Record<string, SlotEntry | null> = Object.fromEntries(
-  ALPHABET.map(l => [l, null])
-);
-
 const initialState: AZState = {
-  slots: initialSlots,
+  currentLetterIndex: 0,
+  slots: Object.fromEntries(ALPHABET.map(l => [l, null])),
   error: null,
   status: 'PLAYING',
   timeElapsed: 0,
@@ -39,8 +37,15 @@ function azReducer(state: AZState, action: AZAction): AZState {
   switch (action.type) {
     case 'FILL_SLOT': {
       const newSlots = { ...state.slots, [action.letter]: action.entry };
-      const filled = Object.values(newSlots).filter(Boolean).length;
-      return { ...state, slots: newSlots, error: null, status: filled >= 26 ? 'WIN' : 'PLAYING' };
+      const nextIndex = state.currentLetterIndex + 1;
+      const isWin = nextIndex >= 26;
+      return {
+        ...state,
+        slots: newSlots,
+        error: null,
+        currentLetterIndex: nextIndex,
+        status: isWin ? 'WIN' : 'PLAYING',
+      };
     }
     case 'SET_ERROR':
       return { ...state, error: action.payload };
@@ -58,6 +63,8 @@ export function AZGameScreen() {
   const [inputValue, setInputValue] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
   const confettiCanvasRef = useRef<HTMLCanvasElement>(null);
+
+  const currentLetter = ALPHABET[state.currentLetterIndex] ?? '';
 
   // Timer
   useEffect(() => {
@@ -111,26 +118,24 @@ export function AZGameScreen() {
     e.preventDefault();
     const name = inputValue.trim();
     if (!name || state.status !== 'PLAYING') return;
+    setInputValue('');
 
     const result = WikidataService.searchAllowlist(name.toLowerCase(), 'lol', true);
 
     if (!result) {
       dispatch({ type: 'SET_ERROR', payload: `"${name}" is not a recognized LoL champion.` });
-      setInputValue('');
       return;
     }
 
-    const letter = result.name[0].toUpperCase();
-    if (state.slots[letter]) {
-      dispatch({ type: 'SET_ERROR', payload: `${letter} is already filled with ${state.slots[letter]!.name}!` });
-    } else {
-      dispatch({ type: 'FILL_SLOT', letter, entry: { name: result.name, id: result.id } });
+    const firstLetter = result.name[0].toUpperCase();
+    if (firstLetter !== currentLetter) {
+      dispatch({ type: 'SET_ERROR', payload: `${result.name} starts with ${firstLetter}, not ${currentLetter}.` });
+      return;
     }
-    setInputValue('');
+
+    dispatch({ type: 'FILL_SLOT', letter: currentLetter, entry: { name: result.name, id: result.id } });
     inputRef.current?.focus();
   };
-
-  const filledCount = Object.values(state.slots).filter(Boolean).length;
 
   return (
     <div className="master-container">
@@ -143,7 +148,7 @@ export function AZGameScreen() {
               {formatTime(state.timeElapsed)}
             </div>
             <div className="counter">
-              <span>{filledCount}</span> / 26
+              <span>{currentLetter || '✓'}</span>
             </div>
           </div>
         </header>
@@ -158,7 +163,7 @@ export function AZGameScreen() {
                 setInputValue(e.target.value);
                 if (state.error) dispatch({ type: 'SET_ERROR', payload: null });
               }}
-              placeholder="Type a LoL champion's name"
+              placeholder={`Type a LoL champion's name that starts with ${currentLetter}`}
               disabled={state.status !== 'PLAYING'}
               autoFocus
             />
@@ -176,12 +181,13 @@ export function AZGameScreen() {
 
       {/* ALPHABET GRID */}
       <div className="az-grid">
-        {ALPHABET.map(letter => {
+        {ALPHABET.map((letter, i) => {
           const slot = state.slots[letter];
+          const isCurrent = i === state.currentLetterIndex;
           return (
             <motion.div
               key={letter}
-              className={`az-card${slot ? ' az-card--filled' : ''}`}
+              className={`az-card${slot ? ' az-card--filled' : ''}${isCurrent ? ' az-card--current' : ''}`}
               animate={slot ? { scale: [1.15, 1] } : { scale: 1 }}
               transition={{ duration: 0.2 }}
             >
@@ -201,7 +207,7 @@ export function AZGameScreen() {
           <div className="modal victory-modal">
             <h2>You Did It!</h2>
             <div className="final-score">
-              <p>A to Z in</p>
+              <p>A to Z completed in</p>
               <div className="big-number">{formatTime(state.timeElapsed, true)}</div>
             </div>
             <div className="action-buttons">

@@ -499,6 +499,11 @@ button.secondary {
   background: #f0fff4;
 }
 
+.az-card--current {
+  border-color: var(--primary);
+  border-width: 2px;
+}
+
 .az-letter {
   font-size: 1.1rem;
   font-weight: 800;
