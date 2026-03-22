@@ -438,7 +438,7 @@ export function GameScreen() {
       {/* VICTORY / GAME OVER MODAL */}
       {(state.status === 'WIN' || state.status === 'GAME_OVER') && (
         <div className="modal-overlay">
-          <div className="modal victory-modal">
+          <div className={`modal ${state.status === 'WIN' ? 'victory-modal' : ''}`}>
             <h2>{state.status === 'WIN' ? 'You Did It!' : 'Game Over'}</h2>
             <div className="final-score">
               <p>You named</p>
