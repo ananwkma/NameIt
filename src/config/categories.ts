@@ -60,4 +60,15 @@ export const CATEGORIES: CategoryConfig[] = [
     verificationStrategy: 'allowlist-only',
     inputPlaceholder: "Type a LoL champion's name",
   },
+  {
+    id: 'az-lol',
+    name: 'A-Z LoL Champions',
+    icon: '🔤',
+    accentColor: '#1abc9c',
+    targetCount: 26,
+    timeLimitMs: 0,
+    allowlistFile: 'allowlist-lol.json',
+    verificationStrategy: 'allowlist-only',
+    inputPlaceholder: "Type a LoL champion's name",
+  },
 ];

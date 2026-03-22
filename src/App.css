@@ -469,6 +469,56 @@ button.secondary {
   color: var(--secondary);
 }
 
+/* A-Z Game */
+.az-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 780px;
+  align-self: center;
+  margin: 0 auto;
+}
+
+.az-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.25rem;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  background: var(--white);
+  min-height: 70px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.az-card--filled {
+  border-color: var(--accent);
+  background: #f0fff4;
+}
+
+.az-letter {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #ccc;
+}
+
+.az-card--filled .az-letter {
+  font-size: 0.75rem;
+  color: var(--accent);
+}
+
+.az-name {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--secondary);
+  margin-top: 0.2rem;
+  line-height: 1.2;
+  word-break: break-word;
+}
+
 @keyframes spin {
   from { transform: translateY(-50%) rotate(0deg); }
   to { transform: translateY(-50%) rotate(360deg); }
