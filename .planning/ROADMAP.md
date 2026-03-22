@@ -38,7 +38,7 @@ Plans:
 ## Phase 6: Multi-Category Game Selection
 **Goal:** Expand the game beyond "100 Famous Women" to support multiple categories (e.g. famous men, athletes, musicians), each with their own allowlist and card on the selection screen.
 **Requirements:** [CAT-01, CAT-02, CAT-03]
-**Plans:** 4/5 plans executed
+**Plans:** 8 plans (06-01 through 06-05 complete; 06-06 through 06-08 pending)
 
 Plans:
 - [ ] 06-multi-category/06-01-PLAN.md — CategoryConfig type + per-category allowlist file stubs
@@ -46,6 +46,9 @@ Plans:
 - [ ] 06-multi-category/06-03-PLAN.md — CategorySelectScreen component and CSS card grid
 - [ ] 06-multi-category/06-04-PLAN.md — build-allowlist.js --category flag with LoL/NBA/Men builders
 - [ ] 06-multi-category/06-05-PLAN.md — App.tsx full integration + human verification
+- [ ] 06-multi-category/06-06-PLAN.md — Commit wikidata fixes, fix fictional gender filter, smoke-test fictional characters
+- [ ] 06-multi-category/06-07-PLAN.md — Run Famous Asians SPARQL build, verify 500+ entries, smoke-test in-game
+- [ ] 06-multi-category/06-08-PLAN.md — Run men's allowlist build, verify playable, document refresh cadence
 
 ## Phase 5: Polish & Visual Identity (Vibrant/Pop)
 **Goal:** Elevate aesthetics and user experience.
