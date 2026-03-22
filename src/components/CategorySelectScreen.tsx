@@ -27,7 +27,7 @@ export function CategorySelectScreen() {
         <h1>Name It!</h1>
       </header>
       <div className="menu-card">
-        <h2>Name It!</h2>
+        <h2 className="game-title">Name It!</h2>
         <p className="category-subtitle">Choose a category to play</p>
         <div className="category-grid">
           {CATEGORIES.map((cat) => (
