@@ -34,7 +34,6 @@ export function CategorySelectScreen() {
             <button
               key={cat.id}
               className="category-card"
-              style={{ '--card-accent': cat.accentColor } as React.CSSProperties}
               onClick={() => navigate(`/game/${cat.id}`)}
             >
               <span className="category-icon">{cat.icon}</span>
