@@ -337,8 +337,8 @@ button.secondary {
   border-color: var(--accent);
 }
 
-.victory-modal h2,
-.victory-modal .big-number {
+.modal.victory-modal h2,
+.modal.victory-modal .big-number {
   color: var(--accent);
 }
 
