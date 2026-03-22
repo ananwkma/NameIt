@@ -220,7 +220,7 @@ button:disabled {
 }
 
 button.secondary {
-  background: var(--secondary);
+  background: var(--primary);
 }
 
 /* Error Message */
