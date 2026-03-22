@@ -329,7 +329,10 @@ export function GameScreen() {
               ref={inputRef}
               type="text"
               value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
+              onChange={(e) => {
+                setInputValue(e.target.value);
+                if (state.error) dispatch({ type: 'SET_ERROR', payload: null });
+              }}
               placeholder={state.selectedCategory.inputPlaceholder}
               disabled={state.status !== 'PLAYING' || verifiedCount >= state.selectedCategory.targetCount}
             />
