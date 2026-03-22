@@ -19,7 +19,10 @@
   },
   {
     "name": "Kareem Abdul-Jabbar",
-    "aliases": [],
+    "aliases": [
+      "The Captain",
+      "Captain Hook"
+    ],
     "platform": "nba",
     "fromYear": 1969,
     "toYear": 1988,
@@ -199,7 +202,9 @@
   },
   {
     "name": "Steven Adams",
-    "aliases": ["aquaman"],
+    "aliases": [
+      "aquaman"
+    ],
     "platform": "nba",
     "fromYear": 2013,
     "toYear": 2025,
@@ -604,7 +609,11 @@
   },
   {
     "name": "Ray Allen",
-    "aliases": [],
+    "aliases": [
+      "Ray Ray",
+      "Sugar Ray",
+      "Jesus Shuttlesworth"
+    ],
     "platform": "nba",
     "fromYear": 1996,
     "toYear": 2013,
@@ -676,7 +685,9 @@
   },
   {
     "name": "Rafer Alston",
-    "aliases": [],
+    "aliases": [
+      "Skip To My Lou"
+    ],
     "platform": "nba",
     "fromYear": 1999,
     "toYear": 2009,
@@ -748,7 +759,9 @@
   },
   {
     "name": "Chris Andersen",
-    "aliases": [],
+    "aliases": [
+      "Birdman"
+    ],
     "platform": "nba",
     "fromYear": 2001,
     "toYear": 2016,
@@ -1028,7 +1041,8 @@
   {
     "name": "Giannis Antetokounmpo",
     "aliases": [
-      "greek freak"
+      "greek freak",
+      "The Alphabet"
     ],
     "platform": "nba",
     "fromYear": 2013,
@@ -1056,7 +1070,11 @@
   },
   {
     "name": "Carmelo Anthony",
-    "aliases": [],
+    "aliases": [
+      "Melo",
+      "Captain America",
+      "Hoodie Melo"
+    ],
     "platform": "nba",
     "fromYear": 2003,
     "toYear": 2021,
@@ -1137,7 +1155,9 @@
   },
   {
     "name": "Nate Archibald",
-    "aliases": [],
+    "aliases": [
+      "Tiny"
+    ],
     "platform": "nba",
     "fromYear": 1970,
     "toYear": 1983,
@@ -1173,7 +1193,11 @@
   },
   {
     "name": "Gilbert Arenas",
-    "aliases": [],
+    "aliases": [
+      "Agent Zero",
+      "The Hibachi",
+      "Gil"
+    ],
     "platform": "nba",
     "fromYear": 2001,
     "toYear": 2011,
@@ -1182,7 +1206,9 @@
   },
   {
     "name": "Trevor Ariza",
-    "aliases": [],
+    "aliases": [
+      "Cobra"
+    ],
     "platform": "nba",
     "fromYear": 2004,
     "toYear": 2021,
@@ -1191,7 +1217,9 @@
   },
   {
     "name": "Paul Arizin",
-    "aliases": [],
+    "aliases": [
+      "Pitchin"
+    ],
     "platform": "nba",
     "fromYear": 1950,
     "toYear": 1961,
@@ -1416,7 +1444,9 @@
   },
   {
     "name": "Stacey Augmon",
-    "aliases": [],
+    "aliases": [
+      "Plastic Man"
+    ],
     "platform": "nba",
     "fromYear": 1991,
     "toYear": 2005,
@@ -2001,7 +2031,11 @@
   },
   {
     "name": "Charles Barkley",
-    "aliases": [],
+    "aliases": [
+      "Chuck",
+      "Sir Charles",
+      "The Round Mound of Rebound"
+    ],
     "platform": "nba",
     "fromYear": 1984,
     "toYear": 1999,
@@ -2037,7 +2071,9 @@
   },
   {
     "name": "Harrison Barnes",
-    "aliases": [],
+    "aliases": [
+      "The Black Falcon"
+    ],
     "platform": "nba",
     "fromYear": 2012,
     "toYear": 2025,
@@ -2091,7 +2127,9 @@
   },
   {
     "name": "Dick Barnett",
-    "aliases": [],
+    "aliases": [
+      "Fall Back Baby"
+    ],
     "platform": "nba",
     "fromYear": 1959,
     "toYear": 1973,
@@ -2217,7 +2255,9 @@
   },
   {
     "name": "Brent Barry",
-    "aliases": [],
+    "aliases": [
+      "Bones"
+    ],
     "platform": "nba",
     "fromYear": 1995,
     "toYear": 2008,
@@ -2559,7 +2599,9 @@
   },
   {
     "name": "Bradley Beal",
-    "aliases": [],
+    "aliases": [
+      "Big Panda"
+    ],
     "platform": "nba",
     "fromYear": 2012,
     "toYear": 2025,
@@ -2604,7 +2646,10 @@
   },
   {
     "name": "Michael Beasley",
-    "aliases": [],
+    "aliases": [
+      "B-Easy",
+      "Big Mike"
+    ],
     "platform": "nba",
     "fromYear": 2008,
     "toYear": 2018,
@@ -2721,7 +2766,9 @@
   },
   {
     "name": "Marco Belinelli",
-    "aliases": [],
+    "aliases": [
+      "Beli"
+    ],
     "platform": "nba",
     "fromYear": 2007,
     "toYear": 2019,
@@ -2784,7 +2831,9 @@
   },
   {
     "name": "Walt Bellamy",
-    "aliases": [],
+    "aliases": [
+      "Bells"
+    ],
     "platform": "nba",
     "fromYear": 1961,
     "toYear": 1974,
@@ -3045,7 +3094,9 @@
   },
   {
     "name": "Patrick Beverley",
-    "aliases": [],
+    "aliases": [
+      "Pat Bev"
+    ],
     "platform": "nba",
     "fromYear": 2012,
     "toYear": 2023,
@@ -3153,7 +3204,9 @@
   },
   {
     "name": "Chauncey Billups",
-    "aliases": [],
+    "aliases": [
+      "Mr. Big Shot"
+    ],
     "platform": "nba",
     "fromYear": 1997,
     "toYear": 2013,
@@ -3207,7 +3260,10 @@
   },
   {
     "name": "Larry Bird",
-    "aliases": [],
+    "aliases": [
+      "The Hick from French Lick",
+      "Larry Legend"
+    ],
     "platform": "nba",
     "fromYear": 1979,
     "toYear": 1991,
@@ -3252,7 +3308,9 @@
   },
   {
     "name": "Bismack Biyombo",
-    "aliases": [],
+    "aliases": [
+      "Bizzy Bo"
+    ],
     "platform": "nba",
     "fromYear": 2011,
     "toYear": 2025,
@@ -3828,7 +3886,10 @@
   },
   {
     "name": "Devin Booker",
-    "aliases": [],
+    "aliases": [
+      "Book",
+      "D-Book"
+    ],
     "platform": "nba",
     "fromYear": 2015,
     "toYear": 2025,
@@ -3954,7 +4015,10 @@
   },
   {
     "name": "Chris Bosh",
-    "aliases": [],
+    "aliases": [
+      "CB4",
+      "The Boshtrich"
+    ],
     "platform": "nba",
     "fromYear": 2003,
     "toYear": 2016,
@@ -4251,7 +4315,9 @@
   },
   {
     "name": "Bill Bradley",
-    "aliases": [],
+    "aliases": [
+      "Dollar Bill"
+    ],
     "platform": "nba",
     "fromYear": 1967,
     "toYear": 1976,
@@ -4620,7 +4686,10 @@
   },
   {
     "name": "Mikal Bridges",
-    "aliases": [],
+    "aliases": [
+      "The Warden",
+      "Brooklyn Bridges"
+    ],
     "platform": "nba",
     "fromYear": 2018,
     "toYear": 2025,
@@ -5376,7 +5445,9 @@
   },
   {
     "name": "Joe Bryant",
-    "aliases": [],
+    "aliases": [
+      "Jellybean"
+    ],
     "platform": "nba",
     "fromYear": 1975,
     "toYear": 1982,
@@ -5385,7 +5456,12 @@
   },
   {
     "name": "Kobe Bryant",
-    "aliases": ["kobe"],
+    "aliases": [
+      "kobe",
+      "Black Mamba",
+      "KB-24",
+      "Vino"
+    ],
     "platform": "nba",
     "fromYear": 1996,
     "toYear": 2015,
@@ -6366,7 +6442,9 @@
   },
   {
     "name": "Antoine Carr",
-    "aliases": [],
+    "aliases": [
+      "Big Dawg"
+    ],
     "platform": "nba",
     "fromYear": 1984,
     "toYear": 1999,
@@ -6573,7 +6651,12 @@
   },
   {
     "name": "Vince Carter",
-    "aliases": [],
+    "aliases": [
+      "Vinsanity",
+      "Air Canada",
+      "Half Man Half Amazing",
+      "VC"
+    ],
     "platform": "nba",
     "fromYear": 1998,
     "toYear": 2019,
@@ -6591,7 +6674,9 @@
   },
   {
     "name": "Michael Carter-Williams",
-    "aliases": [],
+    "aliases": [
+      "MCW"
+    ],
     "platform": "nba",
     "fromYear": 2013,
     "toYear": 2022,
@@ -6627,7 +6712,10 @@
   },
   {
     "name": "Alex Caruso",
-    "aliases": [],
+    "aliases": [
+      "The Bald Mamba",
+      "Carushow"
+    ],
     "platform": "nba",
     "fromYear": 2017,
     "toYear": 2025,
@@ -6645,7 +6733,9 @@
   },
   {
     "name": "Sam Cassell",
-    "aliases": [],
+    "aliases": [
+      "Sam I Am"
+    ],
     "platform": "nba",
     "fromYear": 1993,
     "toYear": 2007,
@@ -6843,7 +6933,10 @@
   },
   {
     "name": "Wilt Chamberlain",
-    "aliases": [],
+    "aliases": [
+      "Wilt the Stilt",
+      "The Big Dipper"
+    ],
     "platform": "nba",
     "fromYear": 1959,
     "toYear": 1972,
@@ -7851,7 +7944,9 @@
   },
   {
     "name": "Mike Conley",
-    "aliases": [],
+    "aliases": [
+      "Bite Bite"
+    ],
     "platform": "nba",
     "fromYear": 2007,
     "toYear": 2025,
@@ -8319,7 +8414,9 @@
   },
   {
     "name": "DeMarcus Cousins",
-    "aliases": [],
+    "aliases": [
+      "Boogie"
+    ],
     "platform": "nba",
     "fromYear": 2010,
     "toYear": 2021,
@@ -8328,7 +8425,10 @@
   },
   {
     "name": "Bob Cousy",
-    "aliases": [],
+    "aliases": [
+      "The Houdini of the Hardwood",
+      "Cooz"
+    ],
     "platform": "nba",
     "fromYear": 1950,
     "toYear": 1969,
@@ -8436,7 +8536,9 @@
   },
   {
     "name": "Jamal Crawford",
-    "aliases": [],
+    "aliases": [
+      "J Crossover"
+    ],
     "platform": "nba",
     "fromYear": 2000,
     "toYear": 2019,
@@ -8715,7 +8817,9 @@
   },
   {
     "name": "Billy Cunningham",
-    "aliases": [],
+    "aliases": [
+      "Kangaroo Kid"
+    ],
     "platform": "nba",
     "fromYear": 1965,
     "toYear": 1975,
@@ -8859,7 +8963,12 @@
   },
   {
     "name": "Stephen Curry",
-    "aliases": [],
+    "aliases": [
+      "Baby-Faced Assassin",
+      "Chef Curry",
+      "Steph",
+      "Splash Brothers"
+    ],
     "platform": "nba",
     "fromYear": 2009,
     "toYear": 2025,
@@ -9157,7 +9266,9 @@
   {
     "name": "Anthony Davis",
     "aliases": [
-      "the brow"
+      "the brow",
+      "Brow",
+      "AD"
     ],
     "platform": "nba",
     "fromYear": 2012,
@@ -9311,7 +9422,9 @@
   },
   {
     "name": "Glen Davis",
-    "aliases": [],
+    "aliases": [
+      "Big Baby"
+    ],
     "platform": "nba",
     "fromYear": 2007,
     "toYear": 2014,
@@ -9536,7 +9649,9 @@
   },
   {
     "name": "Darryl Dawkins",
-    "aliases": [],
+    "aliases": [
+      "Chocolate Thunder"
+    ],
     "platform": "nba",
     "fromYear": 1975,
     "toYear": 1988,
@@ -9671,7 +9786,9 @@
   },
   {
     "name": "DeMar DeRozan",
-    "aliases": [],
+    "aliases": [
+      "Deebo"
+    ],
     "platform": "nba",
     "fromYear": 2009,
     "toYear": 2025,
@@ -9815,7 +9932,10 @@
   },
   {
     "name": "Matthew Dellavedova",
-    "aliases": [],
+    "aliases": [
+      "Delly",
+      "The Curry Stopper"
+    ],
     "platform": "nba",
     "fromYear": 2013,
     "toYear": 2022,
@@ -10022,7 +10142,9 @@
   },
   {
     "name": "Boris Diaw",
-    "aliases": [],
+    "aliases": [
+      "Tea Time"
+    ],
     "platform": "nba",
     "fromYear": 2003,
     "toYear": 2016,
@@ -10383,7 +10505,9 @@
   {
     "name": "Luka Dončić",
     "aliases": [
-      "luka"
+      "luka",
+      "Luka Magic",
+      "The Don"
     ],
     "platform": "nba",
     "fromYear": 2018,
@@ -10618,7 +10742,10 @@
   },
   {
     "name": "Goran Dragic",
-    "aliases": [],
+    "aliases": [
+      "The Dragon",
+      "Gold Dragon"
+    ],
     "platform": "nba",
     "fromYear": 2008,
     "toYear": 2022,
@@ -10690,7 +10817,9 @@
   },
   {
     "name": "Clyde Drexler",
-    "aliases": [],
+    "aliases": [
+      "Clyde the Glide"
+    ],
     "platform": "nba",
     "fromYear": 1983,
     "toYear": 1997,
@@ -10735,7 +10864,9 @@
   },
   {
     "name": "Andre Drummond",
-    "aliases": [],
+    "aliases": [
+      "Big Penguin"
+    ],
     "platform": "nba",
     "fromYear": 2012,
     "toYear": 2025,
@@ -10916,7 +11047,10 @@
   {
     "name": "Tim Duncan",
     "aliases": [
-      "big fundamental"
+      "big fundamental",
+      "The Big Fundamental",
+      "Slam Duncan",
+      "Twin Towers"
     ],
     "platform": "nba",
     "fromYear": 1997,
@@ -10991,7 +11125,9 @@
     "name": "Kevin Durant",
     "aliases": [
       "kd",
-      "slim reaper"
+      "slim reaper",
+      "Durantula",
+      "Easy Money Sniper"
     ],
     "platform": "nba",
     "fromYear": 2007,
@@ -11679,7 +11815,9 @@
   },
   {
     "name": "Pervis Ellison",
-    "aliases": [],
+    "aliases": [
+      "Never Nervous Pervis"
+    ],
     "platform": "nba",
     "fromYear": 1989,
     "toYear": 2000,
@@ -11724,7 +11862,9 @@
   },
   {
     "name": "Joel Embiid",
-    "aliases": [],
+    "aliases": [
+      "The Process"
+    ],
     "platform": "nba",
     "fromYear": 2014,
     "toYear": 2025,
@@ -11905,7 +12045,8 @@
   {
     "name": "Julius Erving",
     "aliases": [
-      "dr j"
+      "dr j",
+      "Dr. J"
     ],
     "platform": "nba",
     "fromYear": 1976,
@@ -12086,7 +12227,9 @@
   },
   {
     "name": "Patrick Ewing",
-    "aliases": [],
+    "aliases": [
+      "The Beast of the East"
+    ],
     "platform": "nba",
     "fromYear": 2010,
     "toYear": 2010,
@@ -12617,7 +12760,9 @@
   },
   {
     "name": "Derek Fisher",
-    "aliases": [],
+    "aliases": [
+      "D-Fish"
+    ],
     "platform": "nba",
     "fromYear": 1996,
     "toYear": 2013,
@@ -13112,7 +13257,9 @@
   },
   {
     "name": "De'Aaron Fox",
-    "aliases": [],
+    "aliases": [
+      "Swipa"
+    ],
     "platform": "nba",
     "fromYear": 2017,
     "toYear": 2025,
@@ -13175,7 +13322,9 @@
   },
   {
     "name": "Steve Francis",
-    "aliases": [],
+    "aliases": [
+      "Stevie Franchise"
+    ],
     "platform": "nba",
     "fromYear": 1999,
     "toYear": 2007,
@@ -13229,7 +13378,9 @@
   },
   {
     "name": "Walt Frazier",
-    "aliases": [],
+    "aliases": [
+      "Clyde"
+    ],
     "platform": "nba",
     "fromYear": 1967,
     "toYear": 1979,
@@ -13544,7 +13695,9 @@
   },
   {
     "name": "Dan Gadzuric",
-    "aliases": [],
+    "aliases": [
+      "The Flying Dutchman"
+    ],
     "platform": "nba",
     "fromYear": 2002,
     "toYear": 2011,
@@ -13643,7 +13796,10 @@
   },
   {
     "name": "Danilo Gallinari",
-    "aliases": [],
+    "aliases": [
+      "Il Gallo",
+      "The Rooster"
+    ],
     "platform": "nba",
     "fromYear": 2008,
     "toYear": 2023,
@@ -13850,7 +14006,11 @@
   },
   {
     "name": "Kevin Garnett",
-    "aliases": [],
+    "aliases": [
+      "Big Ticket",
+      "KG",
+      "The Kid"
+    ],
     "platform": "nba",
     "fromYear": 1995,
     "toYear": 2015,
@@ -13994,7 +14154,9 @@
   },
   {
     "name": "Marc Gasol",
-    "aliases": [],
+    "aliases": [
+      "Big Spain"
+    ],
     "platform": "nba",
     "fromYear": 2008,
     "toYear": 2020,
@@ -14157,7 +14319,10 @@
   {
     "name": "Paul George",
     "aliases": [
-      "pg13"
+      "pg13",
+      "PG-13",
+      "Playoff P",
+      "Podcast P"
     ],
     "platform": "nba",
     "fromYear": 2010,
@@ -14203,7 +14368,10 @@
   },
   {
     "name": "George Gervin",
-    "aliases": [],
+    "aliases": [
+      "The Iceman",
+      "Ice"
+    ],
     "platform": "nba",
     "fromYear": 1976,
     "toYear": 1985,
@@ -14347,7 +14515,9 @@
   },
   {
     "name": "Shai Gilgeous-Alexander",
-    "aliases": [],
+    "aliases": [
+      "SGA"
+    ],
     "platform": "nba",
     "fromYear": 2018,
     "toYear": 2025,
@@ -14437,7 +14607,9 @@
   },
   {
     "name": "Artis Gilmore",
-    "aliases": [],
+    "aliases": [
+      "A Train"
+    ],
     "platform": "nba",
     "fromYear": 1976,
     "toYear": 1987,
@@ -14473,7 +14645,10 @@
   },
   {
     "name": "Manu Ginobili",
-    "aliases": [],
+    "aliases": [
+      "The Magician",
+      "Gino"
+    ],
     "platform": "nba",
     "fromYear": 2002,
     "toYear": 2017,
@@ -14590,7 +14765,10 @@
   },
   {
     "name": "Rudy Gobert",
-    "aliases": [],
+    "aliases": [
+      "The Stifle Tower",
+      "The French Rejection"
+    ],
     "platform": "nba",
     "fromYear": 2013,
     "toYear": 2025,
@@ -14743,7 +14921,9 @@
   },
   {
     "name": "Aaron Gordon",
-    "aliases": [],
+    "aliases": [
+      "Air Gordon"
+    ],
     "platform": "nba",
     "fromYear": 2014,
     "toYear": 2025,
@@ -16048,7 +16228,9 @@
   },
   {
     "name": "Tyrese Haliburton",
-    "aliases": [],
+    "aliases": [
+      "The Haliban"
+    ],
     "platform": "nba",
     "fromYear": 2020,
     "toYear": 2025,
@@ -16210,7 +16392,9 @@
   },
   {
     "name": "Richard Hamilton",
-    "aliases": [],
+    "aliases": [
+      "Rip"
+    ],
     "platform": "nba",
     "fromYear": 1999,
     "toYear": 2012,
@@ -17060,7 +17244,9 @@
   },
   {
     "name": "John Havlicek",
-    "aliases": [],
+    "aliases": [
+      "Hondo"
+    ],
     "platform": "nba",
     "fromYear": 1962,
     "toYear": 1977,
@@ -17177,7 +17363,9 @@
   },
   {
     "name": "Elvin Hayes",
-    "aliases": [],
+    "aliases": [
+      "The Big E"
+    ],
     "platform": "nba",
     "fromYear": 1968,
     "toYear": 1983,
@@ -17672,7 +17860,10 @@
   },
   {
     "name": "Tyler Herro",
-    "aliases": [],
+    "aliases": [
+      "Baby Goat",
+      "Boy Wonder"
+    ],
     "platform": "nba",
     "fromYear": 2019,
     "toYear": 2025,
@@ -17798,7 +17989,9 @@
   },
   {
     "name": "Buddy Hield",
-    "aliases": [],
+    "aliases": [
+      "Buddy Love"
+    ],
     "platform": "nba",
     "fromYear": 2016,
     "toYear": 2025,
@@ -18176,7 +18369,9 @@
   },
   {
     "name": "Fred Hoiberg",
-    "aliases": [],
+    "aliases": [
+      "The Mayor"
+    ],
     "platform": "nba",
     "fromYear": 1995,
     "toYear": 2004,
@@ -18329,7 +18524,9 @@
   },
   {
     "name": "Chet Holmgren",
-    "aliases": [],
+    "aliases": [
+      "Abraham Lincoln"
+    ],
     "platform": "nba",
     "fromYear": 2022,
     "toYear": 2025,
@@ -18554,7 +18751,9 @@
   },
   {
     "name": "Robert Horry",
-    "aliases": [],
+    "aliases": [
+      "Big Shot Rob"
+    ],
     "platform": "nba",
     "fromYear": 1992,
     "toYear": 2007,
@@ -18662,7 +18861,10 @@
   },
   {
     "name": "Dwight Howard",
-    "aliases": [],
+    "aliases": [
+      "Superman",
+      "D12"
+    ],
     "platform": "nba",
     "fromYear": 2004,
     "toYear": 2021,
@@ -18824,7 +19026,9 @@
   },
   {
     "name": "Kevin Huerter",
-    "aliases": [],
+    "aliases": [
+      "Red Velvet"
+    ],
     "platform": "nba",
     "fromYear": 2018,
     "toYear": 2025,
@@ -19193,7 +19397,11 @@
   },
   {
     "name": "Serge Ibaka",
-    "aliases": [],
+    "aliases": [
+      "I-block-a",
+      "Air Congo",
+      "Serge Protector"
+    ],
     "platform": "nba",
     "fromYear": 2009,
     "toYear": 2022,
@@ -19211,7 +19419,9 @@
   },
   {
     "name": "Andre Iguodala",
-    "aliases": [],
+    "aliases": [
+      "Iggy"
+    ],
     "platform": "nba",
     "fromYear": 2004,
     "toYear": 2022,
@@ -19220,7 +19430,9 @@
   },
   {
     "name": "Zydrunas Ilgauskas",
-    "aliases": [],
+    "aliases": [
+      "Big Z"
+    ],
     "platform": "nba",
     "fromYear": 1997,
     "toYear": 2010,
@@ -19292,7 +19504,10 @@
   },
   {
     "name": "Brandon Ingram",
-    "aliases": [],
+    "aliases": [
+      "B.I.",
+      "Sleepy Reaper"
+    ],
     "platform": "nba",
     "fromYear": 2016,
     "toYear": 2025,
@@ -19328,7 +19543,9 @@
   },
   {
     "name": "Kyrie Irving",
-    "aliases": [],
+    "aliases": [
+      "Uncle Drew"
+    ],
     "platform": "nba",
     "fromYear": 2011,
     "toYear": 2025,
@@ -19337,7 +19554,9 @@
   },
   {
     "name": "Jonathan Isaac",
-    "aliases": [],
+    "aliases": [
+      "The Minister of Defense"
+    ],
     "platform": "nba",
     "fromYear": 2017,
     "toYear": 2025,
@@ -19366,7 +19585,9 @@
     "name": "Allen Iverson",
     "aliases": [
       "the answer",
-      "ai"
+      "ai",
+      "A.I.",
+      "Bubba Chuck"
     ],
     "platform": "nba",
     "fromYear": 1996,
@@ -19846,7 +20067,12 @@
     "name": "LeBron James",
     "aliases": [
       "bron",
-      "lebron"
+      "lebron",
+      "King James",
+      "The King",
+      "The Chosen One",
+      "LBJ",
+      "The Akron Hammer"
     ],
     "platform": "nba",
     "fromYear": 2003,
@@ -20603,7 +20829,9 @@
   },
   {
     "name": "Joe Johnson",
-    "aliases": [],
+    "aliases": [
+      "Iso Joe"
+    ],
     "platform": "nba",
     "fromYear": 2001,
     "toYear": 2021,
@@ -20702,7 +20930,10 @@
   },
   {
     "name": "Larry Johnson",
-    "aliases": [],
+    "aliases": [
+      "Grandmama",
+      "LJ"
+    ],
     "platform": "nba",
     "fromYear": 1977,
     "toYear": 1977,
@@ -20893,7 +21124,9 @@
   },
   {
     "name": "Vinnie Johnson",
-    "aliases": [],
+    "aliases": [
+      "The Microwave"
+    ],
     "platform": "nba",
     "fromYear": 1979,
     "toYear": 1991,
@@ -21589,7 +21822,9 @@
   {
     "name": "Michael Jordan",
     "aliases": [
-      "mj"
+      "mj",
+      "Air Jordan",
+      "His Airness"
     ],
     "platform": "nba",
     "fromYear": 1984,
@@ -22058,7 +22293,9 @@
   },
   {
     "name": "Shawn Kemp",
-    "aliases": [],
+    "aliases": [
+      "The Reignman"
+    ],
     "platform": "nba",
     "fromYear": 1989,
     "toYear": 2002,
@@ -22256,7 +22493,9 @@
   },
   {
     "name": "Jason Kidd",
-    "aliases": [],
+    "aliases": [
+      "J-Kidd"
+    ],
     "platform": "nba",
     "fromYear": 1994,
     "toYear": 2012,
@@ -22535,7 +22774,9 @@
   },
   {
     "name": "Andrei Kirilenko",
-    "aliases": [],
+    "aliases": [
+      "AK47"
+    ],
     "platform": "nba",
     "fromYear": 2001,
     "toYear": 2014,
@@ -23165,7 +23406,10 @@
   },
   {
     "name": "Toni Kukoc",
-    "aliases": [],
+    "aliases": [
+      "Croatian Sensation",
+      "The Waiter"
+    ],
     "platform": "nba",
     "fromYear": 1993,
     "toYear": 2005,
@@ -23543,7 +23787,9 @@
   },
   {
     "name": "Trajan Langdon",
-    "aliases": [],
+    "aliases": [
+      "The Alaskan Assassin"
+    ],
     "platform": "nba",
     "fromYear": 1999,
     "toYear": 2001,
@@ -24101,7 +24347,9 @@
   },
   {
     "name": "Kawhi Leonard",
-    "aliases": [],
+    "aliases": [
+      "The Claw"
+    ],
     "platform": "nba",
     "fromYear": 2011,
     "toYear": 2025,
@@ -24372,7 +24620,11 @@
   {
     "name": "Damian Lillard",
     "aliases": [
-      "dame"
+      "dame",
+      "Dame Dolla",
+      "Sub Zero",
+      "Logo Lillard",
+      "Dame Time"
     ],
     "platform": "nba",
     "fromYear": 2012,
@@ -24382,7 +24634,9 @@
   },
   {
     "name": "Jeremy Lin",
-    "aliases": [],
+    "aliases": [
+      "Linsanity"
+    ],
     "platform": "nba",
     "fromYear": 2010,
     "toYear": 2018,
@@ -24661,7 +24915,9 @@
   },
   {
     "name": "Brook Lopez",
-    "aliases": [],
+    "aliases": [
+      "Splash Mountain"
+    ],
     "platform": "nba",
     "fromYear": 2008,
     "toYear": 2025,
@@ -24742,7 +24998,9 @@
   },
   {
     "name": "Bob Love",
-    "aliases": [],
+    "aliases": [
+      "Butterbean"
+    ],
     "platform": "nba",
     "fromYear": 1966,
     "toYear": 1976,
@@ -25374,7 +25632,9 @@
   },
   {
     "name": "Moses Malone",
-    "aliases": [],
+    "aliases": [
+      "Chairman of the Boards"
+    ],
     "platform": "nba",
     "fromYear": 1976,
     "toYear": 1994,
@@ -25536,7 +25796,9 @@
   },
   {
     "name": "Pete Maravich",
-    "aliases": [],
+    "aliases": [
+      "Pistol Pete"
+    ],
     "platform": "nba",
     "fromYear": 1970,
     "toYear": 1979,
@@ -25572,7 +25834,9 @@
   },
   {
     "name": "Stephon Marbury",
-    "aliases": [],
+    "aliases": [
+      "Starbury"
+    ],
     "platform": "nba",
     "fromYear": 1996,
     "toYear": 2008,
@@ -25608,7 +25872,9 @@
   },
   {
     "name": "Shawn Marion",
-    "aliases": [],
+    "aliases": [
+      "The Matrix"
+    ],
     "platform": "nba",
     "fromYear": 1999,
     "toYear": 2014,
@@ -26166,7 +26432,9 @@
   },
   {
     "name": "Cedric Maxwell",
-    "aliases": [],
+    "aliases": [
+      "Cornbread"
+    ],
     "platform": "nba",
     "fromYear": 1977,
     "toYear": 1987,
@@ -26715,7 +26983,9 @@
   },
   {
     "name": "Xavier McDaniel",
-    "aliases": [],
+    "aliases": [
+      "The X-Man"
+    ],
     "platform": "nba",
     "fromYear": 1985,
     "toYear": 1997,
@@ -26913,7 +27183,9 @@
   },
   {
     "name": "Tracy McGrady",
-    "aliases": [],
+    "aliases": [
+      "T-Mac"
+    ],
     "platform": "nba",
     "fromYear": 1997,
     "toYear": 2012,
@@ -26985,7 +27257,9 @@
   },
   {
     "name": "Kevin McHale",
-    "aliases": [],
+    "aliases": [
+      "The Black Hole"
+    ],
     "platform": "nba",
     "fromYear": 1980,
     "toYear": 1992,
@@ -27606,7 +27880,10 @@
   },
   {
     "name": "Sam Merrill",
-    "aliases": [],
+    "aliases": [
+      "Money Merrill",
+      "Sammy Buckets"
+    ],
     "platform": "nba",
     "fromYear": 2020,
     "toYear": 2025,
@@ -27732,7 +28009,9 @@
   },
   {
     "name": "George Mikan",
-    "aliases": [],
+    "aliases": [
+      "Mr. Basketball"
+    ],
     "platform": "nba",
     "fromYear": 1948,
     "toYear": 1955,
@@ -28083,7 +28362,9 @@
   },
   {
     "name": "Harold Miner",
-    "aliases": [],
+    "aliases": [
+      "Baby Jordan"
+    ],
     "platform": "nba",
     "fromYear": 1992,
     "toYear": 1995,
@@ -28200,7 +28481,9 @@
   },
   {
     "name": "Donovan Mitchell",
-    "aliases": [],
+    "aliases": [
+      "Spida"
+    ],
     "platform": "nba",
     "fromYear": 2017,
     "toYear": 2025,
@@ -28407,7 +28690,9 @@
   },
   {
     "name": "Sidney Moncrief",
-    "aliases": [],
+    "aliases": [
+      "Sid the Squid"
+    ],
     "platform": "nba",
     "fromYear": 1979,
     "toYear": 1990,
@@ -28452,7 +28737,10 @@
   },
   {
     "name": "Earl Monroe",
-    "aliases": [],
+    "aliases": [
+      "Black Magic",
+      "Earl the Pearl"
+    ],
     "platform": "nba",
     "fromYear": 1967,
     "toYear": 1979,
@@ -28461,7 +28749,9 @@
   },
   {
     "name": "Greg Monroe",
-    "aliases": [],
+    "aliases": [
+      "Moose"
+    ],
     "platform": "nba",
     "fromYear": 2010,
     "toYear": 2021,
@@ -28668,7 +28958,10 @@
   },
   {
     "name": "Ja Morant",
-    "aliases": [],
+    "aliases": [
+      "Ja Wick",
+      "Ja Dropper"
+    ],
     "platform": "nba",
     "fromYear": 2019,
     "toYear": 2025,
@@ -28956,7 +29249,9 @@
   },
   {
     "name": "Alonzo Mourning",
-    "aliases": [],
+    "aliases": [
+      "Zo"
+    ],
     "platform": "nba",
     "fromYear": 1992,
     "toYear": 2007,
@@ -29244,7 +29539,9 @@
   },
   {
     "name": "Jamal Murray",
-    "aliases": [],
+    "aliases": [
+      "The Blue Arrow"
+    ],
     "platform": "nba",
     "fromYear": 2016,
     "toYear": 2025,
@@ -29361,7 +29658,9 @@
   },
   {
     "name": "Dikembe Mutombo",
-    "aliases": [],
+    "aliases": [
+      "Mt. Mutombo"
+    ],
     "platform": "nba",
     "fromYear": 1991,
     "toYear": 2008,
@@ -29550,7 +29849,9 @@
   },
   {
     "name": "Steve Nash",
-    "aliases": [],
+    "aliases": [
+      "Hair Canada"
+    ],
     "platform": "nba",
     "fromYear": 1996,
     "toYear": 2013,
@@ -29739,7 +30040,9 @@
   },
   {
     "name": "Jameer Nelson",
-    "aliases": [],
+    "aliases": [
+      "Mighty Mouse"
+    ],
     "platform": "nba",
     "fromYear": 2004,
     "toYear": 2017,
@@ -30324,7 +30627,12 @@
   },
   {
     "name": "Dirk Nowitzki",
-    "aliases": [],
+    "aliases": [
+      "Dirty",
+      "Bavarian Bomber",
+      "The Germinator",
+      "The Big German"
+    ],
     "platform": "nba",
     "fromYear": 1998,
     "toYear": 2018,
@@ -30360,7 +30668,9 @@
   },
   {
     "name": "Jusuf Nurkić",
-    "aliases": [],
+    "aliases": [
+      "The Bosnian Beast"
+    ],
     "platform": "nba",
     "fromYear": 2014,
     "toYear": 2025,
@@ -30549,7 +30859,15 @@
   },
   {
     "name": "Shaquille O'Neal",
-    "aliases": ["shaq", "shaquille oneal", "shaquille o neal"],
+    "aliases": [
+      "shaq",
+      "shaquille oneal",
+      "shaquille o neal",
+      "Shaq Attack",
+      "The Diesel",
+      "The Big Aristotle",
+      "Superman"
+    ],
     "platform": "nba",
     "fromYear": 1992,
     "toYear": 2010,
@@ -30648,7 +30966,9 @@
   },
   {
     "name": "Lamar Odom",
-    "aliases": [],
+    "aliases": [
+      "The Candy Man"
+    ],
     "platform": "nba",
     "fromYear": 1999,
     "toYear": 2013,
@@ -31740,7 +32060,8 @@
   {
     "name": "Chris Paul",
     "aliases": [
-      "cp3"
+      "cp3",
+      "The Point God"
     ],
     "platform": "nba",
     "fromYear": 2005,
@@ -31867,7 +32188,10 @@
   },
   {
     "name": "Gary Payton",
-    "aliases": [],
+    "aliases": [
+      "GP",
+      "The Glove"
+    ],
     "platform": "nba",
     "fromYear": 1990,
     "toYear": 2006,
@@ -31885,7 +32209,9 @@
   },
   {
     "name": "Gary Payton II",
-    "aliases": [],
+    "aliases": [
+      "The Mitten"
+    ],
     "platform": "nba",
     "fromYear": 2016,
     "toYear": 2025,
@@ -32065,7 +32391,9 @@
   },
   {
     "name": "Sam Perkins",
-    "aliases": [],
+    "aliases": [
+      "Big Smooth"
+    ],
     "platform": "nba",
     "fromYear": 1984,
     "toYear": 2000,
@@ -32137,7 +32465,9 @@
   },
   {
     "name": "Chuck Person",
-    "aliases": [],
+    "aliases": [
+      "The Rifleman"
+    ],
     "platform": "nba",
     "fromYear": 1986,
     "toYear": 1999,
@@ -32416,7 +32746,9 @@
   },
   {
     "name": "Paul Pierce",
-    "aliases": [],
+    "aliases": [
+      "The Truth"
+    ],
     "platform": "nba",
     "fromYear": 1998,
     "toYear": 2016,
@@ -32524,7 +32856,10 @@
   },
   {
     "name": "Scotty Pippen Jr.",
-    "aliases": ["Scottie Pippen Jr.", "Scottie Pippen Jr"],
+    "aliases": [
+      "Scottie Pippen Jr.",
+      "Scottie Pippen Jr"
+    ],
     "platform": "nba",
     "fromYear": 2022,
     "toYear": 2025,
@@ -32587,7 +32922,9 @@
   },
   {
     "name": "Mason Plumlee",
-    "aliases": [],
+    "aliases": [
+      "Plumdog Millionaire"
+    ],
     "platform": "nba",
     "fromYear": 2013,
     "toYear": 2025,
@@ -32884,7 +33221,10 @@
   },
   {
     "name": "Kristaps Porziņģis",
-    "aliases": [],
+    "aliases": [
+      "KP",
+      "Unicorn"
+    ],
     "platform": "nba",
     "fromYear": 2015,
     "toYear": 2025,
@@ -33622,7 +33962,9 @@
   },
   {
     "name": "Julius Randle",
-    "aliases": [],
+    "aliases": [
+      "Beyblade"
+    ],
     "platform": "nba",
     "fromYear": 2014,
     "toYear": 2025,
@@ -33649,7 +33991,9 @@
   },
   {
     "name": "Zach Randolph",
-    "aliases": [],
+    "aliases": [
+      "Z-Bo"
+    ],
     "platform": "nba",
     "fromYear": 2001,
     "toYear": 2017,
@@ -33838,7 +34182,10 @@
   },
   {
     "name": "Austin Reaves",
-    "aliases": [],
+    "aliases": [
+      "Hillbilly Kobe",
+      "AR-15"
+    ],
     "platform": "nba",
     "fromYear": 2021,
     "toYear": 2025,
@@ -34396,7 +34743,9 @@
   },
   {
     "name": "Mitch Richmond",
-    "aliases": [],
+    "aliases": [
+      "The Rock"
+    ],
     "platform": "nba",
     "fromYear": 1988,
     "toYear": 2001,
@@ -34756,7 +35105,9 @@
   },
   {
     "name": "Oscar Robertson",
-    "aliases": [],
+    "aliases": [
+      "The Big O"
+    ],
     "platform": "nba",
     "fromYear": 1960,
     "toYear": 1973,
@@ -34876,7 +35227,9 @@
   },
   {
     "name": "Glenn Robinson",
-    "aliases": [],
+    "aliases": [
+      "Big Dog"
+    ],
     "platform": "nba",
     "fromYear": 1994,
     "toYear": 2004,
@@ -34948,7 +35301,9 @@
   },
   {
     "name": "Nate Robinson",
-    "aliases": [],
+    "aliases": [
+      "KryptoNate"
+    ],
     "platform": "nba",
     "fromYear": 2005,
     "toYear": 2015,
@@ -35110,7 +35465,9 @@
   },
   {
     "name": "Dennis Rodman",
-    "aliases": [],
+    "aliases": [
+      "The Worm"
+    ],
     "platform": "nba",
     "fromYear": 1986,
     "toYear": 1999,
@@ -35254,7 +35611,9 @@
   },
   {
     "name": "Rajon Rondo",
-    "aliases": [],
+    "aliases": [
+      "Fedex"
+    ],
     "platform": "nba",
     "fromYear": 2006,
     "toYear": 2021,
@@ -35272,7 +35631,9 @@
   },
   {
     "name": "Derrick Rose",
-    "aliases": [],
+    "aliases": [
+      "D-Rose"
+    ],
     "platform": "nba",
     "fromYear": 2008,
     "toYear": 2023,
@@ -35506,7 +35867,9 @@
   },
   {
     "name": "Terry Rozier",
-    "aliases": [],
+    "aliases": [
+      "Scary Terry"
+    ],
     "platform": "nba",
     "fromYear": 2015,
     "toYear": 2025,
@@ -35668,7 +36031,9 @@
   },
   {
     "name": "Bill Russell",
-    "aliases": [],
+    "aliases": [
+      "Russ"
+    ],
     "platform": "nba",
     "fromYear": 1956,
     "toYear": 1968,
@@ -35704,7 +36069,9 @@
   },
   {
     "name": "D'Angelo Russell",
-    "aliases": [],
+    "aliases": [
+      "DLo"
+    ],
     "platform": "nba",
     "fromYear": 2015,
     "toYear": 2025,
@@ -35758,7 +36125,9 @@
   },
   {
     "name": "Arvydas Sabonis",
-    "aliases": [],
+    "aliases": [
+      "Sabas"
+    ],
     "platform": "nba",
     "fromYear": 1995,
     "toYear": 2002,
@@ -35767,7 +36136,10 @@
   },
   {
     "name": "Domantas Sabonis",
-    "aliases": [],
+    "aliases": [
+      "Sabas Jr.",
+      "Domas"
+    ],
     "platform": "nba",
     "fromYear": 2016,
     "toYear": 2025,
@@ -36190,7 +36562,9 @@
   },
   {
     "name": "Brian Scalabrine",
-    "aliases": [],
+    "aliases": [
+      "The White Mamba"
+    ],
     "platform": "nba",
     "fromYear": 2001,
     "toYear": 2011,
@@ -37243,7 +37617,9 @@
   },
   {
     "name": "Pascal Siakam",
-    "aliases": [],
+    "aliases": [
+      "Spicy P"
+    ],
     "platform": "nba",
     "fromYear": 2016,
     "toYear": 2025,
@@ -37378,7 +37754,11 @@
   },
   {
     "name": "Ben Simmons",
-    "aliases": [],
+    "aliases": [
+      "Fresh Prince",
+      "Big Ben",
+      "Ben 10"
+    ],
     "platform": "nba",
     "fromYear": 2016,
     "toYear": 2024,
@@ -37855,7 +38235,9 @@
   },
   {
     "name": "Marcus Smart",
-    "aliases": [],
+    "aliases": [
+      "The Cobra"
+    ],
     "platform": "nba",
     "fromYear": 2014,
     "toYear": 2025,
@@ -38188,7 +38570,9 @@
   },
   {
     "name": "Kenny Smith",
-    "aliases": [],
+    "aliases": [
+      "The Jet"
+    ],
     "platform": "nba",
     "fromYear": 1987,
     "toYear": 1996,
@@ -38449,7 +38833,10 @@
   },
   {
     "name": "Rik Smits",
-    "aliases": [],
+    "aliases": [
+      "The Flying Dutchman",
+      "The Dunkin"
+    ],
     "platform": "nba",
     "fromYear": 1988,
     "toYear": 1999,
@@ -38800,7 +39187,9 @@
   },
   {
     "name": "Latrell Sprewell",
-    "aliases": [],
+    "aliases": [
+      "Spree"
+    ],
     "platform": "nba",
     "fromYear": 1992,
     "toYear": 2004,
@@ -38854,7 +39243,10 @@
   },
   {
     "name": "Jerry Stackhouse",
-    "aliases": [],
+    "aliases": [
+      "Stack",
+      "House"
+    ],
     "platform": "nba",
     "fromYear": 1995,
     "toYear": 2012,
@@ -39016,7 +39408,9 @@
   },
   {
     "name": "Lance Stephenson",
-    "aliases": [],
+    "aliases": [
+      "Born Ready"
+    ],
     "platform": "nba",
     "fromYear": 2010,
     "toYear": 2021,
@@ -39106,7 +39500,9 @@
   },
   {
     "name": "Isaiah Stewart",
-    "aliases": [],
+    "aliases": [
+      "Beef Stew"
+    ],
     "platform": "nba",
     "fromYear": 2020,
     "toYear": 2025,
@@ -39214,7 +39610,9 @@
   },
   {
     "name": "John Stockton",
-    "aliases": [],
+    "aliases": [
+      "Stock"
+    ],
     "platform": "nba",
     "fromYear": 1984,
     "toYear": 2002,
@@ -39322,7 +39720,9 @@
   },
   {
     "name": "Amar'e Stoudemire",
-    "aliases": [],
+    "aliases": [
+      "STAT"
+    ],
     "platform": "nba",
     "fromYear": 2002,
     "toYear": 2015,
@@ -39826,7 +40226,9 @@
   },
   {
     "name": "Jayson Tatum",
-    "aliases": [],
+    "aliases": [
+      "The Anomaly"
+    ],
     "platform": "nba",
     "fromYear": 2017,
     "toYear": 2025,
@@ -40132,7 +40534,9 @@
   },
   {
     "name": "Jason Terry",
-    "aliases": [],
+    "aliases": [
+      "JET"
+    ],
     "platform": "nba",
     "fromYear": 1999,
     "toYear": 2017,
@@ -40312,7 +40716,9 @@
   },
   {
     "name": "Isaiah Thomas",
-    "aliases": [],
+    "aliases": [
+      "IT"
+    ],
     "platform": "nba",
     "fromYear": 2011,
     "toYear": 2023,
@@ -40519,7 +40925,9 @@
   },
   {
     "name": "David Thompson",
-    "aliases": [],
+    "aliases": [
+      "The Skywalker"
+    ],
     "platform": "nba",
     "fromYear": 1976,
     "toYear": 1983,
@@ -40591,7 +40999,10 @@
   },
   {
     "name": "Klay Thompson",
-    "aliases": [],
+    "aliases": [
+      "Splash Brothers",
+      "Game 6 Klay"
+    ],
     "platform": "nba",
     "fromYear": 2011,
     "toYear": 2025,
@@ -41104,7 +41515,9 @@
   },
   {
     "name": "Karl-Anthony Towns",
-    "aliases": [],
+    "aliases": [
+      "KAT"
+    ],
     "platform": "nba",
     "fromYear": 2015,
     "toYear": 2025,
@@ -41680,7 +42093,10 @@
   },
   {
     "name": "Jonas Valančiūnas",
-    "aliases": [],
+    "aliases": [
+      "JV",
+      "Lithuanian Lightning"
+    ],
     "platform": "nba",
     "fromYear": 2012,
     "toYear": 2025,
@@ -41761,7 +42177,9 @@
   },
   {
     "name": "Nick Van Exel",
-    "aliases": [],
+    "aliases": [
+      "Nasty Nick"
+    ],
     "platform": "nba",
     "fromYear": 1993,
     "toYear": 2005,
@@ -42193,7 +42611,9 @@
   },
   {
     "name": "Nikola Vučević",
-    "aliases": [],
+    "aliases": [
+      "Vooch"
+    ],
     "platform": "nba",
     "fromYear": 2011,
     "toYear": 2025,
@@ -42439,7 +42859,9 @@
   },
   {
     "name": "Kemba Walker",
-    "aliases": [],
+    "aliases": [
+      "Cardiac Kemba"
+    ],
     "platform": "nba",
     "fromYear": 2011,
     "toYear": 2022,
@@ -42511,7 +42933,9 @@
   },
   {
     "name": "Ben Wallace",
-    "aliases": [],
+    "aliases": [
+      "Big Ben"
+    ],
     "platform": "nba",
     "fromYear": 1996,
     "toYear": 2011,
@@ -42529,7 +42953,9 @@
   },
   {
     "name": "Gerald Wallace",
-    "aliases": [],
+    "aliases": [
+      "Crash"
+    ],
     "platform": "nba",
     "fromYear": 2001,
     "toYear": 2014,
@@ -42565,7 +42991,9 @@
   },
   {
     "name": "Rasheed Wallace",
-    "aliases": [],
+    "aliases": [
+      "Sheed"
+    ],
     "platform": "nba",
     "fromYear": 1995,
     "toYear": 2012,
@@ -43222,7 +43650,9 @@
   },
   {
     "name": "Chris Webber",
-    "aliases": [],
+    "aliases": [
+      "C-Webb"
+    ],
     "platform": "nba",
     "fromYear": 1993,
     "toYear": 2007,
@@ -43403,7 +43833,8 @@
   {
     "name": "Victor Wembanyama",
     "aliases": [
-      "wemby"
+      "wemby",
+      "Alien"
     ],
     "platform": "nba",
     "fromYear": 2023,
@@ -43504,7 +43935,9 @@
   {
     "name": "Jerry West",
     "aliases": [
-      "logo"
+      "logo",
+      "Mr. Clutch",
+      "The Logo"
     ],
     "platform": "nba",
     "fromYear": 1960,
@@ -43542,7 +43975,8 @@
   {
     "name": "Russell Westbrook",
     "aliases": [
-      "russ"
+      "russ",
+      "Brodie"
     ],
     "platform": "nba",
     "fromYear": 2008,
@@ -43651,7 +44085,9 @@
   },
   {
     "name": "Derrick White",
-    "aliases": [],
+    "aliases": [
+      "D-White"
+    ],
     "platform": "nba",
     "fromYear": 2017,
     "toYear": 2025,
@@ -43957,7 +44393,9 @@
   },
   {
     "name": "Andrew Wiggins",
-    "aliases": [],
+    "aliases": [
+      "Maple Jordan"
+    ],
     "platform": "nba",
     "fromYear": 2014,
     "toYear": 2025,
@@ -44110,7 +44548,9 @@
   },
   {
     "name": "Dominique Wilkins",
-    "aliases": [],
+    "aliases": [
+      "The Human Highlight Film"
+    ],
     "platform": "nba",
     "fromYear": 1982,
     "toYear": 1998,
@@ -44317,7 +44757,9 @@
   },
   {
     "name": "Deron Williams",
-    "aliases": [],
+    "aliases": [
+      "D-Will"
+    ],
     "platform": "nba",
     "fromYear": 2005,
     "toYear": 2016,
@@ -44443,7 +44885,9 @@
   },
   {
     "name": "Jalen Williams",
-    "aliases": [],
+    "aliases": [
+      "J-Dub"
+    ],
     "platform": "nba",
     "fromYear": 2022,
     "toYear": 2025,
@@ -44452,7 +44896,9 @@
   },
   {
     "name": "Jason Williams",
-    "aliases": [],
+    "aliases": [
+      "White Chocolate"
+    ],
     "platform": "nba",
     "fromYear": 1998,
     "toYear": 2010,
@@ -44578,7 +45024,9 @@
   },
   {
     "name": "Lou Williams",
-    "aliases": [],
+    "aliases": [
+      "Sweet Lou"
+    ],
     "platform": "nba",
     "fromYear": 2005,
     "toYear": 2021,
@@ -44938,7 +45386,9 @@
   },
   {
     "name": "Corliss Williamson",
-    "aliases": [],
+    "aliases": [
+      "Big Nasty"
+    ],
     "platform": "nba",
     "fromYear": 1995,
     "toYear": 2006,
@@ -44957,7 +45407,10 @@
   {
     "name": "Zion Williamson",
     "aliases": [
-      "zion"
+      "zion",
+      "Big Z",
+      "The Pelican",
+      "Showzion"
     ],
     "platform": "nba",
     "fromYear": 2019,
@@ -45534,7 +45987,9 @@
   },
   {
     "name": "James Worthy",
-    "aliases": [],
+    "aliases": [
+      "Big Game James"
+    ],
     "platform": "nba",
     "fromYear": 1982,
     "toYear": 1993,
@@ -45741,7 +46196,10 @@
   },
   {
     "name": "Yao Ming",
-    "aliases": [],
+    "aliases": [
+      "The Great Wall of China",
+      "Chairman Yao"
+    ],
     "platform": "nba",
     "fromYear": 2002,
     "toYear": 2010,
@@ -45876,7 +46334,9 @@
   },
   {
     "name": "Nick Young",
-    "aliases": [],
+    "aliases": [
+      "Swaggy P"
+    ],
     "platform": "nba",
     "fromYear": 2007,
     "toYear": 2018,
@@ -45921,7 +46381,9 @@
   },
   {
     "name": "Trae Young",
-    "aliases": [],
+    "aliases": [
+      "Ice Trae"
+    ],
     "platform": "nba",
     "fromYear": 2018,
     "toYear": 2025,
