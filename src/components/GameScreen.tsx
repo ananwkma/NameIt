@@ -214,7 +214,7 @@ export function GameScreen() {
   // Auto-dismiss error after 10 seconds
   useEffect(() => {
     if (!state.error) return;
-    const timer = setTimeout(() => dispatch({ type: 'SET_ERROR', payload: null }), 10000);
+    const timer = setTimeout(() => dispatch({ type: 'SET_ERROR', payload: null }), 5000);
     return () => clearTimeout(timer);
   }, [state.error]);
 
