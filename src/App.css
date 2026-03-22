@@ -334,7 +334,11 @@ button.secondary {
 }
 
 .victory-modal {
-  border-color: var(--primary);
+  border-color: var(--accent);
+}
+
+.victory-modal h2 {
+  color: var(--accent);
 }
 
 .modal h2 {
