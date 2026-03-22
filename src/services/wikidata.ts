@@ -6,6 +6,9 @@ import womenData from '../data/allowlist-women.json';
 import menData from '../data/allowlist-men.json';
 import nbaData from '../data/allowlist-nba.json';
 import lolData from '../data/allowlist-lol.json';
+import fictionalWomenData from '../data/allowlist-fictional-women.json';
+import fictionalMenData from '../data/allowlist-fictional-men.json';
+import famousAsiansData from '../data/allowlist-famous-asians.json';
 
 interface AllowlistEntry {
   name: string;
@@ -19,6 +22,9 @@ const ALLOWLISTS: Record<string, AllowlistEntry[]> = {
   men: menData as AllowlistEntry[],
   nba: nbaData as AllowlistEntry[],
   lol: lolData as AllowlistEntry[],
+  'fictional-women': fictionalWomenData as AllowlistEntry[],
+  'fictional-men': fictionalMenData as AllowlistEntry[],
+  'famous-asians': famousAsiansData as AllowlistEntry[],
 };
 
 const WIKIDATA_API_URL = 'https://www.wikidata.org/w/api.php';
@@ -146,7 +152,8 @@ export const WikidataService = {
         const claims = entity.claims;
         if (!claims) continue;
 
-        const isHuman = claims.P31?.some((c: any) => c.mainsnak.datavalue?.value.id === 'Q5');
+        const instanceOf = category.wikidataInstanceOf || 'Q5';
+        const isHuman = claims.P31?.some((c: any) => c.mainsnak.datavalue?.value.id === instanceOf);
         const isFemale = claims.P21?.some((c: any) => c.mainsnak.datavalue?.value.id === category.wikidataGender);
 
         if (isHuman && isFemale) {

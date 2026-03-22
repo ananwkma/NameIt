@@ -29,10 +29,13 @@ const GAME_CONFIG = {
   wikidataInstance: 'Q5',     // human
 };
 
-const WOMEN_OUTPUT_PATH = path.join(__dirname, '../src/data/allowlist-women.json');
-const MEN_OUTPUT_PATH   = path.join(__dirname, '../src/data/allowlist-men.json');
-const NBA_OUTPUT_PATH   = path.join(__dirname, '../src/data/allowlist-nba.json');
-const LOL_OUTPUT_PATH   = path.join(__dirname, '../src/data/allowlist-lol.json');
+const WOMEN_OUTPUT_PATH           = path.join(__dirname, '../src/data/allowlist-women.json');
+const MEN_OUTPUT_PATH             = path.join(__dirname, '../src/data/allowlist-men.json');
+const NBA_OUTPUT_PATH             = path.join(__dirname, '../src/data/allowlist-nba.json');
+const LOL_OUTPUT_PATH             = path.join(__dirname, '../src/data/allowlist-lol.json');
+const FICTIONAL_WOMEN_OUTPUT_PATH = path.join(__dirname, '../src/data/allowlist-fictional-women.json');
+const FICTIONAL_MEN_OUTPUT_PATH   = path.join(__dirname, '../src/data/allowlist-fictional-men.json');
+const FAMOUS_ASIANS_OUTPUT_PATH   = path.join(__dirname, '../src/data/allowlist-famous-asians.json');
 
 // GitHub CSV: top 1000 Twitch streamers by follower count (CC0, Kaggle-sourced)
 const GITHUB_CSV_URL =
@@ -598,6 +601,102 @@ async function buildNBAAllowlist() {
 
 // ─── Dispatch ─────────────────────────────────────────────────────────────────
 
+async function buildFictionalWomenAllowlist() {
+  await buildSocialAllowlist({
+    outputPath: FICTIONAL_WOMEN_OUTPUT_PATH,
+    genderLabel: 'fictional-women',
+    genderPrompt: 'identify which ones are clearly fictional female characters (from film, TV, books, games, anime, etc.). Only include fictional characters you are highly confident are female.',
+    genderQID: 'Q6581072',
+    wikidataInstance: 'Q15632617', // fictional human
+  });
+}
+
+async function buildFictionalMenAllowlist() {
+  await buildSocialAllowlist({
+    outputPath: FICTIONAL_MEN_OUTPUT_PATH,
+    genderLabel: 'fictional-men',
+    genderPrompt: 'identify which ones are clearly fictional male characters (from film, TV, books, games, anime, etc.). Only include fictional characters you are highly confident are male.',
+    genderQID: 'Q6581097',
+    wikidataInstance: 'Q15632617',
+  });
+}
+
+async function buildFamousAsiansAllowlist() {
+  console.log('\nBuilding Famous Asians allowlist via Wikidata SPARQL...\n');
+
+  // Asian country Q-IDs
+  const ASIAN_COUNTRIES = [
+    'Q29520', // China
+    'Q17',    // Japan
+    'Q884',   // South Korea
+    'Q668',   // India
+    'Q865',   // Taiwan
+    'Q881',   // Vietnam
+    'Q869',   // Thailand
+    'Q252',   // Indonesia
+    'Q928',   // Philippines
+    'Q833',   // Malaysia
+    'Q334',   // Singapore
+    'Q836',   // Myanmar
+    'Q424',   // Cambodia
+    'Q843',   // Pakistan
+    'Q902',   // Bangladesh
+    'Q854',   // Sri Lanka
+    'Q837',   // Nepal
+    'Q711',   // Mongolia
+    'Q8646',  // Hong Kong
+    'Q423',   // North Korea
+  ];
+
+  const countryValues = ASIAN_COUNTRIES.map(q => `wd:${q}`).join(' ');
+  const sparql = `
+    SELECT DISTINCT ?person ?personLabel ?sitelinks WHERE {
+      ?person wdt:P31 wd:Q5 .
+      ?person wdt:P27 ?country .
+      VALUES ?country { ${countryValues} }
+      ?person wikibase:sitelinks ?sitelinks .
+      FILTER (?sitelinks >= 20)
+      SERVICE wikibase:label { bd:serviceParam wikibase:language "en" }
+    }
+    ORDER BY DESC(?sitelinks)
+    LIMIT 3000
+  `;
+
+  const url = `https://query.wikidata.org/sparql?query=${encodeURIComponent(sparql)}&format=json`;
+  console.log('Querying Wikidata SPARQL...');
+
+  const res = await fetch(url, {
+    headers: { 'User-Agent': '100WomenGame/1.0 (contact@example.com)', 'Accept': 'application/sparql-results+json' },
+  });
+  if (!res.ok) throw new Error(`SPARQL query failed: HTTP ${res.status}`);
+
+  const data = await res.json();
+  const results = data.results.bindings;
+  console.log(`Got ${results.length} candidates from SPARQL`);
+
+  const entries = results
+    .filter(r => r.personLabel?.value && !r.personLabel.value.startsWith('Q'))
+    .map(r => ({
+      name: r.personLabel.value,
+      aliases: [],
+      platform: 'famous-asians',
+      genderSource: 'wikidata-sparql',
+      sitelinks: parseInt(r.sitelinks?.value || '0'),
+    }));
+
+  // Deduplicate by name
+  const seen = new Set();
+  const deduped = entries.filter(e => {
+    if (seen.has(e.name.toLowerCase())) return false;
+    seen.add(e.name.toLowerCase());
+    return true;
+  });
+
+  const output = deduped.map(({ name, aliases, platform, genderSource }) => ({ name, aliases, platform, genderSource }));
+  await fs.writeFile(FAMOUS_ASIANS_OUTPUT_PATH, JSON.stringify(output, null, 2));
+  console.log(`\nWrote ${output.length} famous Asians to ${FAMOUS_ASIANS_OUTPUT_PATH}`);
+}
+
 async function main() {
   const args = process.argv.slice(2);
   const categoryIdx = args.indexOf('--category');
@@ -608,6 +707,9 @@ async function main() {
     men: buildMenAllowlist,
     nba: buildNBAAllowlist,
     lol: buildLoLAllowlist,
+    'fictional-women': buildFictionalWomenAllowlist,
+    'fictional-men': buildFictionalMenAllowlist,
+    'famous-asians': buildFamousAsiansAllowlist,
   };
 
   const builder = BUILDERS[categoryId];

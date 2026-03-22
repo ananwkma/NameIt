@@ -7,10 +7,11 @@ export interface CategoryConfig {
   accentColor: string;
   targetCount: number;
   timeLimitMs: number;
-  allowlistFile: string;       // basename only, e.g. 'allowlist-women.json'
+  allowlistFile: string;
   verificationStrategy: VerificationStrategy;
-  inputPlaceholder: string;    // e.g. "Type a famous woman's name"
-  wikidataGender?: string;     // Wikidata QID, only for 'wikidata' strategy
+  inputPlaceholder: string;
+  wikidataGender?: string;     // Wikidata QID for gender filter
+  wikidataInstanceOf?: string; // Wikidata QID for instance-of filter (default: Q5 = human)
 }
 
 export const CATEGORIES: CategoryConfig[] = [
@@ -37,6 +38,43 @@ export const CATEGORIES: CategoryConfig[] = [
     verificationStrategy: 'wikidata',
     inputPlaceholder: "Type a famous man's name",
     wikidataGender: 'Q6581097',
+  },
+  {
+    id: 'fictional-women',
+    name: '100 Fictional Women',
+    icon: '🎭',
+    accentColor: '#e91e8c',
+    targetCount: 100,
+    timeLimitMs: 15 * 60 * 1000,
+    allowlistFile: 'allowlist-fictional-women.json',
+    verificationStrategy: 'wikidata',
+    inputPlaceholder: "Type a fictional woman's name",
+    wikidataGender: 'Q6581072',
+    wikidataInstanceOf: 'Q15632617', // fictional human
+  },
+  {
+    id: 'fictional-men',
+    name: '100 Fictional Men',
+    icon: '🎭',
+    accentColor: '#8e44ad',
+    targetCount: 100,
+    timeLimitMs: 15 * 60 * 1000,
+    allowlistFile: 'allowlist-fictional-men.json',
+    verificationStrategy: 'wikidata',
+    inputPlaceholder: "Type a fictional man's name",
+    wikidataGender: 'Q6581097',
+    wikidataInstanceOf: 'Q15632617',
+  },
+  {
+    id: 'famous-asians',
+    name: '100 Famous Asians',
+    icon: '🌏',
+    accentColor: '#e74c3c',
+    targetCount: 100,
+    timeLimitMs: 15 * 60 * 1000,
+    allowlistFile: 'allowlist-famous-asians.json',
+    verificationStrategy: 'allowlist-only',
+    inputPlaceholder: "Type a famous Asian person's name",
   },
   {
     id: 'nba',
