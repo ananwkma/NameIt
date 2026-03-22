@@ -388,7 +388,7 @@ export function GameScreen() {
             <h2>Game Paused</h2>
             <div className="action-buttons">
               <button onClick={() => dispatch({ type: 'RESUME_GAME' })}>Resume</button>
-              <button className="secondary" onClick={() => {
+              <button onClick={() => {
                 localStorage.removeItem(`game_state_${state.selectedCategory.id}`);
                 navigate('/');
               }}>Quit</button>
