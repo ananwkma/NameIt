@@ -167,6 +167,7 @@ export function GameScreen() {
 
   const [inputValue, setInputValue] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
+  const confettiCanvasRef = useRef<HTMLCanvasElement>(null);
 
   // Redirect if invalid categoryId
   useEffect(() => {
@@ -230,11 +231,12 @@ export function GameScreen() {
 
   // Confetti on win
   useEffect(() => {
-    if (state.status !== 'WIN') return;
+    if (state.status !== 'WIN' || !confettiCanvasRef.current) return;
+    const fire = confetti.create(confettiCanvasRef.current, { resize: true });
     const end = Date.now() + 3000;
     const frame = () => {
-      confetti({ particleCount: 6, angle: 60, spread: 55, origin: { x: 0 } });
-      confetti({ particleCount: 6, angle: 120, spread: 55, origin: { x: 1 } });
+      fire({ particleCount: 6, angle: 60, spread: 55, origin: { x: 0 } });
+      fire({ particleCount: 6, angle: 120, spread: 55, origin: { x: 1 } });
       if (Date.now() < end) requestAnimationFrame(frame);
     };
     frame();
@@ -395,6 +397,11 @@ export function GameScreen() {
           </AnimatePresence>
         </section>
       </div>
+
+      {/* CONFETTI CANVAS */}
+      {state.status === 'WIN' && (
+        <canvas ref={confettiCanvasRef} style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: 2000, pointerEvents: 'none' }} />
+      )}
 
       {/* PAUSE MODAL */}
       {state.status === 'PAUSED' && (
