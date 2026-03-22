@@ -136,6 +136,8 @@ export function GameScreen() {
   const category = CATEGORIES.find(c => c.id === categoryId) ?? CATEGORIES[0];
   const isDebug = new URLSearchParams(window.location.search).has('debug');
 
+  const effectiveCategory = isDebug ? { ...category, targetCount: 5 } : category;
+
   const [state, dispatch] = useReducer(gameReducer, undefined, (): GameState => {
     if (!isDebug) {
       const savedState = localStorage.getItem(`game_state_${category.id}`);
@@ -155,8 +157,8 @@ export function GameScreen() {
     return {
       ...baseInitialState,
       status: 'PLAYING',
-      selectedCategory: category,
-      timeLeft: category.timeLimitMs,
+      selectedCategory: effectiveCategory,
+      timeLeft: effectiveCategory.timeLimitMs,
       startTime: Date.now(),
       lastTick: Date.now(),
     };
