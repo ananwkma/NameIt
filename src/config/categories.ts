@@ -63,7 +63,7 @@ export const CATEGORIES: CategoryConfig[] = [
   {
     id: 'az-lol',
     name: 'A-Z LoL Champions',
-    icon: '🔤',
+    icon: '⚔️',
     accentColor: '#1abc9c',
     targetCount: 26,
     timeLimitMs: 0,
