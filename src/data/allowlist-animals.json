@@ -1,0 +1,6163 @@
+[
+  { "name": "ram",         "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "ewe",         "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "doe",         "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "buck",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "boar",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "sow",         "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "mare",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "stallion",    "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "foal",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "colt",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "filly",       "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "cub",         "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "pup",         "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "puppy",       "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "kitten",      "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "lamb",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "calf",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "fawn",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "joey",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "dog",         "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "cat",         "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "fish",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "bird",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "horse",       "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "cow",         "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "pig",         "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "chicken",     "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "duck",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "rabbit",      "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "hamster",     "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "mouse",       "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "rat",         "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "goat",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "sheep",       "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "donkey",      "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "hen",         "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "rooster",     "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "turkey",      "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "bear",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "wolf",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "fox",         "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "deer",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "elephant",    "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "monkey",      "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "gorilla",     "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "giraffe",     "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "zebra",       "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "hippo",       "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "rhino",       "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "cheetah",     "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "leopard",     "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "jaguar",      "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "puma",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "cougar",      "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "panther",     "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "buffalo",     "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "bison",       "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "moose",       "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "elk",         "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "reindeer",    "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "camel",       "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "kangaroo",    "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "koala",       "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "panda",       "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "raccoon",     "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "skunk",       "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "squirrel",    "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "chipmunk",    "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "bat",         "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "otter",       "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "beaver",      "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "seal",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "walrus",      "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "whale",       "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "dolphin",     "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "shark",       "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "narwhal",     "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "snake",       "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "turtle",      "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "lizard",      "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "crocodile",   "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "alligator",   "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "gecko",       "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "iguana",      "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "chameleon",   "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "cobra",       "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "python",      "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "boa",         "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "frog",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "toad",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "newt",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "salamander",  "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "owl",         "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "eagle",       "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "parrot",      "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "penguin",     "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "flamingo",    "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "peacock",     "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "toucan",      "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "pelican",     "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "crow",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "raven",       "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "pigeon",      "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "dove",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "swan",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "goose",       "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "hawk",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "falcon",      "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "vulture",     "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "ostrich",     "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "emu",         "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "heron",       "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "stork",       "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "crane",       "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "seagull",     "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "puffin",      "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "hummingbird", "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "robin",       "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "sparrow",     "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "finch",       "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "canary",      "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "magpie",      "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "albatross",   "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "kiwi",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "octopus",     "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "squid",       "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "jellyfish",   "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "crab",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "lobster",     "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "shrimp",      "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "prawn",       "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "seahorse",    "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "starfish",    "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "clam",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "oyster",      "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "mussel",      "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "eel",         "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "stingray",    "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "salmon",      "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "tuna",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "goldfish",    "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "carp",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "bass",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "trout",       "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "cod",         "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "snail",       "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "spider",      "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "bee",         "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "ant",         "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "fly",         "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "butterfly",   "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "moth",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "grasshopper", "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "cricket",     "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "beetle",      "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "ladybug",     "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "dragonfly",   "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "mosquito",    "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "caterpillar", "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "worm",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "scorpion",    "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "tarantula",   "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "firefly",     "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "wasp",        "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "cockroach",   "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "termite",     "aliases": [], "platform": "animals", "genderSource": "manual" },
+  { "name": "mantis",      "aliases": [], "platform": "animals", "genderSource": "manual" },
+  {
+    "name": "lion",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "elephant",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "dolphin",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "whale",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "wolf",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "bear",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "tiger",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "zebra",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "giraffe",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "hippopotamus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "rhinoceros",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "cheetah",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "leopard",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "jaguar",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "puma",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "cougar",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "lynx",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "bobcat",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "fox",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "coyote",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "hyena",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "wild dog",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "buffalo",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "wildebeest",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "antelope",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "gazelle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "deer",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "moose",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "elk",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "reindeer",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "camel",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "llama",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "alpaca",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "donkey",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "mule",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "horse",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "pig",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "boar",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "warthog",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "porcupine",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "hedgehog",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "badger",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "otter",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "beaver",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "squirrel",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "rabbit",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "hare",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "guinea pig",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "hamster",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "mouse",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "rat",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "monkey",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "chimpanzee",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "gorilla",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "orangutan",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "gibbon",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "baboon",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "lemur",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "koala",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "panda",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sloth",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "anteater",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "armadillo",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "kangaroo",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "wallaby",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "wombat",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "possum",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "platypus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "echidna",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "seal",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sea lion",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "walrus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "manatee",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "dugong",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "orca",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "shark",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "porpoise",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "bat",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "mole",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "shrew",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "opossum",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "raccoon",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "skunk",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "weasel",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "marten",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "ferret",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "mink",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "stoat",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "ermine",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "pangolin",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "aardvark",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "hyrax",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "elephant shrew",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "okapi",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "tapir",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "peccary",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "musk deer",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "muntjac",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sambar",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "axis deer",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sika deer",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "fallow deer",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "roe deer",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "musk ox",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "yak",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "ibex",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "bighorn sheep",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "mountain goat",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "chamois",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "impala",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "springbok",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "gemsbuck",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "eland",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "kudu",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "oryx",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "roan antelope",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sable antelope",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "waterbuck",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "hartebeest",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "gnu",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "bison",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "dromedary",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "vicuña",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "guanaco",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "capybara",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "agouti",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "paca",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "nutria",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "quill pig",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "groundhog",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "marmot",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "prairie dog",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "chipmunk",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "flying squirrel",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "tree shrew",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "colugos",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "flying lemur",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "slow loris",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "tarsier",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "galago",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "loris",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "bushbaby",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "aye-aye",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sifaka",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "ring-tailed lemur",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "proboscis monkey",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "golden monkey",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "macaque",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "langur",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "siamang",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "drill",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "mandrill",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "gelada",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "hamadryas baboon",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "vervet",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "guenon",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "patas monkey",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "colobus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "snub-nosed monkey",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "eagle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "penguin",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "parrot",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "flamingo",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "owl",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sparrow",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "pigeon",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "crow",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "raven",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "hawk",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "falcon",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "vulture",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "swan",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "duck",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "goose",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "chicken",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "rooster",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "turkey",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "peacock",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "ostrich",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "emu",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "hummingbird",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "woodpecker",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "stork",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "crane",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "pelican",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "cormorant",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "albatross",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "seagull",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "tern",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "puffin",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "toucan",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "macaw",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "cockatoo",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "parakeet",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "budgie",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "finch",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "canary",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "nightingale",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "robin",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "bluebird",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "cardinal",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "jay",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "magpie",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "starling",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "thrush",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "dove",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "quail",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "pheasant",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "grouse",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "partridge",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "peachen",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "swallow",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "swift",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "kingfisher",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "bee-eater",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "hoopoe",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "roller",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "hornbill",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "ibis",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "heron",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "egret",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "bittern",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "spoonbill",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "loon",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "grebe",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "anhinga",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "frigatebird",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "booby",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "gannet",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "skua",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "jaeger",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "petrel",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "shearwater",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "whydah",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "weaver",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "siskin",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "goldfinch",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "bullfinch",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "waxwing",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "warbler",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "flycatcher",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "chickadee",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "tit",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "nuthatch",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "creeper",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "wren",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "dunnock",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "accentor",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "lark",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "pipit",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "wagtail",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "shrike",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "oriole",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "drongo",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "fantail",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "monarch",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sunbird",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "flowerpecker",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "white-eye",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "honeyeater",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "lorikeet",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "lory",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "cockatiel",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "conure",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "amazon",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "eclectus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "grey parrot",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "african grey",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "kea",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "kiwi",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "cassowary",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "rhea",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "tinamou",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "bustard",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "secretary bird",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "cariama",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sunbittern",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "kagou",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "seriema",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "limpkin",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "trumpeter",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "hoatzin",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "curassow",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "guan",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "chachalaca",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "megapode",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "crowned pigeon",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "dodo",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "moa",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "archaeopteryx",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "roadrunner",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "cuckoo",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "ani",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "anis",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "coucal",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "mousebird",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "trogon",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "quetzal",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "mot-mot",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "puffbird",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "jacamar",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "barbet",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "honeyguide",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "pileated",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "downy",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "hairy",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "flicker",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sapsucker",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "tanager",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "bunting",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "grosbeak",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "junco",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "towhee",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "salmon",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "clownfish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "tuna",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "goldfish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "cod",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "trout",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "bass",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "catfish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "pike",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "flounder",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "halibut",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "anchovies",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "herring",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "mackerel",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "perch",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "tilapia",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "swordfish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "marlin",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "angelfish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "betta",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "carp",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "eel",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "barracuda",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "grouper",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "snapper",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "mahi-mahi",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sardines",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "pilchard",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "mullet",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "guppy",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "tetra",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "discus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "cichlid",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "danio",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "pleco",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "corydoras",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "neon tetra",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "molly",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "gourami",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "loach",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "rasbora",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "platy",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "swordtail",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "hatchetfish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "piranha",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "pufferfish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "seahorse",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "lionfish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "stonefish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "zebrafish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sturgeon",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "beluga",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "gar",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "bowfin",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "paddlefish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "lungfish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "coelacanth",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "anglerfish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "viperfish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "lanternfish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "gulper eel",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "fangtooth",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "hagfish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "lamprey",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "ray",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "skate",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "manta ray",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "stingray",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "electric eel",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "pipefish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "triggerfish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "porcupinefish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "boxfish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "filefish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "goby",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "blenny",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "dragonfish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "scorpionfish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "wrasse",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "parrotfish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "damselfish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "butterflyfish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "trumpetfish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "saury",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "garfish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "needlefish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "flyingfish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "silverside",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "killifish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "livebearing fish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "whiting",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "pollock",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "haddock",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "monkfish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "wolffish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "turbot",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "brill",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "plaice",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sole",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "crocodile",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "alligator",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "komodo dragon",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "chameleon",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "cobra",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "python",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "anaconda",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "boa constrictor",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "rattlesnake",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "viper",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "gecko",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "iguana",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "bearded dragon",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "monitor lizard",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "gila monster",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "turtle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "tortoise",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sea turtle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "snapping turtle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "box turtle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "tuatara",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "basilisk",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "horned lizard",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "skink",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "slowworm",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "frilled lizard",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "flying lizard",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "green tree python",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "king cobra",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "black mamba",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "copperhead",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "coral snake",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "asp",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "adder",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "boa",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "corn snake",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "ball python",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "green anaconda",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "reticulated python",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "burmese python",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "water moccasin",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sidewinder",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "king snake",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "milk snake",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "rat snake",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "garter snake",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "grass snake",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "smooth snake",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "ribbon snake",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "hognose snake",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "egg-eating snake",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "whip snake",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "racer snake",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "colubrid",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "puff adder",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "gaboon viper",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "saw-scaled viper",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "green mamba",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "boomslang",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "mangrove snake",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "tentacled snake",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "flying snake",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "spitting cobra",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "monocled cobra",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "banded krait",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "taipan",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "brown snake",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "tiger snake",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "death adder",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "leatherback turtle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "flatback turtle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "kemp's ridley turtle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "loggerhead turtle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "green sea turtle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "hawksbill turtle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "painted turtle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "wood turtle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "mud turtle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "musk turtle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "softshell turtle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "pancake tortoise",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "leopard tortoise",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sulcata tortoise",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "russian tortoise",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "red-eared slider",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "painted terrapin",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "american alligator",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "chinese alligator",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "saltwater crocodile",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "nile crocodile",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "american crocodile",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "gharial",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "false gharial",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "caiman",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "spectacled caiman",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "black caiman",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "dwarf caiman",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "broad-snouted caiman",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "green iguana",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "desert iguana",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "marine iguana",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "cuban iguana",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "least gecko",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "tokay gecko",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "day gecko",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "leopard gecko",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "crested gecko",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "anole",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "blue-throated lizard",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "fence lizard",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "tree monitor",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "perentie",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "lace monitor",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "goannas",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "honeybee",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "butterfly",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "dragonfly",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "ladybug",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "grasshopper",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "cricket",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "ant",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "wasp",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "mosquito",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "housefly",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "beetle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "cockroach",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "termite",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "spider",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "tarantula",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "scorpion",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "tick",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "mite",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "praying mantis",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "firefly",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "centipede",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "millipede",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "caterpillar",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "moth",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "bumblebee",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "hornet",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "yellowjacket",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "cicada",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "louse",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "flea",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "bed bug",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "stink bug",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "june bug",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "dung beetle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "weevil",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "earwig",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "silverfish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "bookworm",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "aphid",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "mealworm",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "waxworm",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "silkworm",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "glowworm",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "inchworm",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "earthworm",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "maggot",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "larva",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "pupa",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "nymph",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "damselfly",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "mayfly",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "stone fly",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "caddisfly",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "scorpionfly",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "antlion",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "dobsonfly",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "owlfly",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "lacewing",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "thrip",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "whitefly",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "scale insect",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "mealybug",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "leaf hopper",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "planthopper",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "treehoppper",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "assassin bug",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "water strider",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "backswimmer",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "water boatman",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "diving beetle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "ground beetle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "tiger beetle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "ladybird beetle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "longhorn beetle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "bark beetle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "click beetle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "rhinoceros beetle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "hercules beetle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "stag beetle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "scarab beetle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "japanese beetle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "colorado potato beetle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "blister beetle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "oil beetle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "whirligig beetle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "wolf spider",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "jumping spider",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "orb weaver",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "crab spider",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "huntsman spider",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "fishing spider",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "lynx spider",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "trapdoor spider",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "whip scorpion",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "pseudoscorpion",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "solifugid",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "camel spider",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "wind scorpion",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "octopus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "jellyfish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "crab",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "lobster",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "shrimp",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "squid",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "starfish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sea otter",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sea anemone",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "coral",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sponge",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "barnacle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "mussel",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "clam",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "oyster",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "scallop",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "snail",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "nautilus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "urchin",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sea cucumber",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "brittle star",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "feather star",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sea lily",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "cuttlefish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "nudibranch",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sea slug",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "cowrie",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "conch",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "abalone",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "limpet",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "hermit crab",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "fiddler crab",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "horseshoe crab",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "isopod",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "amphipod",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "krill",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "copepod",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sea spider",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sea scorpion",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "mantis shrimp",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "pistol shrimp",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "beach flea",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sea wasp",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sea nettle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "lion's mane jellyfish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "box jellyfish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "moon jellyfish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Portuguese man o war",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sea fan",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sea whip",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sea grass",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "kelp",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "seaweed",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sea lettuce",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "coralline algae",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sea butterfly",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "pteropod",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "diatom",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "foraminifera",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "radiolarian",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "comb jelly",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "ctenophore",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "hydra",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sea mat",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "bryozoan",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "tunicate",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sea pig",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "glass squid",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "dumbo octopus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "vampire squid",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "trilobite",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "ammonite",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "belemnite",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sea dragon",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "leafy sea dragon",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sea monkey",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "water bear",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "tardigrade",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "brine shrimp",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "sea hare",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "bobtail squid",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "giant isopod",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "giant spider crab",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "yeti crab",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "barreleye fish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "fangtooth fish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "bioluminescent jellyfish",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "frog",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "toad",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "axolotl",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "salamander",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "newt",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "tree frog",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "poison dart frog",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "bullfrog",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "tree toad",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "caecilian",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "glass frog",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "goliath frog",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "spring peeper",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "leopard frog",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "green frog",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "pickerel frog",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "wood frog",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "gray tree frog",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "American toad",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "cane toad",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "spadefoot toad",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "fire-bellied newt",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "rough newt",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "smooth newt",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "crested newt",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "alpine newt",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "red eft",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "California newt",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "spotted salamander",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "tiger salamander",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "red-backed salamander",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "mudpuppy",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "hellbender",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "giant salamander",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Japanese giant salamander",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Chinese giant salamander",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "lungless salamander",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "marbled salamander",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "arboreal salamander",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "slimy salamander",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "two-toed amphiuma",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "three-toed amphiuma",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Congo eel",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "giant caecilian",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "ringed caecilian",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "tomato frog",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "waxy tree frog",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "painted reed frog",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "foam-nest tree frog",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Archey's frog",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Labrador Retriever",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Golden Retriever",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "German Shepherd",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "French Bulldog",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Bulldog",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Poodle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Beagle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Yorkshire Terrier",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "German Shorthaired Pointer",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Dachshund",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Husky",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Chihuahua",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Boxer",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Rottweiler",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Pomeranian",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Maltese",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Shih Tzu",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Pug",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Cocker Spaniel",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "English Springer Spaniel",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Australian Shepherd",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Great Dane",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Doberman Pinscher",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Miniature Pinscher",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Siberian Husky",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Cavalier King Charles Spaniel",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Schnauzer",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Shiba Inu",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Pekingese",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Lhasa Apso",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Basset Hound",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Bloodhound",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Saint Bernard",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Mastiff",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Newfoundland",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Great Pyrenees",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Akita",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Alaskan Malamute",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Collie",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Shetland Sheepdog",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Old English Sheepdog",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Corgi",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Pembroke Welsh Corgi",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Australian Cattle Dog",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Border Collie",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Brittany",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Springer Spaniel",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Pointer",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Setter",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Irish Setter",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "English Setter",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Vizsla",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Weimaraner",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Rhodesian Ridgeback",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Pit Bull",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "American Staffordshire Terrier",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Staffordshire Bull Terrier",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Bull Terrier",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Jack Russell Terrier",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Parson Russell Terrier",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "West Highland White Terrier",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Scottish Terrier",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Skye Terrier",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Cairn Terrier",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Boston Terrier",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Affenpinscher",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Brussels Griffon",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Papillon",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Toy Poodle",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Italian Greyhound",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Greyhound",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Whippet",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Afghan Hound",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Saluki",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Borzoi",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Irish Wolfhound",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Scottish Deerhound",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Harrier",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "English Foxhound",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "American Foxhound",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Treeing Walker Coonhound",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Dogo Argentino",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Cane Corso",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Boerboel",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Anatolian Shepherd",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Kangal",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Tibetan Mastiff",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Bernese Mountain Dog",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "German Pinscher",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Miniature Schnauzer",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Giant Schnauzer",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Wheaten Terrier",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Soft Coated Wheaten Terrier",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Patterdale Terrier",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Airedale Terrier",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Black and Tan Coonhound",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Siamese",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Persian",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Maine Coon",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Bengal",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Ragdoll",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "British Shorthair",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Sphynx",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Scottish Fold",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Abyssinian",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Birman",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Burmese",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Bombay",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Cornish Rex",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Devon Rex",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Egyptian Mau",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "American Shorthair",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Tabby",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Calico",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Tortoiseshell",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Turkish Van",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Turkish Angora",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Ragamuffin",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Siberian",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Norwegian Forest Cat",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Savannah",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Manx",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Japanese Bobtail",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "American Bobtail",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Balinese",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Tonkinese",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Ocicat",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Korat",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Russian Blue",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Chartreux",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Tuxedo",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Ocelot",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Pixie Bob",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Serval",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Chausie",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Lykoi",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Peterbald",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Munchkin",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Bambino",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "American Curl",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Havana Brown",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Singapura",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Snowshoe",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Burmilla",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Somali",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "T-Rex",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Triceratops",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Velociraptor",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Stegosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Brachiosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Tyrannosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Ankylosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Parasaurolophus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Spinosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Iguanodon",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Allosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Compsognathus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Deinonychus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Pteranodon",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Pterodactyl",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Carnotaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Ceratosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Therizinosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Dilophosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Gallimimus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Oviraptor",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Dimetrodon",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Plesiosaur",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Ichthyosaur",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Mosasaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Kronosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Elasmosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Plesiosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Nothosaur",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Anomalocaris",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Dunkleosteus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Helicoprion",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Megalodon",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Wooly Mammoth",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Saber-tooth Cat",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Ground Sloth",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Glyptodon",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Toxodon",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Titanoboa",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Arthropleura",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Tully Monster",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Opabinia",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Hallucigenia",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Dickinsonia",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Tarbosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Giganotosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Acrocanthosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Proceratosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Sinornithosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Microraptor",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Troodon",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Stenonychosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Dromaeosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Utahraptor",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Psittacosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Hypsilophodon",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Lesothosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Heterodontosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Edmontosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Maiasaura",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Lambeosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Corythosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Tenontosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Oviraptorosaur",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Beipiaognathus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Sauroposeidon",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Argentinosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Diplodocus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Apatosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Brontosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Camarasaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Alamosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Mamenchisaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Melanorosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Riojasaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Vulcanodon",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Barosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Supersaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Ultrasaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Titanosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Giraffatitan",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Euhelopus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Nigersaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Dreadnoughtus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Patagotitan",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Puertasaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Bruhathkayosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Shantungosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Tuojiangosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Wuerhosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Kentrosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Dacentrurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  },
+  {
+    "name": "Huayangosaurus",
+    "aliases": [],
+    "platform": "animals",
+    "genderSource": "claude-curated"
+  }
+]

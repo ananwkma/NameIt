@@ -124,12 +124,20 @@ export function fuzzyMatchNames(target: string, candidate: string): boolean {
   if (s1 === s2) return true;
 
   const distance = getLevenshteinDistance(s1, s2);
-  
-  // Rule: 2-character difference OR 80% similarity
-  if (distance <= 2) return true;
-  
+  const len = Math.max(s1.length, s2.length);
+
+  // Short names (< 10 chars): only 1 edit allowed.
+  // Prevents "juno" (dist 2 from "jinx") matching, while "junx"/"jino" (dist 1) still match.
+  if (len < 10) return distance <= 1;
+
+  // Longer names: 2 edits allowed, but lengths must be within 1 char of each other.
+  // Prevents "batman" (6) matching "batwoman" (8) via 2 insertions, etc.
+  const lenDiff = Math.abs(s1.length - s2.length);
+  if (distance <= 2 && lenDiff <= 1) return true;
+
+  // Similarity ratio — raised to 0.85 to avoid near-misses like superman/superwoman (0.80).
   const ratio = getSimilarityRatio(s1, s2);
-  if (ratio >= 0.8) return true;
+  if (ratio >= 0.85) return true;
 
   return false;
 }

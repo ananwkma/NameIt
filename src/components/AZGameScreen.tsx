@@ -159,6 +159,7 @@ export function AZGameScreen() {
               ref={inputRef}
               type="text"
               value={inputValue}
+              maxLength={50}
               onChange={(e) => {
                 setInputValue(e.target.value);
                 if (state.error) dispatch({ type: 'SET_ERROR', payload: null });

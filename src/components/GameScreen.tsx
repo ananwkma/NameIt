@@ -186,6 +186,12 @@ export function GameScreen() {
     }
   }, [state]);
 
+  // Clear saved state when navigating away (always start fresh on re-entry)
+  useEffect(() => {
+    const key = `game_state_${state.selectedCategory.id}`;
+    return () => { localStorage.removeItem(key); };
+  }, [state.selectedCategory.id]);
+
   // Update high score and best completion time per category
   useEffect(() => {
     const verifiedCount = state.entries.filter(e => e.status === 'verified').length;
@@ -295,6 +301,7 @@ export function GameScreen() {
 
     if (isDuplicate) {
       dispatch({ type: 'SET_ERROR', payload: `You already added or are verifying "${name}"!` });
+      setInputValue('');
       return;
     }
 
@@ -346,6 +353,7 @@ export function GameScreen() {
               ref={inputRef}
               type="text"
               value={inputValue}
+              maxLength={50}
               onChange={(e) => {
                 setInputValue(e.target.value);
                 if (state.error) dispatch({ type: 'SET_ERROR', payload: null });
