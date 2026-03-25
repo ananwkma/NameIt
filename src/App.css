@@ -658,35 +658,6 @@ button.secondary {
   -webkit-user-select: none;
 }
 
-@media (max-width: 600px) {
-  .lol-all-group {
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .lol-all-names {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 5px;
-  }
-
-  .lol-all-chip {
-    font-size: 0.75rem;
-    min-width: unset;
-    width: 100%;
-    height: 30px;
-  }
-
-  .lol-all-letter {
-    font-size: 1rem;
-  }
-
-  .lol-all-board {
-    padding: 10px 12px;
-    gap: 14px;
-  }
-}
-
 .lol-all-chip--found {
   background: #27ae60;
   color: #fff;
