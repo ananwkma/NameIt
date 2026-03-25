@@ -393,7 +393,7 @@ export const WikidataService = {
 
         return {
           id: c.id,
-          name: (c.entity.labels?.en?.value || 'Unknown').replace(/^\w/, ch => ch.toUpperCase()),
+          name: (c.entity.labels?.en?.value || 'Unknown').replace(/^\w/, (ch: string) => ch.toUpperCase()),
           description: c.entity.descriptions?.en?.value || '',
           sitelinks: Object.keys(c.entity.sitelinks || {}).length,
           aliases: (c.entity.aliases?.en || []).map((a: any) => a.value),
@@ -626,8 +626,8 @@ export const WikidataService = {
       'breakfastattiffanys': 'Breakfast at Tiffany\'s',
       'gonegirl': 'Gone Girl', 'gonewiththewind': 'Gone with the Wind',
       'emma': 'Emma', 'matilda': 'Matilda', 'alice': 'Alice in Wonderland',
-      'wizardofoz': 'The Wizard of Oz', 'juno': 'Juno', 'divergent': 'Divergent',
-      'anime': 'Anime', 'nintendo': 'Nintendo', 'smashbros': 'Super Smash Bros.',
+      'wizardofoz': 'The Wizard of Oz', 'juno': 'Juno',
+      'anime': 'Anime', 'nintendo': 'Nintendo',
       'league-of-legends': 'League of Legends',
     };
 
@@ -856,7 +856,7 @@ export const WikidataService = {
   },
 
   // Keep geminiRequest for backwards compat with llmVerifyFamousAsian
-  async geminiRequest(apiKey: string, prompt: string): Promise<string | null> {
+  async geminiRequest(_apiKey: string, prompt: string): Promise<string | null> {
     return this.llmRequest(prompt);
   },
 
@@ -923,7 +923,7 @@ export const WikidataService = {
     const cacheKey = `famous-asian:${input}`;
     if (llmCache.has(cacheKey)) {
       console.log(`[DEBUG] LLM cache hit for "${input}"`);
-      return llmCache.get(cacheKey)!;
+      return llmCache.get(cacheKey) as { name: string; description: string; qid: string | null } | null;
     }
 
     const prompt = `Is "${input}" a famous Asian or Asian-American person (e.g. athlete, entertainer, streamer, YouTuber, politician, scientist, etc.)? Note: the input may be a Twitch/YouTube username or online handle rather than a real name.\nIf yes, reply with exactly: YES | [full canonical name] | [one sentence description] | [Wikidata QID e.g. Q12345, or NONE]\nIf no, reply with exactly: NO`;
