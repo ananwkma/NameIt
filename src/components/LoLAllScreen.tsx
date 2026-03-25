@@ -2,7 +2,7 @@ import { useReducer, useRef, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { WikidataService } from '../services/wikidata';
 import { Search, AlertCircle, Clock } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { formatTime } from '../utils/formatTime';
 import confetti from 'canvas-confetti';
 import allowlistRaw from '../data/allowlist-lol.json';
@@ -26,9 +26,11 @@ for (const name of ALL_CHAMPIONS) {
 }
 
 interface LoLAllState {
-  guessed: Set<string>;      // champion names (lowercase) already found
+  guessed: Set<string>;   // guessed by typing (lowercase)
+  revealed: Set<string>;  // revealed by clicking twice (lowercase)
+  revealing: Set<string>; // in "REVEAL?" pending state (lowercase)
   error: string | null;
-  status: 'PLAYING' | 'WIN';
+  status: 'PLAYING' | 'PAUSED' | 'WIN';
   timeElapsed: number;
   lastTick: number | null;
 }
@@ -36,10 +38,17 @@ interface LoLAllState {
 type LoLAllAction =
   | { type: 'GUESS_CORRECT'; payload: string }
   | { type: 'SET_ERROR'; payload: string | null }
-  | { type: 'TICK'; payload: number };
+  | { type: 'TICK'; payload: number }
+  | { type: 'PAUSE_GAME' }
+  | { type: 'RESUME_GAME' }
+  | { type: 'REVEAL_PENDING'; payload: string }
+  | { type: 'REVEAL_CONFIRM'; payload: string }
+  | { type: 'REVEAL_CANCEL'; payload: string };
 
 const initialState: LoLAllState = {
   guessed: new Set(),
+  revealed: new Set(),
+  revealing: new Set(),
   error: null,
   status: 'PLAYING',
   timeElapsed: 0,
@@ -51,16 +60,44 @@ function lolAllReducer(state: LoLAllState, action: LoLAllAction): LoLAllState {
     case 'GUESS_CORRECT': {
       const newGuessed = new Set(state.guessed);
       newGuessed.add(action.payload.toLowerCase());
-      const isWin = newGuessed.size === TOTAL;
+      const total = newGuessed.size + state.revealed.size;
       return {
         ...state,
         guessed: newGuessed,
         error: null,
-        status: isWin ? 'WIN' : 'PLAYING',
+        status: total >= TOTAL ? 'WIN' : 'PLAYING',
       };
+    }
+    case 'REVEAL_PENDING': {
+      const newRevealing = new Set(state.revealing);
+      newRevealing.add(action.payload.toLowerCase());
+      return { ...state, revealing: newRevealing };
+    }
+    case 'REVEAL_CONFIRM': {
+      const nameLower = action.payload.toLowerCase();
+      const newRevealing = new Set(state.revealing);
+      newRevealing.delete(nameLower);
+      const newRevealed = new Set(state.revealed);
+      newRevealed.add(nameLower);
+      const total = state.guessed.size + newRevealed.size;
+      return {
+        ...state,
+        revealing: newRevealing,
+        revealed: newRevealed,
+        status: total >= TOTAL ? 'WIN' : 'PLAYING',
+      };
+    }
+    case 'REVEAL_CANCEL': {
+      const newRevealing = new Set(state.revealing);
+      newRevealing.delete(action.payload.toLowerCase());
+      return { ...state, revealing: newRevealing };
     }
     case 'SET_ERROR':
       return { ...state, error: action.payload };
+    case 'PAUSE_GAME':
+      return { ...state, status: 'PAUSED', lastTick: null };
+    case 'RESUME_GAME':
+      return { ...state, status: 'PLAYING', lastTick: Date.now() };
     case 'TICK': {
       if (state.status !== 'PLAYING') return state;
       const delta = action.payload - (state.lastTick || action.payload);
@@ -75,6 +112,7 @@ export function LoLAllScreen() {
   const [inputValue, setInputValue] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
   const confettiCanvasRef = useRef<HTMLCanvasElement>(null);
+  const revealTimers = useRef<Map<string, number>>(new Map());
 
   // Timer
   useEffect(() => {
@@ -115,14 +153,38 @@ export function LoLAllScreen() {
     frame();
   }, [state.status]);
 
-  // Escape key to go back
+  // Escape key to pause/resume
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') navigate('/');
+      if (e.key === 'Escape') {
+        if (state.status === 'PLAYING') dispatch({ type: 'PAUSE_GAME' });
+        else if (state.status === 'PAUSED') dispatch({ type: 'RESUME_GAME' });
+      }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [navigate]);
+  }, [state.status]);
+
+  const handleChipClick = (name: string) => {
+    if (state.status !== 'PLAYING') return;
+    const nameLower = name.toLowerCase();
+    if (state.guessed.has(nameLower) || state.revealed.has(nameLower)) return;
+
+    if (state.revealing.has(nameLower)) {
+      // Second click within 5s — confirm reveal
+      const timer = revealTimers.current.get(nameLower);
+      if (timer) { clearTimeout(timer); revealTimers.current.delete(nameLower); }
+      dispatch({ type: 'REVEAL_CONFIRM', payload: name });
+    } else {
+      // First click — enter pending state
+      dispatch({ type: 'REVEAL_PENDING', payload: name });
+      const timer = window.setTimeout(() => {
+        dispatch({ type: 'REVEAL_CANCEL', payload: name });
+        revealTimers.current.delete(nameLower);
+      }, 5000);
+      revealTimers.current.set(nameLower, timer);
+    }
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -138,7 +200,7 @@ export function LoLAllScreen() {
     }
 
     const canonicalLower = result.name.toLowerCase();
-    if (state.guessed.has(canonicalLower)) {
+    if (state.guessed.has(canonicalLower) || state.revealed.has(canonicalLower)) {
       dispatch({ type: 'SET_ERROR', payload: `${result.name} already found!` });
       return;
     }
@@ -146,6 +208,8 @@ export function LoLAllScreen() {
     dispatch({ type: 'GUESS_CORRECT', payload: result.name });
     inputRef.current?.focus();
   };
+
+  const foundCount = state.guessed.size + state.revealed.size;
 
   return (
     <div className="master-container">
@@ -158,7 +222,7 @@ export function LoLAllScreen() {
               {formatTime(state.timeElapsed)}
             </div>
             <div className="counter">
-              <span>{state.guessed.size}</span>/{TOTAL}
+              <span>{foundCount}</span>/{TOTAL}
             </div>
           </div>
         </header>
@@ -192,24 +256,64 @@ export function LoLAllScreen() {
 
       {/* CHAMPION BOARD */}
       <div className="lol-all-board">
-        {CHAMPION_GROUPS.map(({ letter, names }) => (
-          <div key={letter} className="lol-all-group">
-            <span className="lol-all-letter">{letter}</span>
-            <div className="lol-all-names">
-              {names.map(name => (
-                <motion.span
-                  key={name}
-                  className={`lol-all-chip${state.guessed.has(name.toLowerCase()) ? ' lol-all-chip--found' : ''}`}
-                  animate={state.guessed.has(name.toLowerCase()) ? { opacity: 1, scale: 1 } : { opacity: 0.15, scale: 1 }}
-                  initial={false}
-                >
-                  {name}
-                </motion.span>
-              ))}
+        <AnimatePresence>
+          {CHAMPION_GROUPS.map(({ letter, names }) => {
+            const groupComplete = names.every(n => state.guessed.has(n.toLowerCase()) || state.revealed.has(n.toLowerCase()));
+            if (groupComplete) return null;
+            return (
+              <motion.div
+                key={letter}
+                className="lol-all-group"
+                layout
+                exit={{ opacity: 0, height: 0, marginBottom: 0, overflow: 'hidden' }}
+                transition={{ duration: 0.4, ease: 'easeInOut' }}
+              >
+                <span className="lol-all-letter">{letter}</span>
+                <div className="lol-all-names">
+                  {names.map(name => {
+                    const nameLower = name.toLowerCase();
+                    const guessed = state.guessed.has(nameLower);
+                    const revealed = state.revealed.has(nameLower);
+                    const revealing = state.revealing.has(nameLower);
+
+                    let chipClass = 'lol-all-chip';
+                    if (guessed) chipClass += ' lol-all-chip--found';
+                    else if (revealed) chipClass += ' lol-all-chip--revealed';
+                    else if (revealing) chipClass += ' lol-all-chip--revealing';
+
+                    return (
+                      <motion.span
+                        key={name}
+                        className={chipClass}
+                        animate={guessed || revealed ? { opacity: 1, scale: [1.15, 1] } : { opacity: 1, scale: 1 }}
+                        initial={false}
+                        transition={{ duration: 0.2 }}
+                        onClick={() => handleChipClick(name)}
+                        style={{ cursor: guessed || revealed ? 'default' : 'pointer' }}
+                      >
+                        {guessed ? name : revealed ? name : revealing ? 'REVEAL?' : ''}
+                      </motion.span>
+                    );
+                  })}
+                </div>
+              </motion.div>
+            );
+          })}
+        </AnimatePresence>
+      </div>
+
+      {/* PAUSE MODAL */}
+      {state.status === 'PAUSED' && (
+        <div className="modal-overlay">
+          <div className="modal">
+            <h2>Game Paused</h2>
+            <div className="action-buttons">
+              <button onClick={() => dispatch({ type: 'RESUME_GAME' })}>Resume</button>
+              <button className="secondary" onClick={() => navigate('/')}>Quit</button>
             </div>
           </div>
-        ))}
-      </div>
+        </div>
+      )}
 
       {state.status === 'WIN' && (
         <canvas
@@ -231,9 +335,17 @@ export function LoLAllScreen() {
           <div className="modal victory-modal">
             <h2>You Did It!</h2>
             <div className="final-score">
-              <p>All {TOTAL} champions named in</p>
+              <p>All {TOTAL} champions found in</p>
               <div className="big-number">{formatTime(state.timeElapsed, true)}</div>
             </div>
+            {state.revealed.size > 0 && (
+              <div className="stats-detail">
+                <p>
+                  {state.guessed.size} guessed &nbsp;·&nbsp;{' '}
+                  <span style={{ color: '#e74c3c' }}>{state.revealed.size} revealed</span>
+                </p>
+              </div>
+            )}
             <div className="action-buttons">
               <button onClick={() => navigate('/')}>Back to Categories</button>
             </div>

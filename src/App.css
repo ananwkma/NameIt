@@ -631,6 +631,8 @@ button.secondary {
   min-width: 24px;
   color: #9b59b6;
   padding-top: 2px;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .lol-all-names {
@@ -647,11 +649,30 @@ button.secondary {
   background: #e8e0f0;
   color: #333;
   transition: background 0.15s, color 0.15s;
-  opacity: 0.2;
+  min-width: 60px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .lol-all-chip--found {
   background: #27ae60;
+  color: #fff;
+  opacity: 1;
+}
+
+.lol-all-chip--revealing {
+  background: #e74c3c;
+  color: #fff;
+  opacity: 1;
+  font-size: 0.65rem;
+}
+
+.lol-all-chip--revealed {
+  background: #e74c3c;
   color: #fff;
   opacity: 1;
 }
