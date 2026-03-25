@@ -30,7 +30,7 @@ const initialState: AZState = {
   error: null,
   status: 'PLAYING',
   timeElapsed: 0,
-  lastTick: Date.now(),
+  lastTick: null,
 };
 
 function azReducer(state: AZState, action: AZAction): AZState {

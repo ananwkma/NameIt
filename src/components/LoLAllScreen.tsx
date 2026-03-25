@@ -52,7 +52,7 @@ const initialState: LoLAllState = {
   error: null,
   status: 'PLAYING',
   timeElapsed: 0,
-  lastTick: Date.now(),
+  lastTick: null,
 };
 
 function lolAllReducer(state: LoLAllState, action: LoLAllAction): LoLAllState {

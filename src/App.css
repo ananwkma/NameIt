@@ -619,6 +619,47 @@ button.secondary {
   gap: 8px;
 }
 
+@media (max-width: 600px) {
+  .master-container {
+    padding: 1rem;
+  }
+
+  .game-top {
+    padding: 0 16px;
+  }
+
+  .input-group {
+    padding: 0 16px;
+  }
+
+  .error-message {
+    left: 32px;
+    right: 32px;
+  }
+
+  .modal {
+    width: 260px;
+    padding: 1.5rem;
+  }
+
+  .women-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .woman-card {
+    height: 80px;
+    padding: 0.35rem;
+  }
+
+  .woman-info h3 {
+    font-size: 0.72rem;
+  }
+
+  .woman-info p {
+    font-size: 0.6rem;
+  }
+}
+
 .lol-all-group {
   display: flex;
   align-items: flex-start;
@@ -636,9 +677,11 @@ button.secondary {
 }
 
 .lol-all-names {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 6px;
+  flex: 1;
+  min-width: 0;
 }
 
 .lol-all-chip {

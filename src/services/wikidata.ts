@@ -327,9 +327,10 @@ export const WikidataService = {
           const hasFemaleType = p31Ids.includes('Q15773347'); // fictional female character
           const hasMaleType   = p31Ids.includes('Q15773348') || p31Ids.includes('Q15773317');
           const hasExplicitMaleP21 = p21Ids.includes('Q6581097') || p21Ids.includes('Q44148');
-          const passesGender = !hasExplicitMaleP21 && (
-            hasFemaleType || (!hasMaleType && p21Ids.includes(category.wikidataGender))
-          );
+          const isMaleCategory = category.wikidataGender === 'Q6581097';
+          const passesGender = isMaleCategory
+            ? p21Ids.includes(category.wikidataGender)
+            : !hasExplicitMaleP21 && (hasFemaleType || (!hasMaleType && p21Ids.includes(category.wikidataGender)));
           console.log(`[DEBUG] Entity ${id} (${entity.labels?.en?.value}): passesGender=${passesGender}, P31=[${p31Ids.join(',')}] P21=[${p21Ids.join(',')}]`);
           if (!passesGender) continue;
         }

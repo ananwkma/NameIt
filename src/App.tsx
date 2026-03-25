@@ -9,7 +9,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<CategorySelectScreen />} />
-      <Route path="/game/az-lol" element={<AZGameScreen />} />
+      <Route path="/az-lol" element={<AZGameScreen />} />
       <Route path="/lol-all" element={<LoLAllScreen />} />
       <Route path="/game/:categoryId" element={<GameScreen />} />
       <Route path="*" element={<Navigate to="/" replace />} />
