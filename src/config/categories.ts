@@ -182,4 +182,15 @@ export const CATEGORIES: CategoryConfig[] = [
     verificationStrategy: 'allowlist-only',
     inputPlaceholder: "Type a LoL champion's name",
   },
+  {
+    id: 'lol-all',
+    name: 'All LoL Champions',
+    icon: '🏆',
+    accentColor: '#9b59b6',
+    targetCount: 172,
+    timeLimitMs: 0,
+    allowlistFile: 'allowlist-lol.json',
+    verificationStrategy: 'allowlist-only',
+    inputPlaceholder: "Type any LoL champion's name",
+  },
 ];
