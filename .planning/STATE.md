@@ -1,7 +1,7 @@
 # Project State: 100 Women Game
 
-## Current Phase: 6 (Multi-Category) - IN PROGRESS
-**Status:** Plans 06-01 through 06-04 complete. Plan 06-05 pending execution.
+## Current Phase: 7 (LoL All Champions) - IN PROGRESS
+**Status:** Plan 07-01 complete.
 
 ## Progress Summary
 - [x] Research (Wikidata API, Fuzzy Matching, Prefixes)
@@ -13,6 +13,7 @@
 - [ ] Phase 4: Context Clues & Prefix Handling
 - [ ] Phase 5: Polish & Visual Identity (Vibrant/Pop)
 - [x] Phase 6: Multi-Category (ALL PLANS COMPLETE)
+- [ ] Phase 7: LoL All Champions (1/1 plans complete)
 
 ## Key Decisions
 - **Stack:** React/TS + Vite + Vanilla CSS.
@@ -28,8 +29,10 @@
 - **Build Script Dispatch:** build-allowlist.js uses --category flag with BUILDERS map; shared buildSocialAllowlist() helper for women/men pipeline; LoL uses Riot Data Dragon (no key); NBA uses NBA Stats API with anti-CORS headers.
 - **Allowlist Strict Matching:** allowlist-only categories (LoL, NBA) use exact case-insensitive match in searchAllowlist (strict=true); wikidata fallback path keeps fuzzy matching (strict=false).
 - **Allowlist Description Labels:** descriptionLabel map in searchAllowlist returns "LoL Champion" / "NBA Player" instead of the generic "{platform} creator".
+- **LoL All Champions Board:** Champions shown faint (opacity 0.15) from game start so players see what remains without a memory test; chip turns green with Framer Motion scale animation on correct guess.
+- **lol-all routing:** Uses direct /<id> route pattern (same as az-lol) not /game/<id>, handled via combined condition in CategorySelectScreen.
 
-## Completed Tasks (Phase 1, 2, & 6-01 through 6-03)
+## Completed Tasks (Phase 1, 2, 6, & 7)
 - [x] Phase 1: Scaffold, WikidataService, Core UI, state with duplicate prevention.
 - [x] Plan 02-01: Game State & Types.
 - [x] Plan 02-02: Optimistic UI & Background Verification Queue.
@@ -39,13 +42,14 @@
 - [x] Plan 06-03: CategorySelectScreen component + App.css category card classes.
 - [x] Plan 06-04: build-allowlist.js extended with --category flag; LoL builder (Riot DDragon, 172 champions); NBA builder; Men builder sharing Women pipeline.
 - [x] Plan 06-05: App.tsx wired multi-category end-to-end; strict exact-match for allowlist-only categories; LoL Champion / NBA Player description labels.
+- [x] Plan 07-01: Name All LoL Champions game mode — LoLAllScreen component, alphabetical chip board, count-up timer, category card, route wiring.
 
-## Active Tasks (Phase 6)
-- [x] Plan 06-05: Wire everything together. COMPLETE.
+## Active Tasks (Phase 7)
+- [x] Plan 07-01: Name All LoL Champions. COMPLETE.
 
 ## Blockers
 - None.
 
 ## Session Continuity
-Last session: 2026-03-20
-Stopped at: Completed 06-05-PLAN.md — Phase 6 fully complete
+Last session: 2026-03-25
+Stopped at: Completed 07-01-PLAN.md — Phase 7 plan 01 complete

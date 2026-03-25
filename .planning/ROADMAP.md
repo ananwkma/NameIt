@@ -52,10 +52,10 @@ Plans:
 
 ## Phase 7: Name All LoL Champions Game
 **Goal:** Add a new "Name All LoL Champions" game mode with a count-up-only timer, free-form guessing order, and a full alphabetical champion board that populates in place as champions are guessed correctly.
-**Status:** PLANNED
+**Status:** COMPLETE (1/1 plans done)
 
 Plans:
-- [ ] 07-lol-all/07-01-PLAN.md — LoLAllScreen component, routing, category entry
+- [x] 07-lol-all/07-01-PLAN.md — LoLAllScreen component, routing, category entry
 
 ## Phase 5: Polish & Visual Identity (Vibrant/Pop)
 **Goal:** Elevate aesthetics and user experience.
