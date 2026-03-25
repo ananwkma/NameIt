@@ -50,6 +50,13 @@ Plans:
 - [ ] 06-multi-category/06-07-PLAN.md — Run Famous Asians SPARQL build, verify 500+ entries, smoke-test in-game
 - [ ] 06-multi-category/06-08-PLAN.md — Run men's allowlist build, verify playable, document refresh cadence
 
+## Phase 7: Name All LoL Champions Game
+**Goal:** Add a new "Name All LoL Champions" game mode with a count-up-only timer, free-form guessing order, and a full alphabetical champion board that populates in place as champions are guessed correctly.
+**Status:** PLANNED
+
+Plans:
+- [ ] 07-lol-all/07-01-PLAN.md — LoLAllScreen component, routing, category entry
+
 ## Phase 5: Polish & Visual Identity (Vibrant/Pop)
 **Goal:** Elevate aesthetics and user experience.
 **Requirements:** [UI-01, ANIM-01, AUDIO-01, RESP-01]
