@@ -12,6 +12,7 @@
     "build:allowlist": "node scripts/build-allowlist.js"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.100.0",
     "axios": "^1.13.6",
     "canvas-confetti": "^1.9.4",
     "framer-motion": "^12.36.0",
