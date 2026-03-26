@@ -1,7 +1,7 @@
 # Project State: 100 Women Game
 
-## Current Phase: 7 (LoL All Champions) - IN PROGRESS
-**Status:** Plan 07-01 complete.
+## Current Phase: 8 (Supabase Database) - IN PROGRESS
+**Status:** Plan 08-01 complete (checkpoint awaiting human verification for Supabase setup).
 
 ## Progress Summary
 - [x] Research (Wikidata API, Fuzzy Matching, Prefixes)
@@ -13,7 +13,8 @@
 - [ ] Phase 4: Context Clues & Prefix Handling
 - [ ] Phase 5: Polish & Visual Identity (Vibrant/Pop)
 - [x] Phase 6: Multi-Category (ALL PLANS COMPLETE)
-- [ ] Phase 7: LoL All Champions (1/1 plans complete)
+- [x] Phase 7: LoL All Champions (ALL PLANS COMPLETE)
+- [ ] Phase 8: Supabase Database (1/3 plans complete)
 
 ## Key Decisions
 - **Stack:** React/TS + Vite + Vanilla CSS.
@@ -31,8 +32,11 @@
 - **Allowlist Description Labels:** descriptionLabel map in searchAllowlist returns "LoL Champion" / "NBA Player" instead of the generic "{platform} creator".
 - **LoL All Champions Board:** Champions shown faint (opacity 0.15) from game start so players see what remains without a memory test; chip turns green with Framer Motion scale animation on correct guess.
 - **lol-all routing:** Uses direct /<id> route pattern (same as az-lol) not /game/<id>, handled via combined condition in CategorySelectScreen.
+- **Supabase client:** SupabaseClient | null singleton — null when VITE_SUPABASE_URL or VITE_SUPABASE_ANON_KEY absent; all helpers guard with null check, never throw; 5s timeout on leaderboard fetch, 3s on allowlist query.
+- **submitLeaderboardEntry returns boolean:** Lets caller display success/failure feedback to the user.
+- **saveLlmAllowlistEntry returns void:** Fire-and-forget from wikidata.ts; no return value needed.
 
-## Completed Tasks (Phase 1, 2, 6, & 7)
+## Completed Tasks (Phase 1, 2, 6, 7, & 8)
 - [x] Phase 1: Scaffold, WikidataService, Core UI, state with duplicate prevention.
 - [x] Plan 02-01: Game State & Types.
 - [x] Plan 02-02: Optimistic UI & Background Verification Queue.
@@ -43,13 +47,15 @@
 - [x] Plan 06-04: build-allowlist.js extended with --category flag; LoL builder (Riot DDragon, 172 champions); NBA builder; Men builder sharing Women pipeline.
 - [x] Plan 06-05: App.tsx wired multi-category end-to-end; strict exact-match for allowlist-only categories; LoL Champion / NBA Player description labels.
 - [x] Plan 07-01: Name All LoL Champions game mode — LoLAllScreen component, alphabetical chip board, count-up timer, category card, route wiring.
+- [x] Plan 08-01: @supabase/supabase-js installed, null-safe singleton created, four DB helpers (fetchLeaderboard, submitLeaderboardEntry, saveLlmAllowlistEntry, queryLlmAllowlist), deploy.yml updated with Supabase secrets.
 
-## Active Tasks (Phase 7)
-- [x] Plan 07-01: Name All LoL Champions. COMPLETE.
+## Active Tasks (Phase 8)
+- [ ] Plan 08-02: LLM allowlist wikidata.ts integration (queryLlmAllowlist before LLM call, saveLlmAllowlistEntry after).
+- [ ] Plan 08-03: Leaderboard UI on victory screens (GameScreen, AZGameScreen, LoLAllScreen).
 
 ## Blockers
-- None.
+- Checkpoint: User must create Supabase project, run table SQL, add GitHub secrets before 08-02 and 08-03 can be tested against live DB. Game works without setup (null client = graceful degradation).
 
 ## Session Continuity
-Last session: 2026-03-25
-Stopped at: Completed 07-01-PLAN.md — Phase 7 plan 01 complete
+Last session: 2026-03-26
+Stopped at: Completed 08-01-PLAN.md tasks 1-2; paused at checkpoint:human-verify (Task 3) awaiting Supabase project setup
