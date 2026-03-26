@@ -57,6 +57,15 @@ Plans:
 Plans:
 - [x] 07-lol-all/07-01-PLAN.md — LoLAllScreen component, routing, category entry
 
+## Phase 8: Supabase Database — Leaderboard & Allowlist Persistence
+**Goal:** Integrate Supabase to persist LLM-validated allowlist entries across sessions and provide a global top-5 leaderboard per game, with a name-entry flow when the player places in the top 5.
+**Status:** PLANNED
+
+Plans:
+- [ ] 08-supabase/08-01-PLAN.md — Supabase client setup and database schema
+- [ ] 08-supabase/08-02-PLAN.md — LLM allowlist persistence (write on validate, read on search)
+- [ ] 08-supabase/08-03-PLAN.md — Leaderboard UI (victory screen comparison + name entry)
+
 ## Phase 5: Polish & Visual Identity (Vibrant/Pop)
 **Goal:** Elevate aesthetics and user experience.
 **Requirements:** [UI-01, ANIM-01, AUDIO-01, RESP-01]
