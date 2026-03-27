@@ -763,9 +763,10 @@ button.secondary {
 .leaderboard-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
 .leaderboard-table th,
 .leaderboard-table td { padding: 0.3rem 0.5rem; border-bottom: 1px solid var(--border, #eee); }
-.leaderboard-row-mine { background: var(--accent, #ffe066); font-weight: bold; }
+.leaderboard-row-mine { background: var(--accent, #ffe066); font-weight: bold; color: #fff; }
 .leaderboard-entry { margin-top: 0.75rem; }
-.leaderboard-entry input { width: 80px; text-transform: uppercase; text-align: center; font-size: 1.1rem; letter-spacing: 0.15em; margin-right: 0.5rem; }
+.leaderboard-entry input { width: 140px; text-transform: uppercase; text-align: center; font-size: 1.1rem; letter-spacing: 0.15em; margin-right: 0.5rem; padding: 0.4rem 0.5rem; }
+.leaderboard-entry button { padding: 0.4rem 1rem; background: var(--accent); }
 .leaderboard-loading,
 .leaderboard-unavailable,
 .leaderboard-rank-confirm { font-size: 0.85rem; color: var(--muted, #888); margin: 0.5rem 0; }

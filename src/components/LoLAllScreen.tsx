@@ -5,6 +5,7 @@ import { WikidataService } from '../services/wikidata';
 import { Search, AlertCircle, Clock } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { formatTime } from '../utils/formatTime';
+import { isBadWord } from '../utils/badWords';
 import confetti from 'canvas-confetti';
 import allowlistRaw from '../data/allowlist-lol.json';
 
@@ -131,6 +132,7 @@ export function LoLAllScreen() {
   const [state, dispatch] = useReducer(lolAllReducer, undefined, loadSavedState);
   const [inputValue, setInputValue] = useState('');
   const [nameInput, setNameInput] = useState('');
+  const [nameError, setNameError] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
   const confettiCanvasRef = useRef<HTMLCanvasElement>(null);
   const revealTimers = useRef<Map<string, number>>(new Map());
@@ -260,7 +262,7 @@ export function LoLAllScreen() {
           <div className="header-right">
             <div className="timer-display">
               <Clock size={16} className="timer-icon" />
-              {formatTime(state.timeElapsed)}
+              {formatTime(state.timeElapsed, true)}
             </div>
             <div className="counter">
               <span>{foundCount}</span>/{TOTAL}
@@ -434,18 +436,23 @@ export function LoLAllScreen() {
                       <p>You made the top 5! Enter your name:</p>
                       <form onSubmit={async (e) => {
                         e.preventDefault();
-                        if (nameInput.trim()) await submitName(nameInput.trim());
+                        const name = nameInput.trim();
+                        if (!name) return;
+                        if (isBadWord(name)) { setNameError('That name is not allowed.'); return; }
+                        setNameError('');
+                        await submitName(name);
                       }}>
                         <input
                           type="text"
                           value={nameInput}
                           maxLength={5}
-                          onChange={(e) => setNameInput(e.target.value.toUpperCase())}
+                          onChange={(e) => { setNameInput(e.target.value.toUpperCase()); setNameError(''); }}
                           placeholder="XXXXX"
                           autoFocus
                         />
                         <button type="submit" disabled={!nameInput.trim()}>Submit</button>
                       </form>
+                      {nameError && <p style={{ color: '#e53e3e', margin: '0.25rem 0 0', fontSize: '0.85rem' }}>{nameError}</p>}
                     </div>
                   )}
                   {submitted && playerRank && (
