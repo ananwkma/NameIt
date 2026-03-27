@@ -1,7 +1,7 @@
 # Project State: 100 Women Game
 
 ## Current Phase: 8 (Supabase Database) - IN PROGRESS
-**Status:** Plan 08-01 complete (checkpoint awaiting human verification for Supabase setup).
+**Status:** Plan 08-02 complete. LLM allowlist persistence wired into wikidata.ts.
 
 ## Progress Summary
 - [x] Research (Wikidata API, Fuzzy Matching, Prefixes)
@@ -14,7 +14,7 @@
 - [ ] Phase 5: Polish & Visual Identity (Vibrant/Pop)
 - [x] Phase 6: Multi-Category (ALL PLANS COMPLETE)
 - [x] Phase 7: LoL All Champions (ALL PLANS COMPLETE)
-- [ ] Phase 8: Supabase Database (1/3 plans complete)
+- [ ] Phase 8: Supabase Database (2/3 plans complete)
 
 ## Key Decisions
 - **Stack:** React/TS + Vite + Vanilla CSS.
@@ -48,9 +48,9 @@
 - [x] Plan 06-05: App.tsx wired multi-category end-to-end; strict exact-match for allowlist-only categories; LoL Champion / NBA Player description labels.
 - [x] Plan 07-01: Name All LoL Champions game mode — LoLAllScreen component, alphabetical chip board, count-up timer, category card, route wiring.
 - [x] Plan 08-01: @supabase/supabase-js installed, null-safe singleton created, four DB helpers (fetchLeaderboard, submitLeaderboardEntry, saveLlmAllowlistEntry, queryLlmAllowlist), deploy.yml updated with Supabase secrets.
+- [x] Plan 08-02: LLM allowlist persistence wired into wikidata.ts — queryLlmAllowlist before LLM call (3-category guard), saveLlmAllowlistEntry fire-and-forget after success (.catch(() => {})).
 
 ## Active Tasks (Phase 8)
-- [ ] Plan 08-02: LLM allowlist wikidata.ts integration (queryLlmAllowlist before LLM call, saveLlmAllowlistEntry after).
 - [ ] Plan 08-03: Leaderboard UI on victory screens (GameScreen, AZGameScreen, LoLAllScreen).
 
 ## Blockers
@@ -58,4 +58,4 @@
 
 ## Session Continuity
 Last session: 2026-03-26
-Stopped at: Completed 08-01-PLAN.md tasks 1-2; paused at checkpoint:human-verify (Task 3) awaiting Supabase project setup
+Stopped at: Completed 08-02-PLAN.md (all tasks complete)
