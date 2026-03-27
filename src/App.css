@@ -609,6 +609,32 @@ button.secondary {
   font-weight: 600;
 }
 
+/* LoL All — Revealed tray */
+.lol-all-revealed-tray {
+  padding: 8px 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  border-bottom: 1px solid #f0e8f8;
+  background: #fdf6ff;
+}
+
+.lol-all-revealed-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #e74c3c;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  padding-top: 4px;
+}
+
+.lol-all-revealed-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
 /* LoL All Champions Board */
 .lol-all-board {
   flex: 1;
@@ -619,6 +645,70 @@ button.secondary {
   gap: 8px;
 }
 
+
+
+.lol-all-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.lol-all-names {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
+.lol-all-letter {
+  font-weight: 800;
+  font-size: 1.1rem;
+  min-width: 24px;
+  color: #9b59b6;
+  padding-top: 2px;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.lol-all-chip {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #e8e0f0;
+  color: #333;
+  transition: background 0.15s, color 0.15s;
+  min-width: 60px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  -webkit-user-select: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lol-all-chip--found {
+  background: #27ae60;
+  color: #fff;
+  opacity: 1;
+}
+
+.lol-all-chip--revealing {
+  background: #e74c3c;
+  color: #fff;
+  opacity: 1;
+  font-size: 0.65rem;
+}
+
+.lol-all-chip--revealed {
+  background: #e74c3c;
+  color: #fff;
+  opacity: 1;
+}
 @media (max-width: 600px) {
   .master-container {
     padding: 1rem;
@@ -646,6 +736,12 @@ button.secondary {
     grid-template-columns: repeat(3, 1fr);
   }
 
+  .lol-all-names {
+    display: grid;
+    flex: 1;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .woman-card {
     height: 80px;
     padding: 0.35rem;
@@ -660,62 +756,16 @@ button.secondary {
   }
 }
 
-.lol-all-group {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-}
-
-.lol-all-letter {
-  font-weight: 800;
-  font-size: 1.1rem;
-  min-width: 24px;
-  color: #9b59b6;
-  padding-top: 2px;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-.lol-all-names {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 6px;
-  flex: 1;
-  min-width: 0;
-}
-
-.lol-all-chip {
-  font-size: 0.78rem;
-  font-weight: 600;
-  padding: 3px 10px;
-  border-radius: 999px;
-  background: #e8e0f0;
-  color: #333;
-  transition: background 0.15s, color 0.15s;
-  min-width: 60px;
-  height: 24px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-.lol-all-chip--found {
-  background: #27ae60;
-  color: #fff;
-  opacity: 1;
-}
-
-.lol-all-chip--revealing {
-  background: #e74c3c;
-  color: #fff;
-  opacity: 1;
-  font-size: 0.65rem;
-}
-
-.lol-all-chip--revealed {
-  background: #e74c3c;
-  color: #fff;
-  opacity: 1;
-}
+/* -------------------------------------------------- */
+/* Leaderboard                                        */
+/* -------------------------------------------------- */
+.leaderboard-section { margin: 1rem 0; text-align: left; }
+.leaderboard-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.leaderboard-table th,
+.leaderboard-table td { padding: 0.3rem 0.5rem; border-bottom: 1px solid var(--border, #eee); }
+.leaderboard-row-mine { background: var(--accent, #ffe066); font-weight: bold; }
+.leaderboard-entry { margin-top: 0.75rem; }
+.leaderboard-entry input { width: 80px; text-transform: uppercase; text-align: center; font-size: 1.1rem; letter-spacing: 0.15em; margin-right: 0.5rem; }
+.leaderboard-loading,
+.leaderboard-unavailable,
+.leaderboard-rank-confirm { font-size: 0.85rem; color: var(--muted, #888); margin: 0.5rem 0; }

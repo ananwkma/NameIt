@@ -1,4 +1,5 @@
 import { useReducer, useRef, useEffect, useState } from 'react';
+import { useLeaderboard } from '../hooks/useLeaderboard';
 import { useNavigate } from 'react-router-dom';
 import { WikidataService } from '../services/wikidata';
 import { Search, AlertCircle, Clock } from 'lucide-react';
@@ -45,15 +46,34 @@ type LoLAllAction =
   | { type: 'REVEAL_CONFIRM'; payload: string }
   | { type: 'REVEAL_CANCEL'; payload: string };
 
-const initialState: LoLAllState = {
-  guessed: new Set(),
-  revealed: new Set(),
-  revealing: new Set(),
-  error: null,
-  status: 'PLAYING',
-  timeElapsed: 0,
-  lastTick: null,
-};
+const STORAGE_KEY = 'lol-all-progress';
+
+function loadSavedState(): LoLAllState {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      return {
+        guessed: new Set(parsed.guessed ?? []),
+        revealed: new Set(parsed.revealed ?? []),
+        revealing: new Set(),
+        error: null,
+        status: 'PLAYING',
+        timeElapsed: parsed.timeElapsed ?? 0,
+        lastTick: null,
+      };
+    }
+  } catch {}
+  return {
+    guessed: new Set(),
+    revealed: new Set(),
+    revealing: new Set(),
+    error: null,
+    status: 'PLAYING',
+    timeElapsed: 0,
+    lastTick: null,
+  };
+}
 
 function lolAllReducer(state: LoLAllState, action: LoLAllAction): LoLAllState {
   switch (action.type) {
@@ -108,11 +128,32 @@ function lolAllReducer(state: LoLAllState, action: LoLAllAction): LoLAllState {
 
 export function LoLAllScreen() {
   const navigate = useNavigate();
-  const [state, dispatch] = useReducer(lolAllReducer, initialState);
+  const [state, dispatch] = useReducer(lolAllReducer, undefined, loadSavedState);
   const [inputValue, setInputValue] = useState('');
+  const [nameInput, setNameInput] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
   const confettiCanvasRef = useRef<HTMLCanvasElement>(null);
   const revealTimers = useRef<Map<string, number>>(new Map());
+
+  const { entries, loading, unavailable, qualifies, playerRank, submitName, submitted } = useLeaderboard(
+    state.status === 'WIN' ? 'lol-all' : '',
+    state.status === 'WIN' ? state.timeElapsed : 0
+  );
+
+  // Save progress to localStorage
+  useEffect(() => {
+    if (state.status === 'WIN') return;
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+      guessed: Array.from(state.guessed),
+      revealed: Array.from(state.revealed),
+      timeElapsed: state.timeElapsed,
+    }));
+  }, [state.guessed, state.revealed, state.timeElapsed, state.status]);
+
+  // Clear on win
+  useEffect(() => {
+    if (state.status === 'WIN') localStorage.removeItem(STORAGE_KEY);
+  }, [state.status]);
 
   // Timer
   useEffect(() => {
@@ -254,6 +295,23 @@ export function LoLAllScreen() {
         )}
       </div>
 
+      {/* REVEALED NAMES TRAY */}
+      {state.revealed.size > 0 && (
+        <div className="lol-all-revealed-tray">
+          <span className="lol-all-revealed-label">Revealed</span>
+          <div className="lol-all-revealed-chips">
+            {Array.from(state.revealed).sort().map(nameLower => {
+              const canonical = ALL_CHAMPIONS.find(n => n.toLowerCase() === nameLower) ?? nameLower;
+              return (
+                <span key={nameLower} className="lol-all-chip lol-all-chip--revealed">
+                  {canonical}
+                </span>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
       {/* CHAMPION BOARD */}
       <div className="lol-all-board">
         <AnimatePresence>
@@ -309,7 +367,7 @@ export function LoLAllScreen() {
             <h2>Game Paused</h2>
             <div className="action-buttons">
               <button onClick={() => dispatch({ type: 'RESUME_GAME' })}>Resume</button>
-              <button className="secondary" onClick={() => navigate('/')}>Quit</button>
+              <button className="secondary" onClick={() => { localStorage.removeItem(STORAGE_KEY); navigate('/'); }}>Quit</button>
             </div>
           </div>
         </div>
@@ -346,6 +404,56 @@ export function LoLAllScreen() {
                 </p>
               </div>
             )}
+            {/* LEADERBOARD */}
+            <div className="leaderboard-section">
+              {loading && <p className="leaderboard-loading">Loading leaderboard…</p>}
+              {unavailable && <p className="leaderboard-unavailable">Leaderboard unavailable</p>}
+              {!loading && !unavailable && (
+                <>
+                  {entries.length > 0 && (
+                    <table className="leaderboard-table">
+                      <thead>
+                        <tr><th>#</th><th>Name</th><th>Time</th></tr>
+                      </thead>
+                      <tbody>
+                        {entries.map((entry, i) => (
+                          <tr
+                            key={i}
+                            className={submitted && playerRank === i + 1 ? 'leaderboard-row-mine' : ''}
+                          >
+                            <td>{i + 1}</td>
+                            <td>{entry.player_name}</td>
+                            <td>{formatTime(entry.time_ms, true)}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  )}
+                  {qualifies && !submitted && (
+                    <div className="leaderboard-entry">
+                      <p>You made the top 5! Enter your name:</p>
+                      <form onSubmit={async (e) => {
+                        e.preventDefault();
+                        if (nameInput.trim()) await submitName(nameInput.trim());
+                      }}>
+                        <input
+                          type="text"
+                          value={nameInput}
+                          maxLength={5}
+                          onChange={(e) => setNameInput(e.target.value.toUpperCase())}
+                          placeholder="XXXXX"
+                          autoFocus
+                        />
+                        <button type="submit" disabled={!nameInput.trim()}>Submit</button>
+                      </form>
+                    </div>
+                  )}
+                  {submitted && playerRank && (
+                    <p className="leaderboard-rank-confirm">You placed #{playerRank}!</p>
+                  )}
+                </>
+              )}
+            </div>
             <div className="action-buttons">
               <button onClick={() => navigate('/')}>Back to Categories</button>
             </div>

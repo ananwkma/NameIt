@@ -1,4 +1,5 @@
 import { useReducer, useRef, useEffect, useState } from 'react';
+import { useLeaderboard } from '../hooks/useLeaderboard';
 import { useNavigate } from 'react-router-dom';
 import { WikidataService } from '../services/wikidata';
 import { Search, AlertCircle, Clock } from 'lucide-react';
@@ -61,8 +62,14 @@ export function AZGameScreen() {
   const navigate = useNavigate();
   const [state, dispatch] = useReducer(azReducer, initialState);
   const [inputValue, setInputValue] = useState('');
+  const [nameInput, setNameInput] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
   const confettiCanvasRef = useRef<HTMLCanvasElement>(null);
+
+  const { entries, loading, unavailable, qualifies, playerRank, submitName, submitted } = useLeaderboard(
+    state.status === 'WIN' ? 'az-lol' : '',
+    state.status === 'WIN' ? state.timeElapsed : 0
+  );
 
   const currentLetter = ALPHABET[state.currentLetterIndex] ?? '';
 
@@ -210,6 +217,56 @@ export function AZGameScreen() {
             <div className="final-score">
               <p>A to Z completed in</p>
               <div className="big-number">{formatTime(state.timeElapsed, true)}</div>
+            </div>
+            {/* LEADERBOARD */}
+            <div className="leaderboard-section">
+              {loading && <p className="leaderboard-loading">Loading leaderboard…</p>}
+              {unavailable && <p className="leaderboard-unavailable">Leaderboard unavailable</p>}
+              {!loading && !unavailable && (
+                <>
+                  {entries.length > 0 && (
+                    <table className="leaderboard-table">
+                      <thead>
+                        <tr><th>#</th><th>Name</th><th>Time</th></tr>
+                      </thead>
+                      <tbody>
+                        {entries.map((entry, i) => (
+                          <tr
+                            key={i}
+                            className={submitted && playerRank === i + 1 ? 'leaderboard-row-mine' : ''}
+                          >
+                            <td>{i + 1}</td>
+                            <td>{entry.player_name}</td>
+                            <td>{formatTime(entry.time_ms, true)}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  )}
+                  {qualifies && !submitted && (
+                    <div className="leaderboard-entry">
+                      <p>You made the top 5! Enter your name:</p>
+                      <form onSubmit={async (e) => {
+                        e.preventDefault();
+                        if (nameInput.trim()) await submitName(nameInput.trim());
+                      }}>
+                        <input
+                          type="text"
+                          value={nameInput}
+                          maxLength={5}
+                          onChange={(e) => setNameInput(e.target.value.toUpperCase())}
+                          placeholder="XXXXX"
+                          autoFocus
+                        />
+                        <button type="submit" disabled={!nameInput.trim()}>Submit</button>
+                      </form>
+                    </div>
+                  )}
+                  {submitted && playerRank && (
+                    <p className="leaderboard-rank-confirm">You placed #{playerRank}!</p>
+                  )}
+                </>
+              )}
             </div>
             <div className="action-buttons">
               <button onClick={() => navigate('/')}>Back to Categories</button>
