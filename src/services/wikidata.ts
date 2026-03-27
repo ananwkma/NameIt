@@ -2,6 +2,7 @@ import axios from 'axios';
 import { Woman } from '../types/wikidata';
 import { fuzzyMatchNames, fuzzyMatchAllowlist } from '../utils/fuzzyMatch';
 import { CategoryConfig } from '../config/categories';
+import { queryLlmAllowlist, saveLlmAllowlistEntry } from './supabase';
 import womenData from '../data/allowlist-women.json';
 import menData from '../data/allowlist-men.json';
 import nbaData from '../data/allowlist-nba.json';
@@ -483,6 +484,17 @@ export const WikidataService = {
 
     // LLM fallback for fictional categories when Wikidata and allowlist both fail
     if (category.id === 'fictional-women' || category.id === 'fictional-men') {
+      // Check Supabase shared cache before calling LLM — skips API cost on cache hit
+      const dbEntry = await queryLlmAllowlist(category.id, normalizedInput);
+      if (dbEntry) {
+        const result: Woman = {
+          id: `llm-${dbEntry.canonical_name.toLowerCase().replace(/\s+/g, '-')}`,
+          name: dbEntry.canonical_name,
+          description: dbEntry.description,
+        };
+        searchCache.set(cacheKey, result);
+        return result;
+      }
       const gender = category.id === 'fictional-women' ? 'female' : 'male';
       const llmResult = await this.llmVerifyFictional(normalizedInput, gender);
       if (llmResult) {
@@ -492,12 +504,25 @@ export const WikidataService = {
           description: llmResult.description,
         };
         searchCache.set(cacheKey, result);
+        // Fire-and-forget: persist to global llm_allowlist so future users skip LLM call
+        saveLlmAllowlistEntry(category.id, normalizedInput, llmResult.name, llmResult.description).catch(() => {});
         return result;
       }
     }
 
     // LLM fallback for famous-asians when Wikidata and allowlist both fail
     if (category.id === 'famous-asians') {
+      // Check Supabase shared cache before calling LLM — skips API cost on cache hit
+      const dbEntry = await queryLlmAllowlist(category.id, normalizedInput);
+      if (dbEntry) {
+        const result: Woman = {
+          id: `llm-${dbEntry.canonical_name.toLowerCase().replace(/\s+/g, '-')}`,
+          name: dbEntry.canonical_name,
+          description: dbEntry.description,
+        };
+        searchCache.set(cacheKey, result);
+        return result;
+      }
       const llmResult = await this.llmVerifyFamousAsian(normalizedInput);
       if (llmResult) {
         const result: Woman = {
@@ -506,6 +531,8 @@ export const WikidataService = {
           description: llmResult.description,
         };
         searchCache.set(cacheKey, result);
+        // Fire-and-forget: persist to global llm_allowlist so future users skip LLM call
+        saveLlmAllowlistEntry(category.id, normalizedInput, llmResult.name, llmResult.description).catch(() => {});
         return result;
       }
     }
@@ -658,6 +685,31 @@ export const WikidataService = {
     for (const entry of list) {
       const names = [entry.name.toLowerCase(), ...entry.aliases.map((a: string) => a.toLowerCase())];
       if (names.some(name => name === input)) return makeResult(entry);
+    }
+
+    // 1a-suffix: Normalize digit suffixes to roman numerals then retry exact match.
+    // "gary payton 2" → "gary payton ii", "lebron 3" → "lebron iii"
+    const normSuffixInput = input
+      .replace(/\s+2$/i, ' ii').replace(/\s+3$/i, ' iii').replace(/\s+4$/i, ' iv')
+      .replace(/\s+jr\.?$/i, ' jr');
+    if (normSuffixInput !== input) {
+      for (const entry of list) {
+        const names = [entry.name.toLowerCase(), ...entry.aliases.map((a: string) => a.toLowerCase())];
+        if (names.some(name => name === normSuffixInput)) return makeResult(entry);
+      }
+    }
+
+    // 1a-stripped: Input has no suffix — match against entries after stripping their suffix.
+    // "jimmy butler" → matches "Jimmy Butler III" when that's the only entry for that base name.
+    // When multiple entries share a base (Gary Payton + Gary Payton II), prefer exact no-suffix entry
+    // (already returned in step 1a), and don't resolve ambiguously for suffixed entries.
+    const stripSuffix = (s: string) => s.replace(/\s+(jr\.?|ii|iii|iv)$/i, '').trim();
+    const strippedInput = stripSuffix(input);
+    if (strippedInput === input) { // input had no suffix
+      const entryStrippedMatches = list.filter(e => stripSuffix(e.name.toLowerCase()) === input);
+      if (entryStrippedMatches.length === 1) return makeResult(entryStrippedMatches[0]);
+      // Multiple entries share this base — step 1a already handled the exact no-suffix match.
+      // Don't resolve ambiguously (e.g. don't return Gary Payton II for "gary payton").
     }
 
     // 1b. Fuzzy primary name match only — aliases are exact-match only (step 1a).
