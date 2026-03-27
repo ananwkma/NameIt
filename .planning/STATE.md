@@ -14,7 +14,7 @@
 - [ ] Phase 5: Polish & Visual Identity (Vibrant/Pop)
 - [x] Phase 6: Multi-Category (ALL PLANS COMPLETE)
 - [x] Phase 7: LoL All Champions (ALL PLANS COMPLETE)
-- [ ] Phase 8: Supabase Database (2/3 plans complete)
+- [ ] Phase 8: Supabase Database (2/3 plans complete — 08-03 awaiting human verification)
 
 ## Key Decisions
 - **Stack:** React/TS + Vite + Vanilla CSS.
@@ -35,6 +35,8 @@
 - **Supabase client:** SupabaseClient | null singleton — null when VITE_SUPABASE_URL or VITE_SUPABASE_ANON_KEY absent; all helpers guard with null check, never throw; 5s timeout on leaderboard fetch, 3s on allowlist query.
 - **submitLeaderboardEntry returns boolean:** Lets caller display success/failure feedback to the user.
 - **saveLlmAllowlistEntry returns void:** Fire-and-forget from wikidata.ts; no return value needed.
+- **useLeaderboard hook pattern:** Accepts empty gameId to no-op during gameplay; unavailable flag only true when singleton is null (not on fetch error).
+- **Leaderboard playerRank:** Computed via findIndex on time_ms after re-fetch; 0 result maps to null (entry not in top-5 after tie-breaking).
 
 ## Completed Tasks (Phase 1, 2, 6, 7, & 8)
 - [x] Phase 1: Scaffold, WikidataService, Core UI, state with duplicate prevention.
@@ -49,13 +51,14 @@
 - [x] Plan 07-01: Name All LoL Champions game mode — LoLAllScreen component, alphabetical chip board, count-up timer, category card, route wiring.
 - [x] Plan 08-01: @supabase/supabase-js installed, null-safe singleton created, four DB helpers (fetchLeaderboard, submitLeaderboardEntry, saveLlmAllowlistEntry, queryLlmAllowlist), deploy.yml updated with Supabase secrets.
 - [x] Plan 08-02: LLM allowlist persistence wired into wikidata.ts — queryLlmAllowlist before LLM call (3-category guard), saveLlmAllowlistEntry fire-and-forget after success (.catch(() => {})).
+- [ ] Plan 08-03: Leaderboard UI — useLeaderboard hook + all 3 victory modals updated (Tasks 1-2 complete; awaiting human verification checkpoint).
 
 ## Active Tasks (Phase 8)
-- [ ] Plan 08-03: Leaderboard UI on victory screens (GameScreen, AZGameScreen, LoLAllScreen).
+- [ ] Plan 08-03: Awaiting human verification of leaderboard UI (Task 3 checkpoint).
 
 ## Blockers
 - Checkpoint: User must create Supabase project, run table SQL, add GitHub secrets before 08-02 and 08-03 can be tested against live DB. Game works without setup (null client = graceful degradation).
 
 ## Session Continuity
-Last session: 2026-03-26
-Stopped at: Completed 08-02-PLAN.md (all tasks complete)
+Last session: 2026-03-27
+Stopped at: Completed 08-03-PLAN.md tasks 1-2; paused at checkpoint:human-verify (Task 3) awaiting leaderboard UI verification
