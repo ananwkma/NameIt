@@ -193,4 +193,15 @@ export const CATEGORIES: CategoryConfig[] = [
     verificationStrategy: 'allowlist-only',
     inputPlaceholder: "Type any LoL champion's name",
   },
+  {
+    id: 'states-all',
+    name: 'All 50 States',
+    icon: '🗺️',
+    accentColor: '#3498db',
+    targetCount: 50,
+    timeLimitMs: 0,
+    allowlistFile: '',
+    verificationStrategy: 'allowlist-only',
+    inputPlaceholder: 'Type any US state name',
+  },
 ];

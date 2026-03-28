@@ -34,9 +34,10 @@ export function CategorySelectScreen() {
             <button
               key={cat.id}
               className="category-card"
-              onClick={() => cat.id === 'lol-all' || cat.id === 'az-lol'
-                ? navigate(`/${cat.id}`)
-                : navigate(`/game/${cat.id}`)
+              onClick={() =>
+                ['lol-all', 'az-lol', 'states-all', 'pokemon-gen1-all'].includes(cat.id)
+                  ? navigate(`/${cat.id}`)
+                  : navigate(`/game/${cat.id}`)
               }
             >
               <span className="category-icon">{cat.icon}</span>
