@@ -5,6 +5,7 @@ import { Search, AlertCircle, Clock } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { formatTime } from '../utils/formatTime';
 import { isBadWord } from '../utils/badWords';
+import { fuzzyMatchAllowlist } from '../utils/fuzzyMatch';
 import confetti from 'canvas-confetti';
 import { ALL_STATES } from '../data/states-all';
 
@@ -29,7 +30,7 @@ interface StatesAllState {
   revealed: Set<string>;  // revealed by clicking twice (lowercase)
   revealing: Set<string>; // in "REVEAL?" pending state (lowercase)
   error: string | null;
-  status: 'PLAYING' | 'PAUSED' | 'WIN';
+  status: 'PLAYING' | 'PAUSED' | 'WIN' | 'GAVE_UP';
   timeElapsed: number;
   lastTick: number | null;
 }
@@ -42,7 +43,9 @@ type StatesAllAction =
   | { type: 'RESUME_GAME' }
   | { type: 'REVEAL_PENDING'; payload: string }
   | { type: 'REVEAL_CONFIRM'; payload: string }
-  | { type: 'REVEAL_CANCEL'; payload: string };
+  | { type: 'REVEAL_CANCEL'; payload: string }
+  | { type: 'RESET' }
+  | { type: 'GIVE_UP' };
 
 const STORAGE_KEY = 'states-all-progress';
 
@@ -121,12 +124,19 @@ function statesAllReducer(state: StatesAllState, action: StatesAllAction): State
       const delta = action.payload - (state.lastTick || action.payload);
       return { ...state, timeElapsed: state.timeElapsed + delta, lastTick: action.payload };
     }
+    case 'RESET':
+      return { guessed: new Set(), revealed: new Set(), revealing: new Set(), error: null, status: 'PLAYING', timeElapsed: 0, lastTick: null };
+    case 'GIVE_UP':
+      return { ...state, status: 'GAVE_UP', lastTick: null };
   }
 }
 
 export function StatesAllScreen() {
   const navigate = useNavigate();
   const [state, dispatch] = useReducer(statesAllReducer, undefined, loadSavedState);
+  const [mode, setMode] = useState<'easy' | 'normal'>('normal');
+  const [giveUpPending, setGiveUpPending] = useState(false);
+  const giveUpTimer = useRef<number | null>(null);
   const [inputValue, setInputValue] = useState('');
   const [nameInput, setNameInput] = useState('');
   const [nameError, setNameError] = useState('');
@@ -232,7 +242,7 @@ export function StatesAllScreen() {
     if (!name || state.status !== 'PLAYING') return;
     setInputValue('');
 
-    const result = ALL_ITEMS.find(s => s.toLowerCase() === name.toLowerCase());
+    const result = ALL_ITEMS.find(s => s.toLowerCase() === name.toLowerCase()) ?? ALL_ITEMS.find(s => fuzzyMatchAllowlist(s, name));
     if (!result) {
       dispatch({ type: 'SET_ERROR', payload: `"${name}" is not a US state.` });
       return;
@@ -246,6 +256,13 @@ export function StatesAllScreen() {
     inputRef.current?.focus();
   };
 
+  const handleModeToggle = () => {
+    localStorage.removeItem(STORAGE_KEY);
+    dispatch({ type: 'RESET' });
+    setInputValue('');
+    setMode(m => m === 'easy' ? 'normal' : 'easy');
+  };
+
   const foundCount = state.guessed.size + state.revealed.size;
 
   return (
@@ -254,6 +271,13 @@ export function StatesAllScreen() {
         <header>
           <h2 className="game-title">Name All 50 States</h2>
           <div className="header-right">
+            <button
+              className="secondary"
+              onClick={handleModeToggle}
+              style={{ fontFamily: 'monospace', fontSize: '1.1rem', fontWeight: 700, padding: '0 0.75rem', alignSelf: 'stretch', display: 'flex', alignItems: 'center', background: mode === 'easy' ? 'var(--accent)' : 'var(--primary)' }}
+            >
+              {mode === 'easy' ? 'Easy' : 'Normal'}
+            </button>
             <div className="timer-display">
               <Clock size={16} className="timer-icon" />
               {formatTime(state.timeElapsed, true)}
@@ -289,72 +313,120 @@ export function StatesAllScreen() {
             <span>{state.error}</span>
           </div>
         )}
+
+        {mode === 'normal' && state.status === 'PLAYING' && (
+          <div style={{ marginTop: '0.5rem', textAlign: 'right' }}>
+            <button
+              className={`secondary${giveUpPending ? ' give-up-pending' : ''}`}
+              style={{ fontSize: '0.85rem', padding: '0.3rem 0.75rem', minWidth: '5.5rem', background: giveUpPending ? 'var(--primary)' : undefined, color: giveUpPending ? '#fff' : undefined }}
+              onClick={() => {
+                if (giveUpPending) {
+                  if (giveUpTimer.current) { clearTimeout(giveUpTimer.current); giveUpTimer.current = null; }
+                  setGiveUpPending(false);
+                  localStorage.removeItem(STORAGE_KEY);
+                  dispatch({ type: 'GIVE_UP' });
+                } else {
+                  setGiveUpPending(true);
+                  giveUpTimer.current = window.setTimeout(() => { setGiveUpPending(false); giveUpTimer.current = null; }, 3000);
+                }
+              }}
+            >
+              {giveUpPending ? 'Sure?' : 'Give Up'}
+            </button>
+          </div>
+        )}
       </div>
 
-      {/* REVEALED NAMES TRAY */}
-      {state.revealed.size > 0 && (
-        <div className="lol-all-revealed-tray">
-          <span className="lol-all-revealed-label">Revealed</span>
-          <div className="lol-all-revealed-chips">
-            {Array.from(state.revealed).sort().map(nameLower => {
-              const canonical = ALL_ITEMS.find(n => n.toLowerCase() === nameLower) ?? nameLower;
-              return (
-                <span key={nameLower} className="lol-all-chip lol-all-chip--revealed">
-                  {canonical}
-                </span>
-              );
-            })}
+      {/* EASY MODE: revealed tray + full alphabetical board */}
+      {mode === 'easy' && (
+        <>
+          {state.revealed.size > 0 && (
+            <div className="lol-all-revealed-tray">
+              <span className="lol-all-revealed-label">Revealed</span>
+              <div className="lol-all-revealed-chips">
+                {Array.from(state.revealed).sort().map(nameLower => {
+                  const canonical = ALL_ITEMS.find(n => n.toLowerCase() === nameLower) ?? nameLower;
+                  return (
+                    <span key={nameLower} className="lol-all-chip lol-all-chip--revealed">
+                      {canonical}
+                    </span>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+          <div className="lol-all-board">
+            <AnimatePresence>
+              {ITEM_GROUPS.map(({ letter, names }) => {
+                const groupComplete = names.every(n => state.guessed.has(n.toLowerCase()) || state.revealed.has(n.toLowerCase()));
+                if (groupComplete) return null;
+                return (
+                  <motion.div
+                    key={letter}
+                    className="lol-all-group"
+                    layout
+                    exit={{ opacity: 0, height: 0, marginBottom: 0, overflow: 'hidden' }}
+                    transition={{ duration: 0.4, ease: 'easeInOut' }}
+                  >
+                    <span className="lol-all-letter">{letter}</span>
+                    <div className="lol-all-names">
+                      {names.map(name => {
+                        const nameLower = name.toLowerCase();
+                        const guessed = state.guessed.has(nameLower);
+                        const revealed = state.revealed.has(nameLower);
+                        const revealing = state.revealing.has(nameLower);
+
+                        let chipClass = 'lol-all-chip';
+                        if (guessed) chipClass += ' lol-all-chip--found';
+                        else if (revealed) chipClass += ' lol-all-chip--revealed';
+                        else if (revealing) chipClass += ' lol-all-chip--revealing';
+
+                        return (
+                          <motion.span
+                            key={name}
+                            className={chipClass}
+                            animate={guessed || revealed ? { opacity: 1, scale: [1.15, 1] } : { opacity: 1, scale: 1 }}
+                            initial={false}
+                            transition={{ duration: 0.2 }}
+                            onClick={() => handleChipClick(name)}
+                            style={{ cursor: guessed || revealed ? 'default' : 'pointer' }}
+                          >
+                            {guessed ? name : revealed ? name : revealing ? 'REVEAL?' : ''}
+                          </motion.span>
+                        );
+                      })}
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </AnimatePresence>
+          </div>
+        </>
+      )}
+
+      {/* NORMAL MODE: chips appear only as guessed, in order */}
+      {mode === 'normal' && (
+        <div className="lol-all-board">
+          <div className="lol-all-names" style={{ alignContent: 'start' }}>
+            <AnimatePresence>
+              {Array.from(state.guessed).map(nameLower => {
+                const canonical = ALL_ITEMS.find(n => n.toLowerCase() === nameLower) ?? nameLower;
+                return (
+                  <motion.span
+                    key={nameLower}
+                    className="lol-all-chip lol-all-chip--found"
+                    initial={{ opacity: 0, scale: 0.7 }}
+                    animate={{ opacity: 1, scale: [1.15, 1] }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {canonical}
+                  </motion.span>
+                );
+              })}
+            </AnimatePresence>
           </div>
         </div>
       )}
-
-      {/* STATES BOARD */}
-      <div className="lol-all-board">
-        <AnimatePresence>
-          {ITEM_GROUPS.map(({ letter, names }) => {
-            const groupComplete = names.every(n => state.guessed.has(n.toLowerCase()) || state.revealed.has(n.toLowerCase()));
-            if (groupComplete) return null;
-            return (
-              <motion.div
-                key={letter}
-                className="lol-all-group"
-                layout
-                exit={{ opacity: 0, height: 0, marginBottom: 0, overflow: 'hidden' }}
-                transition={{ duration: 0.4, ease: 'easeInOut' }}
-              >
-                <span className="lol-all-letter">{letter}</span>
-                <div className="lol-all-names">
-                  {names.map(name => {
-                    const nameLower = name.toLowerCase();
-                    const guessed = state.guessed.has(nameLower);
-                    const revealed = state.revealed.has(nameLower);
-                    const revealing = state.revealing.has(nameLower);
-
-                    let chipClass = 'lol-all-chip';
-                    if (guessed) chipClass += ' lol-all-chip--found';
-                    else if (revealed) chipClass += ' lol-all-chip--revealed';
-                    else if (revealing) chipClass += ' lol-all-chip--revealing';
-
-                    return (
-                      <motion.span
-                        key={name}
-                        className={chipClass}
-                        animate={guessed || revealed ? { opacity: 1, scale: [1.15, 1] } : { opacity: 1, scale: 1 }}
-                        initial={false}
-                        transition={{ duration: 0.2 }}
-                        onClick={() => handleChipClick(name)}
-                        style={{ cursor: guessed || revealed ? 'default' : 'pointer' }}
-                      >
-                        {guessed ? name : revealed ? name : revealing ? 'REVEAL?' : ''}
-                      </motion.span>
-                    );
-                  })}
-                </div>
-              </motion.div>
-            );
-          })}
-        </AnimatePresence>
-      </div>
 
       {/* PAUSE MODAL */}
       {state.status === 'PAUSED' && (
@@ -461,6 +533,36 @@ export function StatesAllScreen() {
           </div>
         </div>
       )}
+      {/* GAVE UP MODAL */}
+      {state.status === 'GAVE_UP' && (() => {
+        const missed = ALL_ITEMS.filter(n => !state.guessed.has(n.toLowerCase()));
+        return (
+          <div className="modal-overlay">
+            <div className="modal">
+              <h2 style={{ color: 'var(--primary)' }}>You Gave Up!</h2>
+              <p style={{ margin: '0.25rem 0 0.75rem' }}>
+                You got <strong>{state.guessed.size}</strong> / {TOTAL} states in {formatTime(state.timeElapsed, true)}.
+              </p>
+              {missed.length > 0 && (
+                <div style={{ textAlign: 'left', marginBottom: '1rem' }}>
+                  <p style={{ fontWeight: 700, marginBottom: '0.4rem' }}>You missed ({missed.length}):</p>
+                  <div className="lol-all-names" style={{ alignContent: 'start' }}>
+                    {missed.map(name => (
+                      <span key={name} className="lol-all-chip" style={{ opacity: 1, background: 'var(--primary)', color: '#fff', border: 'none' }}>
+                        {name}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+              <div className="action-buttons">
+                <button onClick={() => { dispatch({ type: 'RESET' }); }}>Try Again</button>
+                <button className="secondary" onClick={() => navigate('/')}>Back to Categories</button>
+              </div>
+            </div>
+          </div>
+        );
+      })()}
     </div>
   );
 }

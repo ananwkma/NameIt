@@ -15,10 +15,10 @@ const STORAGE_KEY = 'pokemon-gen1-all-progress';
 
 interface PokemonAllState {
   guessed: Set<string>;   // stores number as string, e.g. '25' for Pikachu
-  revealed: Set<string>;  // stores number as string (easy mode reveals)
+  revealed: Set<string>;  // stores number as string (reveal mechanic)
   revealing: Set<string>; // in "REVEAL?" pending state (number as string)
   error: string | null;
-  status: 'PLAYING' | 'PAUSED' | 'WIN' | 'GAVE_UP';
+  status: 'PLAYING' | 'PAUSED' | 'WIN';
   timeElapsed: number;
   lastTick: number | null;
 }
@@ -32,8 +32,7 @@ type PokemonAllAction =
   | { type: 'REVEAL_PENDING'; payload: string }
   | { type: 'REVEAL_CONFIRM'; payload: string }
   | { type: 'REVEAL_CANCEL'; payload: string }
-  | { type: 'RESET' }
-  | { type: 'GIVE_UP' };
+  | { type: 'RESET' };
 
 function loadSavedState(): PokemonAllState {
   try {
@@ -68,12 +67,7 @@ function pokemonAllReducer(state: PokemonAllState, action: PokemonAllAction): Po
       const newGuessed = new Set(state.guessed);
       newGuessed.add(action.payload);
       const total = newGuessed.size + state.revealed.size;
-      return {
-        ...state,
-        guessed: newGuessed,
-        error: null,
-        status: total >= TOTAL ? 'WIN' : 'PLAYING',
-      };
+      return { ...state, guessed: newGuessed, error: null, status: total >= TOTAL ? 'WIN' : 'PLAYING' };
     }
     case 'REVEAL_PENDING': {
       const newRevealing = new Set(state.revealing);
@@ -87,12 +81,7 @@ function pokemonAllReducer(state: PokemonAllState, action: PokemonAllAction): Po
       const newRevealed = new Set(state.revealed);
       newRevealed.add(numStr);
       const total = state.guessed.size + newRevealed.size;
-      return {
-        ...state,
-        revealing: newRevealing,
-        revealed: newRevealed,
-        status: total >= TOTAL ? 'WIN' : 'PLAYING',
-      };
+      return { ...state, revealing: newRevealing, revealed: newRevealed, status: total >= TOTAL ? 'WIN' : 'PLAYING' };
     }
     case 'REVEAL_CANCEL': {
       const newRevealing = new Set(state.revealing);
@@ -112,17 +101,12 @@ function pokemonAllReducer(state: PokemonAllState, action: PokemonAllAction): Po
     }
     case 'RESET':
       return { guessed: new Set(), revealed: new Set(), revealing: new Set(), error: null, status: 'PLAYING', timeElapsed: 0, lastTick: null };
-    case 'GIVE_UP':
-      return { ...state, status: 'GAVE_UP', lastTick: null };
   }
 }
 
 export function PokemonAllScreen() {
   const navigate = useNavigate();
   const [state, dispatch] = useReducer(pokemonAllReducer, undefined, loadSavedState);
-  const [mode, setMode] = useState<'easy' | 'normal'>('normal');
-  const [giveUpPending, setGiveUpPending] = useState(false);
-  const giveUpTimer = useRef<number | null>(null);
   const [inputValue, setInputValue] = useState('');
   const [nameInput, setNameInput] = useState('');
   const [nameError, setNameError] = useState('');
@@ -135,7 +119,6 @@ export function PokemonAllScreen() {
     state.status === 'WIN' ? state.timeElapsed : 0
   );
 
-  // Save progress to localStorage
   useEffect(() => {
     if (state.status === 'WIN') return;
     localStorage.setItem(STORAGE_KEY, JSON.stringify({
@@ -145,28 +128,22 @@ export function PokemonAllScreen() {
     }));
   }, [state.guessed, state.revealed, state.timeElapsed, state.status]);
 
-  // Clear on win
   useEffect(() => {
     if (state.status === 'WIN') localStorage.removeItem(STORAGE_KEY);
   }, [state.status]);
 
-  // Timer
   useEffect(() => {
     if (state.status !== 'PLAYING') return;
-    const interval = window.setInterval(() => {
-      dispatch({ type: 'TICK', payload: Date.now() });
-    }, 100);
+    const interval = window.setInterval(() => dispatch({ type: 'TICK', payload: Date.now() }), 100);
     return () => clearInterval(interval);
   }, [state.status]);
 
-  // Auto-dismiss error
   useEffect(() => {
     if (!state.error) return;
     const timer = setTimeout(() => dispatch({ type: 'SET_ERROR', payload: null }), 5000);
     return () => clearTimeout(timer);
   }, [state.error]);
 
-  // Save best time on win
   useEffect(() => {
     if (state.status !== 'WIN') return;
     const saved = localStorage.getItem('game_besttime_pokemon-gen1-all');
@@ -176,7 +153,6 @@ export function PokemonAllScreen() {
     }
   }, [state.status, state.timeElapsed]);
 
-  // Confetti on win
   useEffect(() => {
     if (state.status !== 'WIN' || !confettiCanvasRef.current) return;
     const fire = confetti.create(confettiCanvasRef.current, { resize: true });
@@ -189,7 +165,6 @@ export function PokemonAllScreen() {
     frame();
   }, [state.status]);
 
-  // Escape key to pause/resume
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -202,17 +177,14 @@ export function PokemonAllScreen() {
   }, [state.status]);
 
   const handleChipClick = (numStr: string) => {
-    if (mode !== 'easy') return;
     if (state.status !== 'PLAYING') return;
     if (state.guessed.has(numStr) || state.revealed.has(numStr)) return;
 
     if (state.revealing.has(numStr)) {
-      // Second click within 5s — confirm reveal
       const timer = revealTimers.current.get(numStr);
       if (timer) { clearTimeout(timer); revealTimers.current.delete(numStr); }
       dispatch({ type: 'REVEAL_CONFIRM', payload: numStr });
     } else {
-      // First click — enter pending state
       dispatch({ type: 'REVEAL_PENDING', payload: numStr });
       const timer = window.setTimeout(() => {
         dispatch({ type: 'REVEAL_CANCEL', payload: numStr });
@@ -245,13 +217,6 @@ export function PokemonAllScreen() {
     inputRef.current?.focus();
   };
 
-  const handleModeToggle = () => {
-    localStorage.removeItem(STORAGE_KEY);
-    dispatch({ type: 'RESET' });
-    setInputValue('');
-    setMode(m => m === 'easy' ? 'normal' : 'easy');
-  };
-
   const foundCount = state.guessed.size + state.revealed.size;
 
   return (
@@ -260,13 +225,6 @@ export function PokemonAllScreen() {
         <header>
           <h2 className="game-title">Name All Gen 1 Pokémon</h2>
           <div className="header-right">
-            <button
-              className="secondary"
-              onClick={handleModeToggle}
-              style={{ fontFamily: 'monospace', fontSize: '1.1rem', fontWeight: 700, padding: '0 0.75rem', alignSelf: 'stretch', display: 'flex', alignItems: 'center', background: mode === 'easy' ? 'var(--accent)' : 'var(--primary)' }}
-            >
-              {mode === 'easy' ? 'Easy' : 'Normal'}
-            </button>
             <div className="timer-display">
               <Clock size={16} className="timer-icon" />
               {formatTime(state.timeElapsed, true)}
@@ -302,114 +260,60 @@ export function PokemonAllScreen() {
             <span>{state.error}</span>
           </div>
         )}
-
-        {mode === 'normal' && state.status === 'PLAYING' && (
-          <div style={{ marginTop: '0.5rem', textAlign: 'right' }}>
-            <button
-              className={`secondary${giveUpPending ? ' give-up-pending' : ''}`}
-              style={{ fontSize: '0.85rem', padding: '0.3rem 0.75rem', minWidth: '5.5rem', background: giveUpPending ? 'var(--primary)' : undefined, color: giveUpPending ? '#fff' : undefined }}
-              onClick={() => {
-                if (giveUpPending) {
-                  if (giveUpTimer.current) { clearTimeout(giveUpTimer.current); giveUpTimer.current = null; }
-                  setGiveUpPending(false);
-                  localStorage.removeItem(STORAGE_KEY);
-                  dispatch({ type: 'GIVE_UP' });
-                } else {
-                  setGiveUpPending(true);
-                  giveUpTimer.current = window.setTimeout(() => { setGiveUpPending(false); giveUpTimer.current = null; }, 3000);
-                }
-              }}
-            >
-              {giveUpPending ? 'Sure?' : 'Give Up'}
-            </button>
-          </div>
-        )}
       </div>
 
-      {/* EASY MODE: revealed tray + full numbered board */}
-      {mode === 'easy' && (
-        <>
-          {state.revealed.size > 0 && (
-            <div className="lol-all-revealed-tray">
-              <span className="lol-all-revealed-label">Revealed</span>
-              <div className="lol-all-revealed-chips">
-                {Array.from(state.revealed)
-                  .map(numStr => parseInt(numStr, 10))
-                  .sort((a, b) => a - b)
-                  .map(num => {
-                    const pokemon = ALL_POKEMON_GEN1.find(p => p.number === num);
-                    return pokemon ? (
-                      <span key={num} className="lol-all-chip lol-all-chip--revealed">
-                        {pokemon.name}
-                      </span>
-                    ) : null;
-                  })}
-              </div>
-            </div>
-          )}
-          <div className="lol-all-board">
-            <div className="lol-all-names" style={{ alignContent: 'start' }}>
-              {ALL_POKEMON_GEN1.map(pokemon => {
-                const numStr = String(pokemon.number);
-                const guessed = state.guessed.has(numStr);
-                const revealed = state.revealed.has(numStr);
-                const revealing = state.revealing.has(numStr);
-
-                let chipClass = 'lol-all-chip';
-                if (guessed) chipClass += ' lol-all-chip--found';
-                else if (revealed) chipClass += ' lol-all-chip--revealed';
-                else if (revealing) chipClass += ' lol-all-chip--revealing';
-
-                const label = guessed
-                  ? pokemon.name
-                  : revealed
-                  ? pokemon.name
-                  : revealing
-                  ? 'REVEAL?'
-                  : `#${pokemon.number}`;
-
-                return (
-                  <motion.span
-                    key={numStr}
-                    className={chipClass}
-                    animate={guessed || revealed ? { opacity: 1, scale: [1.15, 1] } : { opacity: 1, scale: 1 }}
-                    initial={false}
-                    transition={{ duration: 0.2 }}
-                    onClick={() => handleChipClick(numStr)}
-                    style={{ cursor: guessed || revealed ? 'default' : 'pointer' }}
-                  >
-                    {label}
-                  </motion.span>
-                );
+      {/* REVEALED TRAY */}
+      {state.revealed.size > 0 && (
+        <div className="lol-all-revealed-tray">
+          <span className="lol-all-revealed-label">Revealed</span>
+          <div className="lol-all-revealed-chips">
+            {Array.from(state.revealed)
+              .map(numStr => parseInt(numStr, 10))
+              .sort((a, b) => a - b)
+              .map(num => {
+                const pokemon = ALL_POKEMON_GEN1.find(p => p.number === num);
+                return pokemon ? (
+                  <span key={num} className="lol-all-chip lol-all-chip--revealed">
+                    {pokemon.name}
+                  </span>
+                ) : null;
               })}
-            </div>
-          </div>
-        </>
-      )}
-
-      {/* NORMAL MODE: full numbered board, unguessed show #N, not clickable */}
-      {mode === 'normal' && (
-        <div className="lol-all-board">
-          <div className="lol-all-names" style={{ alignContent: 'start' }}>
-            {ALL_POKEMON_GEN1.map(pokemon => {
-              const numStr = String(pokemon.number);
-              const guessed = state.guessed.has(numStr);
-
-              return (
-                <motion.span
-                  key={numStr}
-                  className={`lol-all-chip${guessed ? ' lol-all-chip--found' : ''}`}
-                  animate={guessed ? { opacity: 1, scale: [1.15, 1] } : { opacity: 1, scale: 1 }}
-                  initial={false}
-                  transition={{ duration: 0.2 }}
-                >
-                  {guessed ? pokemon.name : `#${pokemon.number}`}
-                </motion.span>
-              );
-            })}
           </div>
         </div>
       )}
+
+      {/* NUMBERED BOARD */}
+      <div className="lol-all-board">
+        <div className="lol-all-names" style={{ alignContent: 'start' }}>
+          {ALL_POKEMON_GEN1.map(pokemon => {
+            const numStr = String(pokemon.number);
+            const guessed = state.guessed.has(numStr);
+            const revealed = state.revealed.has(numStr);
+            const revealing = state.revealing.has(numStr);
+
+            let chipClass = 'lol-all-chip';
+            if (guessed) chipClass += ' lol-all-chip--found';
+            else if (revealed) chipClass += ' lol-all-chip--revealed';
+            else if (revealing) chipClass += ' lol-all-chip--revealing';
+
+            const label = guessed ? pokemon.name : revealed ? pokemon.name : revealing ? 'REVEAL?' : `#${pokemon.number}`;
+
+            return (
+              <motion.span
+                key={numStr}
+                className={chipClass}
+                animate={guessed || revealed ? { opacity: 1, scale: [1.15, 1] } : { opacity: 1, scale: 1 }}
+                initial={false}
+                transition={{ duration: 0.2 }}
+                onClick={() => handleChipClick(numStr)}
+                style={{ cursor: guessed || revealed ? 'default' : 'pointer' }}
+              >
+                {label}
+              </motion.span>
+            );
+          })}
+        </div>
+      </div>
 
       {/* PAUSE MODAL */}
       {state.status === 'PAUSED' && (
@@ -427,15 +331,7 @@ export function PokemonAllScreen() {
       {state.status === 'WIN' && (
         <canvas
           ref={confettiCanvasRef}
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            zIndex: 2000,
-            pointerEvents: 'none',
-          }}
+          style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: 2000, pointerEvents: 'none' }}
         />
       )}
 
@@ -455,7 +351,6 @@ export function PokemonAllScreen() {
                 </p>
               </div>
             )}
-            {/* LEADERBOARD */}
             <div className="leaderboard-section">
               {loading && <p className="leaderboard-loading">Loading leaderboard…</p>}
               {unavailable && <p className="leaderboard-unavailable">Leaderboard unavailable</p>}
@@ -468,10 +363,7 @@ export function PokemonAllScreen() {
                       </thead>
                       <tbody>
                         {entries.map((entry, i) => (
-                          <tr
-                            key={i}
-                            className={submitted && playerRank === i + 1 ? 'leaderboard-row-mine' : ''}
-                          >
+                          <tr key={i} className={submitted && playerRank === i + 1 ? 'leaderboard-row-mine' : ''}>
                             <td>{i + 1}</td>
                             <td>{entry.player_name}</td>
                             <td>{formatTime(entry.time_ms, true)}</td>
@@ -516,37 +408,6 @@ export function PokemonAllScreen() {
           </div>
         </div>
       )}
-
-      {/* GAVE UP MODAL */}
-      {state.status === 'GAVE_UP' && (() => {
-        const missed = ALL_POKEMON_GEN1.filter(p => !state.guessed.has(String(p.number)));
-        return (
-          <div className="modal-overlay">
-            <div className="modal">
-              <h2 style={{ color: 'var(--primary)' }}>You Gave Up!</h2>
-              <p style={{ margin: '0.25rem 0 0.75rem' }}>
-                You got <strong>{state.guessed.size}</strong> / {TOTAL} Pokémon in {formatTime(state.timeElapsed, true)}.
-              </p>
-              {missed.length > 0 && (
-                <div style={{ textAlign: 'left', marginBottom: '1rem' }}>
-                  <p style={{ fontWeight: 700, marginBottom: '0.4rem' }}>You missed ({missed.length}):</p>
-                  <div className="lol-all-names" style={{ alignContent: 'start' }}>
-                    {missed.map(pokemon => (
-                      <span key={pokemon.number} className="lol-all-chip" style={{ opacity: 1, background: 'var(--primary)', color: '#fff', border: 'none' }}>
-                        {pokemon.name}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-              <div className="action-buttons">
-                <button onClick={() => { dispatch({ type: 'RESET' }); }}>Try Again</button>
-                <button className="secondary" onClick={() => navigate('/')}>Back to Categories</button>
-              </div>
-            </div>
-          </div>
-        );
-      })()}
     </div>
   );
 }

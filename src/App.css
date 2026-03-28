@@ -113,11 +113,12 @@ h1 {
 }
 
 .counter {
+  font-family: monospace;
   font-size: 1.1rem;
   font-weight: 700;
   background: var(--secondary);
   color: var(--white);
-  padding: 0.35rem 0.75rem;
+  padding: 0.5rem 0.75rem;
   border-radius: 10px;
 }
 
@@ -544,6 +545,10 @@ button.secondary {
   0% { transform: scale(1); }
   50% { transform: scale(1.02); }
   100% { transform: scale(1); }
+}
+
+.give-up-pending {
+  animation: pulse-red 0.7s ease-in-out infinite;
 }
 
 /* ── Category Select Screen ── */
