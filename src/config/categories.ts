@@ -204,4 +204,15 @@ export const CATEGORIES: CategoryConfig[] = [
     verificationStrategy: 'allowlist-only',
     inputPlaceholder: 'Type any US state name',
   },
+  {
+    id: 'pokemon-gen1-all',
+    name: 'All Gen 1 Pokémon',
+    icon: '🔴',
+    accentColor: '#e74c3c',
+    targetCount: 151,
+    timeLimitMs: 0,
+    allowlistFile: '',
+    verificationStrategy: 'allowlist-only',
+    inputPlaceholder: 'Type any Gen 1 Pokémon name',
+  },
 ];

@@ -2,7 +2,7 @@ import { useReducer, useRef, useEffect, useState } from 'react';
 import { useLeaderboard } from '../hooks/useLeaderboard';
 import { useNavigate } from 'react-router-dom';
 import { Search, AlertCircle, Clock } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { formatTime } from '../utils/formatTime';
 import { isBadWord } from '../utils/badWords';
 import { fuzzyMatchAllowlist } from '../utils/fuzzyMatch';
