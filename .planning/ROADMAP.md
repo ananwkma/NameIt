@@ -66,6 +66,13 @@ Plans:
 - [ ] 08-supabase/08-02-PLAN.md — LLM allowlist persistence (write on validate, read on search)
 - [ ] 08-supabase/08-03-PLAN.md — Leaderboard UI (victory screen comparison + name entry)
 
+## Phase 9: Name All 50 States & Name All Gen 1 Pokémon
+**Goal:** Add two new "name-all" game modes cloned from the LoL All Champions screen — one for all 50 US states, one for all 151 Gen 1 Pokémon — each with a hardcoded answer list, count-up timer, alphabetical board, leaderboard integration, and a card on the home screen.
+
+Plans:
+- [ ] 09-name-all-clones/09-01-PLAN.md — States game: data file, StatesAllScreen component, routing, home card
+- [ ] 09-name-all-clones/09-02-PLAN.md — Pokémon game: data file, PokemonAllScreen component, routing, home card
+
 ## Phase 5: Polish & Visual Identity (Vibrant/Pop)
 **Goal:** Elevate aesthetics and user experience.
 **Requirements:** [UI-01, ANIM-01, AUDIO-01, RESP-01]
