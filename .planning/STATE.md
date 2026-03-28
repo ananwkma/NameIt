@@ -1,7 +1,7 @@
 # Project State: 100 Women Game
 
 ## Current Phase: 9 (Name All Clones) - IN PROGRESS
-**Status:** Plan 09-01 complete (awaiting human verification of /states-all route).
+**Status:** Plan 09-01 complete (human verification approved). Ready for plan 09-02.
 
 ## Progress Summary
 - [x] Research (Wikidata API, Fuzzy Matching, Prefixes)
@@ -15,7 +15,7 @@
 - [x] Phase 6: Multi-Category (ALL PLANS COMPLETE)
 - [x] Phase 7: LoL All Champions (ALL PLANS COMPLETE)
 - [x] Phase 8: Supabase Database (ALL PLANS COMPLETE)
-- [ ] Phase 9: Name All Clones (Plan 01 complete, awaiting verify)
+- [ ] Phase 9: Name All Clones (Plan 01 complete and verified)
 
 ## Key Decisions
 - **Stack:** React/TS + Vite + Vanilla CSS.
@@ -55,11 +55,11 @@
 - [x] Plan 08-01: @supabase/supabase-js installed, null-safe singleton created, four DB helpers (fetchLeaderboard, submitLeaderboardEntry, saveLlmAllowlistEntry, queryLlmAllowlist), deploy.yml updated with Supabase secrets.
 - [x] Plan 08-02: LLM allowlist persistence wired into wikidata.ts — queryLlmAllowlist before LLM call (3-category guard), saveLlmAllowlistEntry fire-and-forget after success (.catch(() => {})).
 - [x] Plan 08-03: Leaderboard UI — useLeaderboard hook + all 3 victory modals updated. Human verification approved.
-- [x] Plan 09-01: Name All 50 States — StatesAllScreen (clone of LoLAllScreen), states-all.ts data file, category card, /states-all route. Awaiting human verification.
+- [x] Plan 09-01: Name All 50 States — StatesAllScreen (clone of LoLAllScreen), states-all.ts data file, category card, /states-all route. Human verified end-to-end.
 
 ## Active Tasks
-Plan 09-01 Task 3: Human verification of /states-all game end-to-end.
+Plan 09-02: Pokemon Gen 1 name-all clone.
 
 ## Session Continuity
 Last session: 2026-03-28
-Stopped at: Plan 09-01 Task 3 checkpoint — human verification of /states-all game required.
+Stopped at: Completed 09-01-PLAN.md — human verification approved, plan fully complete.
