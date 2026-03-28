@@ -1,7 +1,7 @@
 # Project State: 100 Women Game
 
 ## Current Phase: 9 (Name All Clones) - IN PROGRESS
-**Status:** Plan 09-01 complete (human verification approved). Ready for plan 09-02.
+**Status:** Plan 09-02 auto tasks complete (Tasks 1-2 committed). Awaiting human verification (Task 3 checkpoint).
 
 ## Progress Summary
 - [x] Research (Wikidata API, Fuzzy Matching, Prefixes)
@@ -40,6 +40,7 @@
 - **Leaderboard playerRank:** Computed via findIndex on time_ms after re-fetch; 0 result maps to null (entry not in top-5 after tie-breaking).
 - **Name-all clone pattern:** Data file exports string[], component uses inline Array.find, STORAGE_KEY = '{id}-progress', gameId = '{id}', besttime key = 'game_besttime_{id}'. CSS reuses lol-all-* classes.
 - **CategorySelectScreen navigate array:** Includes lol-all, az-lol, states-all, pokemon-gen1-all — pre-populated so future name-all clones only need data + component.
+- **Pokemon board design:** Flat numbered grid (not alphabetical letter groups) showing #N placeholders for all 151 from game start; state keyed by Pokédex number string for uniqueness.
 
 ## Completed Tasks (Phase 1, 2, 6, 7, & 8)
 - [x] Phase 1: Scaffold, WikidataService, Core UI, state with duplicate prevention.
@@ -56,10 +57,11 @@
 - [x] Plan 08-02: LLM allowlist persistence wired into wikidata.ts — queryLlmAllowlist before LLM call (3-category guard), saveLlmAllowlistEntry fire-and-forget after success (.catch(() => {})).
 - [x] Plan 08-03: Leaderboard UI — useLeaderboard hook + all 3 victory modals updated. Human verification approved.
 - [x] Plan 09-01: Name All 50 States — StatesAllScreen (clone of LoLAllScreen), states-all.ts data file, category card, /states-all route. Human verified end-to-end.
+- [x] Plan 09-02 (Tasks 1-2): pokemon-gen1.ts data (151 entries, { number, name }[]), PokemonAllScreen component (flat numbered board, #N placeholders), categories.ts + App.tsx wired.
 
 ## Active Tasks
-Plan 09-02: Pokemon Gen 1 name-all clone.
+Plan 09-02 Task 3: Human verification checkpoint — awaiting approval of Pokémon game end-to-end.
 
 ## Session Continuity
 Last session: 2026-03-28
-Stopped at: Completed 09-01-PLAN.md — human verification approved, plan fully complete.
+Stopped at: 09-02-PLAN.md — Tasks 1-2 complete, at human-verify checkpoint (Task 3).
