@@ -81,6 +81,25 @@ header {
   margin-bottom: 1.25rem;
   background: var(--white);
   padding: 1rem 0;
+  position: relative;
+}
+
+.back-btn {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--muted, #aaa);
+  font-size: 1.4rem;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.back-btn:hover:not(:disabled) {
+  transform: translateY(-50%);
 }
 
 h1 {

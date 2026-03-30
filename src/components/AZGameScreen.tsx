@@ -150,6 +150,7 @@ export function AZGameScreen() {
     <div className="master-container">
       <div className="game-top">
         <header>
+          <button className="back-btn" onClick={() => dispatch({ type: 'PAUSE_GAME' })}>←</button>
           <h2 className="game-title">A-Z LoL Champions</h2>
           <div className="header-right">
             <div className="timer-display">

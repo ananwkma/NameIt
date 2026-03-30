@@ -330,6 +330,7 @@ export function GameScreen() {
       {/* TOP SECTION */}
       <div className="game-top">
         <header>
+          <button className="back-btn" onClick={() => dispatch({ type: 'PAUSE_GAME' })}>←</button>
           <h2 className="game-title">Name {state.selectedCategory.name}</h2>
           <div className="header-right">
             <div className={`timer-display ${state.timeLeft <= 30000 && !state.isZenMode ? 'urgent' : ''}`}>

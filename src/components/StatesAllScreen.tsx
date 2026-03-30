@@ -269,6 +269,7 @@ export function StatesAllScreen() {
     <div className="master-container">
       <div className="game-top">
         <header>
+          <button className="back-btn" onClick={() => dispatch({ type: 'PAUSE_GAME' })}>←</button>
           <h2 className="game-title">Name All 50 States</h2>
           <div className="header-right">
             <button

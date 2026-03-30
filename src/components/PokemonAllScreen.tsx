@@ -223,6 +223,7 @@ export function PokemonAllScreen() {
     <div className="master-container">
       <div className="game-top">
         <header>
+          <button className="back-btn" onClick={() => dispatch({ type: 'PAUSE_GAME' })}>←</button>
           <h2 className="game-title">Name All Gen 1 Pokémon</h2>
           <div className="header-right">
             <div className="timer-display">
